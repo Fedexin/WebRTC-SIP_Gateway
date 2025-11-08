@@ -1,0 +1,102 @@
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T12:19:06.881Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T12:21:05.956Z"}
+{"level":"info","message":"PUBLIC_IP=auto detected, using local IP for LAN deployment","timestamp":"2025-10-26T12:27:39.974Z"}
+{"advertiseIP":"192.168.1.209","level":"info","localIP":"192.168.1.209","message":"SIP Gateway initialized","rtpengine":"127.0.0.1:22222","sipServer":"192.168.1.212:5060","timestamp":"2025-10-26T12:27:39.977Z"}
+{"level":"info","message":"Testing RTPEngine connection...","timestamp":"2025-10-26T12:27:39.978Z"}
+{"level":"info","message":"RTPEngine ping successful","result":{"result":"pong"},"timestamp":"2025-10-26T12:27:39.992Z"}
+{"address":"192.168.1.209","level":"info","message":"SIP socket listening","port":5060,"timestamp":"2025-10-26T12:27:39.994Z"}
+{"level":"info","message":"SIP Gateway ready and listening","timestamp":"2025-10-26T12:27:39.995Z"}
+{"level":"info","message":"SIP Gateway initialized and ready","timestamp":"2025-10-26T12:27:39.995Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T12:27:40.001Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T12:36:58.787Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T18:15:26.145Z"}
+{"clientIP":"127.0.0.1","level":"info","message":"New WebSocket connection","timestamp":"2025-10-26T18:16:17.089Z"}
+{"level":"warn","message":"Unknown message type","timestamp":"2025-10-26T18:16:20.559Z","type":"user-joined"}
+{"clientIP":"192.168.1.127","level":"info","message":"New WebSocket connection","timestamp":"2025-10-26T18:17:01.425Z"}
+{"level":"warn","message":"Unknown message type","timestamp":"2025-10-26T18:17:05.842Z","type":"user-joined"}
+{"level":"warn","message":"Unknown message type","timestamp":"2025-10-26T18:17:35.762Z","type":"call-request"}
+{"clientIP":"192.168.1.127","level":"info","message":"New WebSocket connection","timestamp":"2025-10-26T18:18:41.451Z"}
+{"level":"warn","message":"Unknown message type","timestamp":"2025-10-26T18:18:46.385Z","type":"user-joined"}
+{"clientIP":"127.0.0.1","level":"info","message":"New WebSocket connection","timestamp":"2025-10-26T18:27:08.466Z"}
+{"level":"warn","message":"Unknown message type","timestamp":"2025-10-26T18:27:10.943Z","type":"user-joined"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T18:29:22.355Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-26T20:14:06.003Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T20:14:06.020Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T20:14:18.079Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-26T20:14:50.477Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T20:14:50.491Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T20:15:13.069Z"}
+{"certPath":"./ssl/server.crt","keyPath":"./ssl/server.key","level":"info","message":"HTTPS server created with SSL/TLS","timestamp":"2025-10-26T20:21:54.940Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T20:21:54.954Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T20:39:40.797Z"}
+{"certPath":"./ssl/server.crt","keyPath":"./ssl/server.key","level":"info","message":"HTTPS server created with SSL/TLS","timestamp":"2025-10-26T21:00:45.385Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T21:00:45.399Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T21:00:55.456Z"}
+{"certPath":"./ssl/server.crt","keyPath":"./ssl/server.key","level":"info","message":"HTTPS server created with SSL/TLS","timestamp":"2025-10-26T21:00:57.229Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T21:00:57.243Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T21:04:13.958Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-26T21:04:15.832Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T21:04:15.848Z"}
+{"clientIP":"127.0.0.1","level":"info","message":"New WebSocket connection","timestamp":"2025-10-26T21:04:29.301Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T21:21:26.149Z"}
+{"certPath":"./ssl/server.crt","keyPath":"./ssl/server.key","level":"info","message":"HTTPS server created with SSL/TLS","timestamp":"2025-10-26T23:25:01.468Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T23:25:01.484Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-26T23:40:54.138Z"}
+{"certPath":"./ssl/server.crt","keyPath":"./ssl/server.key","level":"info","message":"HTTPS server created with SSL/TLS","timestamp":"2025-10-26T23:40:56.177Z"}
+{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WSS","timestamp":"2025-10-26T23:40:56.180Z"}
+{"level":"info","message":"WebSocket server is listening for connections","timestamp":"2025-10-26T23:40:56.192Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-26T23:40:56.194Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-27T11:04:12.850Z"}
+{"level":"info","message":"HTTPS server created with SSL/TLS","timestamp":"2025-10-27T11:10:46.653Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-27T11:10:46.675Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-27T11:11:51.792Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-27T11:12:58.421Z"}
+{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-10-27T11:12:58.424Z"}
+{"level":"info","message":"WebSocket server is listening for connections","timestamp":"2025-10-27T11:12:58.433Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-27T11:12:58.435Z"}
+{"clientIP":"127.0.0.1","clientPort":52768,"headers":{"origin":"http://localhost:5173","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:143.0) Gecko/20100101 Firefox/143.0"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T11:13:21.771Z","url":"/"}
+{"clientIP":"192.168.1.127","clientPort":60530,"headers":{"origin":"http://192.168.1.209:5173","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T11:13:57.435Z","url":"/"}
+{"clientIP":"192.168.1.127","clientPort":36684,"headers":{"origin":"http://192.168.1.209:5173","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T11:15:11.490Z","url":"/"}
+{"clientIP":"192.168.1.127","level":"info","message":"User registered","timestamp":"2025-10-27T11:15:26.467Z","totalUsers":1,"username":"fede"}
+{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-10-27T11:15:35.029Z","totalUsers":2,"username":"bob"}
+{"level":"info","message":"User disconnected","timestamp":"2025-10-27T11:15:47.740Z","totalUsers":1,"username":"fede"}
+{"clientIP":"192.168.1.127","clientPort":42276,"headers":{"origin":"http://192.168.1.209:5173","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T11:49:16.933Z","url":"/"}
+{"clientIP":"192.168.1.127","level":"info","message":"User registered","timestamp":"2025-10-27T11:49:20.915Z","totalUsers":2,"username":"fede"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-27T12:03:19.679Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-27T12:22:52.733Z"}
+{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-10-27T12:22:52.736Z"}
+{"level":"info","message":"WebSocket server is listening for connections","timestamp":"2025-10-27T12:22:52.746Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-27T12:22:52.749Z"}
+{"clientIP":"192.168.1.127","clientPort":40454,"headers":{"origin":"http://192.168.1.209:5173","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T12:23:16.013Z","url":"/"}
+{"clientIP":"192.168.1.127","clientPort":47892,"headers":{"origin":"http://192.168.1.209:5173","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T12:23:44.917Z","url":"/"}
+{"clientIP":"192.168.1.127","level":"info","message":"User registered","timestamp":"2025-10-27T12:23:48.831Z","totalUsers":1,"username":"fede"}
+{"clientIP":"127.0.0.1","clientPort":53292,"headers":{"origin":"http://localhost:5173","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:143.0) Gecko/20100101 Firefox/143.0"},"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-27T12:23:57.945Z","url":"/"}
+{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-10-27T12:24:03.646Z","totalUsers":2,"username":"bob"}
+{"from":"bob","level":"info","message":"WebRTC call initiated","timestamp":"2025-10-27T12:24:29.112Z","to":"fede"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-27T12:25:15.708Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-29T12:13:04.923Z"}
+{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-10-29T12:13:04.927Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-29T12:13:04.939Z"}
+{"clientIP":"127.0.0.1","clientPort":61277,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-29T12:13:54.101Z"}
+{"clientIP":"192.168.1.127","clientPort":36464,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-29T12:14:19.917Z"}
+{"clientIP":"192.168.1.127","level":"info","message":"User registered","timestamp":"2025-10-29T12:14:24.505Z","totalUsers":1,"username":"fede"}
+{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-10-29T12:14:27.591Z","totalUsers":2,"username":"bob"}
+{"from":"bob","level":"info","message":"Call request","timestamp":"2025-10-29T12:15:01.291Z","to":"fede"}
+{"accepted":true,"from":"fede","level":"info","message":"Call response","timestamp":"2025-10-29T12:15:07.375Z","to":"bob"}
+{"from":"fede","level":"info","message":"Call request","timestamp":"2025-10-29T12:15:30.008Z","to":"bob"}
+{"accepted":true,"from":"bob","level":"info","message":"Call response","timestamp":"2025-10-29T12:15:35.208Z","to":"fede"}
+{"level":"info","message":"User disconnected","timestamp":"2025-10-29T12:23:50.528Z","totalUsers":1,"username":"fede"}
+{"level":"info","message":"User disconnected","timestamp":"2025-10-29T12:24:06.216Z","totalUsers":0,"username":"bob"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-29T16:51:02.838Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-10-30T15:42:11.992Z"}
+{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-10-30T15:42:11.995Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-10-30T15:42:12.008Z"}
+{"clientIP":"127.0.0.1","clientPort":63205,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-30T15:49:27.413Z"}
+{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-10-30T15:49:34.670Z","totalUsers":1,"username":"fede"}
+{"clientIP":"127.0.0.1","clientPort":63229,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-10-30T15:49:50.521Z"}
+{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-10-30T15:49:54.582Z","totalUsers":2,"username":"bob"}
+{"from":"bob","level":"info","message":"Call request","timestamp":"2025-10-30T15:49:59.635Z","to":"fede"}
+{"accepted":true,"from":"fede","level":"info","message":"Call response","timestamp":"2025-10-30T15:50:07.202Z","to":"bob"}
+{"level":"info","message":"User disconnected","timestamp":"2025-10-30T15:51:13.698Z","totalUsers":1,"username":"fede"}
+{"level":"info","message":"User disconnected","timestamp":"2025-10-30T15:51:17.845Z","totalUsers":0,"username":"bob"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-10-30T15:51:25.009Z"}

@@ -1,0 +1,33 @@
+services:
+  # signaling:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: webrtc-signaling
+  #   network_mode: host  # Usa network host per accedere a localhost della macchina
+  #   environment:
+  #     ENABLE_SIP_GATEWAY: "true"
+  #     PORT: 8080
+  #     SIP_SERVER_HOST: 192.168.1.212 # IP del SIP server che può essere esterno o altro container
+  #     SIP_SERVER_PORT: 5060
+  #     SIP_USERNAME: gateway
+  #     SIP_PASSWORD: secret
+  #     SIP_DOMAIN: 192.168.1.212
+  #     LOCAL_SIP_PORT: 5060
+  #     RTPENGINE_HOST: 127.0.0.1
+  #     RTPENGINE_PORT: 22222
+  #     MAX_SESSIONS: 1000
+  #   restart: unless-stopped
+
+  rtpengine:
+    image: fonoster/rtpengine:latest
+    ports:
+      - "22222:22222/udp"
+      - "10000-10500:10000-10500/udp"
+    environment:
+      RTPENGINE_PUBLIC_IP: 192.168.1.209
+      RTPENGINE_BIND_NG_PORT: 22222
+      RTPENGINE_PORT_MIN: 10000
+      RTPENGINE_PORT_MAX: 10500
+      RTPENGINE_LOG_LEVEL: 5
+    restart: unless-stopped

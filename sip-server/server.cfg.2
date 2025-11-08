@@ -1,0 +1,69 @@
+# Via address - IP del server
+via_addr=192.168.1.212
+
+# Local SIP port (standard)
+host_port=5060
+
+# Bind to all interfaces
+host_ifaddr=ALL-INTERFACES
+
+# Transport protocols (UDP is fine for lab)
+transport_protocols=udp
+
+# Domain names that the server administers
+domain_names=192.168.1.212
+
+# Act as Registrar (per permettere registrazioni)
+is_registrar=yes
+
+# Location DB (dove salvare registrazioni utenti)
+location_db=config/users.db
+
+# Clean location DB on startup
+clean_location_db=no
+
+# === NO AUTHENTICATION (Accademico) ===
+do_authentication=no
+do_proxy_authentication=no
+
+# Whether relay requests for non-local users
+is_open_proxy=yes
+
+# Whether stay in signaling path
+on_route=no
+
+# Maximum registration expires time (1 ora)
+expires=3600
+
+# Allow registration of new users
+register_new_users=yes
+
+log_level=2
+
+# Retransmission timeout (RFC 3261 T1=500ms)
+retransmission_timeout=500
+
+# Max retransmission timeout (RFC 3261 T2=4000ms)
+max_retransmission_timeout=4000
+
+# Transaction timeout (RFC 3261 64*T1=32000ms)
+transaction_timeout=32000
+
+# Max forwards
+max_forwards=70
+
+# Auto 100 Trying on INVITE
+auto_trying=yes
+
+# Default media (audio)
+audio=yes
+
+# Media port
+media_port=6000
+
+# Supported media formats
+media=audio 6000 rtp/avp {audio 0 PCMU 8000 160, audio 8 PCMA 8000 160}
+
+# No file recording
+recv_file=NONE
+send_file=NONE

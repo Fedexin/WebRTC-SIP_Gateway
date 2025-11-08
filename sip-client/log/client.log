@@ -1,0 +1,660 @@
+2025-11-06 17:48:46 [main] org.mjsip.config.OptionParser.parseOptions()
+DEBUG: Reading options from: /Users/fede/Documents/Scuola/UniPr/Tirocinio/WebRTC-SIP_Gateway/sip-client/client1.cfg
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipStack: mjsip 2.0.5
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipProvider: 5062
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: udp is up at port 5062
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: tcp is up at port 5062
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: INVITE
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: OPTIONS
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: ANY
+2025-11-06 17:48:46 [main] org.mjsip.examples.UserAgentCli.run()
+INFO: REGISTRATION
+2025-11-06 17:48:46 [main] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.209:5062> (expiry 3600 secs) at sip:192.168.1.212:5060
+2025-11-06 17:48:46 [main] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 192191673619@192.168.1.209-1-REGISTER-client-z9hG4bK50f823ef
+2025-11-06 17:48:46 [main] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-06 17:48:46 [main] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 192191673619@192.168.1.209-1-REGISTER-client-z9hG4bK50f823ef
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:48:46 [main] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:48:46 [main] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-06 17:48:46 [main] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: WAITING FOR INCOMING CALL
+2025-11-06 17:48:46 [main] org.mjsip.examples.UserAgentCli.changeStatus()
+DEBUG: state: IDLE
+2025-11-06 17:48:46 [main] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: digit the callee's URI to make a call or press 'enter' to exit
+2025-11-06 17:48:46 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.212:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:48:47 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:48:47 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:48:47 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:48:48 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:48:48 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:48:48 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:48:50 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:48:50 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:48:50 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:48:54 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:48:54 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:48:54 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:48:58 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:48:58 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:48:58 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:01 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.212:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:49:02 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:49:02 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:49:02 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:06 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:49:06 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:49:06 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:10 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:49:10 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:49:10 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:14 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-06 17:49:14 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:49:14 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.212:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.212:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK50f823ef
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.212:5060]>
+From: "Client1" <sip:client1@[192.168.1.212:5060]>;tag=804481123023
+Call-ID: 192191673619@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:19 [main] org.mjsip.config.OptionParser.parseOptions()
+DEBUG: Reading options from: /Users/fede/Documents/Scuola/UniPr/Tirocinio/WebRTC-SIP_Gateway/sip-client/client1.cfg
+2025-11-06 17:49:19 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipStack: mjsip 2.0.5
+2025-11-06 17:49:19 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipProvider: 5062
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: udp is up at port 5062
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: tcp is up at port 5062
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: INVITE
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: OPTIONS
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: ANY
+2025-11-06 17:49:20 [main] org.mjsip.examples.UserAgentCli.run()
+INFO: REGISTRATION
+2025-11-06 17:49:20 [main] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.209:5062> (expiry 3600 secs) at sip:192.168.1.209:5060
+2025-11-06 17:49:20 [main] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 729586483881@192.168.1.209-1-REGISTER-client-z9hG4bK983f46de
+2025-11-06 17:49:20 [main] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-06 17:49:20 [main] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 729586483881@192.168.1.209-1-REGISTER-client-z9hG4bK983f46de
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-06 17:49:20 [main] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.209:5060/udp (397 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.209:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK983f46de
+Max-Forwards: 70
+To: "Client1" <sip:client1@[192.168.1.209:5060]>
+From: "Client1" <sip:client1@[192.168.1.209:5060]>;tag=359153643510
+Call-ID: 729586483881@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:20 [main] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-06 17:49:20 [main] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: WAITING FOR INCOMING CALL
+2025-11-06 17:49:20 [main] org.mjsip.examples.UserAgentCli.changeStatus()
+DEBUG: state: IDLE
+2025-11-06 17:49:20 [main] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: digit the callee's URI to make a call or press 'enter' to exit
+2025-11-06 17:49:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:49:20 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.209:5060/udp (348 bytes)
+-----Begin-of-message-----
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK983f46de
+Contact: <sip:client1@192.168.1.209:5062>;expires=3600
+To: "Client1" <sip:client1@[192.168.1.209:5060]>
+From: "Client1" <sip:client1@[192.168.1.209:5060]>;tag=359153643510
+Call-ID: 729586483881@192.168.1.209
+CSeq: 1 REGISTER
+Server: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-06 17:49:20 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 729586483881@192.168.1.209-1-REGISTER-client-z9hG4bK983f46de
+2025-11-06 17:49:20 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Completed
+2025-11-06 17:49:20 [Thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationSucceeded()
+INFO: Registration succeeded: 200 OK
+2025-11-06 17:49:20 [Thread-1] org.mjsip.sip.transaction.TransactionClient.startClearingTimeout()
+DEBUG: Starting clearing timeout: 5000ms
+2025-11-06 17:49:25 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onClearingTimeout()
+DEBUG: Clearing timeout expired.
+2025-11-06 17:49:25 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 729586483881@192.168.1.209-1-REGISTER-client-z9hG4bK983f46de
+2025-11-06 17:49:25 [pool-1-thread-2] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-06 17:49:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:49:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:50:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:50:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:50:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:50:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:51:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:51:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:51:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:51:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:52:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:52:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:52:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:52:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:53:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:53:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:53:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:53:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:54:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:54:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:54:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:54:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:55:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:55:20 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:55:35 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:55:50 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)
+2025-11-06 17:56:05 [Thread-3] org.mjsip.sip.provider.SipProvider.sendRawMessage()
+WARN: Exception.: java.net.UnknownHostException: 192.168.1.209:5060: invalid IPv6 address literal
+	at java.base/java.net.InetAddress.invalidIPv6LiteralException(InetAddress.java:1681)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1665)
+	at java.base/java.net.InetAddress.getByName(InetAddress.java:1578)
+	at org.zoolu.net.IpAddress.getByName(IpAddress.java:126)
+	at org.mjsip.sip.provider.SipProvider.sendRawMessage(SipProvider.java:806)
+	at org.mjsip.sip.provider.SipKeepAlive.sendToken(SipKeepAlive.java:96)
+	at org.mjsip.sip.provider.UdpKeepAlive.run(UdpKeepAlive.java:163)
+	at org.mjsip.sip.provider.SipKeepAlive.run(SipKeepAlive.java:104)

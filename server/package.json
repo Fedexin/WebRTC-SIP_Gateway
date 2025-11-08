@@ -1,0 +1,32 @@
+{
+  "name": "webrtc-sip-signaling-server",
+  "version": "2.0.0",
+  "description": "WebRTC-SIP Gateway with rtpengine",
+  "main": "signaling-server.js",
+  "scripts": {
+    "start": "node signaling-server.js",
+    "dev": "nodemon signaling-server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "rtpengine-client": "^0.4.12",
+    "winston": "^3.18.3",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "webrtc",
+    "sip",
+    "gateway",
+    "signaling",
+    "rtpengine",
+    "voip"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
