@@ -84,6 +84,18 @@ if errorlevel 1 (
     exit /b 1
 )
 
+echo [DEBUG] Directory corrente: %CD%
+echo.
+
+REM Verifica che il pom.xml esista
+if not exist "pom.xml" (
+    echo ERRORE: pom.xml non trovato nella directory: %EXAMPLES_DIR%
+    pause
+    exit /b 1
+)
+
+echo [DEBUG] pom.xml trovato
+
 REM Verifica che il JAR esista
 if not exist "target\mjsip-examples-2.0.5.jar" (
     echo [WARN] JAR non trovato in target. Tentativo di compilazione...
@@ -96,18 +108,63 @@ if not exist "target\mjsip-examples-2.0.5.jar" (
 )
 
 echo [INFO] Costruzione classpath...
-mvn -q -DincludeScope=runtime dependency:build-classpath -Dmdep.outputFile=%TEMP%\mjsip-examples-cp.txt
-if errorlevel 1 (
-    echo ERRORE: Impossibile costruire il classpath con Maven
+set "TEMP_FILE=%TEMP%\mjsip-examples-cp.txt"
+echo [DEBUG] File temporaneo: %TEMP_FILE%
+
+REM Rimuovi il file temporaneo se esiste già
+if exist "%TEMP_FILE%" del "%TEMP_FILE%"
+
+echo [DEBUG] Esecuzione comando Maven...
+echo [DEBUG] Comando: mvn -DincludeScope=runtime dependency:build-classpath -Dmdep.outputFile="%TEMP_FILE%"
+mvn -DincludeScope=runtime dependency:build-classpath -Dmdep.outputFile="%TEMP_FILE%" 2>&1
+set "MVN_EXIT=%ERRORLEVEL%"
+echo [DEBUG] Maven exit code: %MVN_EXIT%
+
+if %MVN_EXIT% neq 0 (
+    echo.
+    echo ERRORE: Impossibile costruire il classpath con Maven (exit code: %MVN_EXIT%)
+    echo [DEBUG] Verifica che il progetto sia stato compilato con: mvn clean install
     pause
     exit /b 1
 )
 
+REM Verifica che il file sia stato creato
+if not exist "%TEMP_FILE%" (
+    echo ERRORE: File classpath non creato: %TEMP_FILE%
+    pause
+    exit /b 1
+)
+
+echo [DEBUG] File classpath creato, dimensione:
+for %%A in ("%TEMP_FILE%") do echo   %%~zA bytes
+
 REM Leggi il classpath e aggiungi il JAR
+echo [DEBUG] Lettura classpath dal file...
 set "CP="
-for /f "usebackq delims=" %%a in ("%TEMP%\mjsip-examples-cp.txt") do set "CP=%%a"
+set "FILE_READ=0"
+for /f "usebackq delims=" %%a in ("%TEMP_FILE%") do (
+    set "CP=%%a"
+    set "FILE_READ=1"
+    echo [DEBUG] Riga letta dal file
+    if "!CP!" neq "" (
+        echo [DEBUG] Classpath letto (primi 100 caratteri): !CP:~0,100!...
+    ) else (
+        echo [DEBUG] ATTENZIONE: Riga letta ma vuota
+    )
+)
+
+if %FILE_READ%==0 (
+    echo ERRORE: Impossibile leggere il file classpath
+    echo [DEBUG] Contenuto del file:
+    type "%TEMP_FILE%"
+    pause
+    exit /b 1
+)
+
 if "!CP!"=="" (
-    echo ERRORE: Classpath vuoto
+    echo ERRORE: Classpath vuoto dopo la lettura
+    echo [DEBUG] Contenuto del file:
+    type "%TEMP_FILE%"
     pause
     exit /b 1
 )
@@ -118,7 +175,29 @@ echo [INFO] Classpath costruito (primi 200 caratteri):
 echo !CP:~0,200!...
 echo.
 
-echo [INFO] Avvio del client...
+REM Verifica che il JAR esista nel classpath
+if not exist "target\mjsip-examples-2.0.5.jar" (
+    echo ERRORE: JAR non trovato: target\mjsip-examples-2.0.5.jar
+    pause
+    exit /b 1
+)
+
+echo [DEBUG] Verifica file di configurazione...
+if not exist "%CLIENT_CFG%" (
+    echo ERRORE: File di configurazione non trovato: %CLIENT_CFG%
+    pause
+    exit /b 1
+)
+
+if not exist "%TINYLOG_CFG%" (
+    echo ERRORE: File tinylog.properties non trovato: %TINYLOG_CFG%
+    pause
+    exit /b 1
+)
+
+echo [INFO] Tutti i controlli superati. Avvio del client...
+echo [DEBUG] Comando Java:
+echo   java -Dtinylog.configuration="%TINYLOG_CFG%" -cp "!CP!" org.mjsip.examples.UserAgentCli -f "%CLIENT_CFG%"
 echo.
 
 REM Avvia il client
