@@ -1091,3 +1091,88 @@ DEBUG: Removing SipProviderListener: 314328004547@192.168.1.209-1-REGISTER-serve
 DEBUG: changed transaction state: T_Terminated
 2025-11-17 19:55:35 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionServer.doTerminate()
 DEBUG: Transaction terminated: 314328004547@192.168.1.209-1-REGISTER-server-z9hG4bKf60af709
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.209:5062/udp (383 bytes)
+-----Begin-of-message-----
+REGISTER sip:192.168.1.209:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKb98b347b
+Max-Forwards: 70
+To: "Client1" <sip:client1@192.168.1.209>
+From: "Client1" <sip:client1@192.168.1.209>;tag=380196067023
+Call-ID: 345316347536@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to ua: ANY
+2025-11-17 20:25:34 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message received
+2025-11-17 20:25:34 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message is a request
+2025-11-17 20:25:34 [Thread-1] org.mjsip.server.Proxy.processRequestToLocalServer()
+DEBUG: inside processRequestToLocalServer(msg)
+2025-11-17 20:25:34 [Thread-1] org.mjsip.server.Registrar.processRequestToLocalServer()
+DEBUG: inside processRequestToLocalServer(msg)
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.transaction.TransactionServer.init()
+DEBUG: Starting transaction 345316347536@192.168.1.209-1-REGISTER-server-z9hG4bKb98b347b:REGISTER sip:192.168.1.209:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKb98b347b
+Max-Forwards: 70
+To: "Client1" <sip:client1@192.168.1.209>
+From: "Client1" <sip:client1@192.168.1.209>;tag=380196067023
+Call-ID: 345316347536@192.168.1.209
+CSeq: 1 REGISTER
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Loop-Tag: a05c5887b61621
+Content-Length: 0
+
+
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 345316347536@192.168.1.209-1-REGISTER-server-z9hG4bKb98b347b
+2025-11-17 20:25:34 [Thread-1] org.mjsip.server.Registrar.updateRegistration()
+INFO: registration of user 'client1@192.168.1.209' updated
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.transaction.TransactionServer.respondWith()
+DEBUG: Transaction 345316347536@192.168.1.209-1-REGISTER-server-z9hG4bKb98b347b response: SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKb98b347b
+Contact: <sip:client1@192.168.1.209:5062>;expires=3600
+To: "Client1" <sip:client1@192.168.1.209>
+From: "Client1" <sip:client1@192.168.1.209>;tag=380196067023
+Call-ID: 345316347536@192.168.1.209
+CSeq: 1 REGISTER
+Server: mjsip 2.0.5
+Content-Length: 0
+
+
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.209:5062/UDP (334 bytes)
+-----Begin-of-message-----
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKb98b347b
+Contact: <sip:client1@192.168.1.209:5062>;expires=3600
+To: "Client1" <sip:client1@192.168.1.209>
+From: "Client1" <sip:client1@192.168.1.209>;tag=380196067023
+Call-ID: 345316347536@192.168.1.209
+CSeq: 1 REGISTER
+Server: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Completed
+2025-11-17 20:25:35 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.onClearingTimeout()
+DEBUG: Transaction timeout reached: 345316347536@192.168.1.209-1-REGISTER-server-z9hG4bKb98b347b
+2025-11-17 20:25:35 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 345316347536@192.168.1.209-1-REGISTER-server-z9hG4bKb98b347b
+2025-11-17 20:25:35 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 20:25:35 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.doTerminate()
+DEBUG: Transaction terminated: 345316347536@192.168.1.209-1-REGISTER-server-z9hG4bKb98b347b

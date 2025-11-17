@@ -1517,3 +1517,31 @@ DEBUG: Clearing timeout expired.
 DEBUG: Removing SipProviderListener: 314328004547@192.168.1.209-1-REGISTER-client-z9hG4bKf60af709
 2025-11-17 19:55:39 [pool-1-thread-3] org.mjsip.sip.transaction.Transaction.changeStatus()
 DEBUG: changed transaction state: T_Terminated
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.209:5062> (expiry 3600 secs) at sip:192.168.1.209:5060
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 345316347536@192.168.1.209-1-REGISTER-client-z9hG4bKb98b347b
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 345316347536@192.168.1.209-1-REGISTER-client-z9hG4bKb98b347b
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 20:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 345316347536@192.168.1.209-1-REGISTER-client-z9hG4bKb98b347b
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Completed
+2025-11-17 20:25:34 [Thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationSucceeded()
+INFO: Registration succeeded: 200 OK
+2025-11-17 20:25:34 [Thread-1] org.mjsip.sip.transaction.TransactionClient.startClearingTimeout()
+DEBUG: Starting clearing timeout: 5000ms
+2025-11-17 20:25:39 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onClearingTimeout()
+DEBUG: Clearing timeout expired.
+2025-11-17 20:25:39 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 345316347536@192.168.1.209-1-REGISTER-client-z9hG4bKb98b347b
+2025-11-17 20:25:39 [pool-1-thread-5] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
