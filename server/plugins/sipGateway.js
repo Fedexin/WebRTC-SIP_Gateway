@@ -788,7 +788,7 @@ class SipGateway extends EventEmitter {
         'codec': {
           'strip': ['opus'],
           'offer': ['PCMU', 'PCMA'],
-          'transcode': ['PCMU']
+          //'transcode': ['PCMU']
         }
       };
 
@@ -909,7 +909,7 @@ class SipGateway extends EventEmitter {
           'codec': {
             'strip': ['telephone-event'],
             'offer': ['opus', 'PCMU', 'PCMA'],
-            'transcode': ['opus']
+            //'transcode': ['opus']
           }
         };
 
@@ -1007,7 +1007,7 @@ class SipGateway extends EventEmitter {
         'codec': {
           'strip': ['telephone-event'],
           'offer': ['opus', 'PCMU', 'PCMA'],
-          'transcode': ['opus']
+          //'transcode': ['opus']
         }
       };
 
@@ -1093,7 +1093,7 @@ class SipGateway extends EventEmitter {
         'codec': {
           'strip': ['opus'],
           'offer': ['PCMU', 'PCMA'],
-          'transcode': ['PCMU']
+          //'transcode': ['PCMU']
         }
       };
 

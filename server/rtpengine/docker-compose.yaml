@@ -8,10 +8,7 @@ services:
     env_file:
       - .env.rtpengine
 
-    ports:
-      - "22222:22222/udp"
-      - "8090:8080/tcp"
-      - "10000-10500:10000-10500/udp"
+    network_mode: "host"
 
     volumes:
       - rtpengine-recordings:/tmp/rtpengine-recordings
