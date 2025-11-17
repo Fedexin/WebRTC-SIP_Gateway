@@ -907,8 +907,8 @@ class SipGateway extends EventEmitter {
           'DTLS': 'passive',                    // Browser active, RTPEngine passive
           'rtcp-mux': ['require'],               // offer
           'codec': {
-            'strip': ['telephone-event'],
-            'offer': ['opus', 'PCMU', 'PCMA'],   // opus
+            'strip': ['telephone-event', 'opus'],
+            'offer': ['PCMU', 'PCMA'],   // opus
             //'transcode': ['opus']
           }
         };
@@ -1005,8 +1005,8 @@ class SipGateway extends EventEmitter {
         'DTLS': 'passive',                    // RTPEngine passive, browser active
         'rtcp-mux': ['require'],                // Offri rtcp-mux
         'codec': {
-          'strip': ['telephone-event'],
-          'offer': ['opus', 'PCMU', 'PCMA'],
+          'strip': ['telephone-event', 'opus'],
+          'offer': ['PCMU', 'PCMA'],
           //'transcode': ['opus']
         }
       };
