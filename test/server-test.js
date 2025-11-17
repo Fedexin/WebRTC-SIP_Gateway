@@ -137,6 +137,14 @@ function buildResponse(req, rinfo, code, reason, extraHeaders = [], body = '') {
   return lines.join(CRLF) + CRLF + CRLF;
 }
 
+function logCompleteMessage(msg, rinfo, direction = '>>>') {
+  const messageStr = msg.toString();
+  console.log(`\n${direction} Messaggio completo da ${rinfo.address}:${rinfo.port}`);
+  console.log('─'.repeat(80));
+  console.log(messageStr);
+  console.log('─'.repeat(80));
+}
+
 function logRequest(req, rinfo) {
   const from = req.headers['from'] || '';
   const to = req.headers['to'] || '';
@@ -151,6 +159,9 @@ function logRequest(req, rinfo) {
 const socket = dgram.createSocket('udp4');
 
 socket.on('message', (msg, rinfo) => {
+  // Prima stampa il messaggio completo
+  logCompleteMessage(msg, rinfo, '>>>');
+
   let req;
   try {
     req = parseSipMessage(msg);
@@ -169,6 +180,8 @@ socket.on('message', (msg, rinfo) => {
 
   const send = (payload) => {
     const buf = Buffer.from(payload, 'utf8');
+    // Anche stampa i messaggi in uscita
+    logCompleteMessage(buf, rinfo, '<<<');
     socket.send(buf, 0, buf.length, rinfo.port, rinfo.address);
   };
 
@@ -204,7 +217,7 @@ socket.on('message', (msg, rinfo) => {
       break;
     }
     case 'REGISTER': {
-      // Permetti ai client di “credere” che si registrino con successo
+      // Permetti ai client di "credere" che si registrino con successo
       const extra = ['Expires: 3600'];
       send(buildResponse(req, rinfo, 200, 'OK', extra));
       break;

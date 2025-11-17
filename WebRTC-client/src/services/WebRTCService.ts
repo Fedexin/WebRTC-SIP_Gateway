@@ -1,4 +1,4 @@
-// WebRTCService.ts
+// WebRTCService.ts - VERSIONE CORRETTA
 export const USE_PERFECT_NEGOTIATION = true;
 
 interface RTCConfiguration {
@@ -42,6 +42,11 @@ export class WebRTCService {
   private isInitialized = false;
   private username = '';
   private currentCall: { with: string; isInitiator: boolean } | null = null;
+
+  // FIX: Aggiungi tracking del callId per chiamate SIP
+  private currentCallId: string | null = null;
+  private isSipCall = false;
+
   private needsUserRegistration = false;
   private rtcConfig: RTCConfiguration;
 
@@ -295,6 +300,9 @@ export class WebRTCService {
     }
 
     this.currentCall = { with: targetUser, isInitiator: true };
+    this.isSipCall = false; // WebRTC-to-WebRTC call
+    this.currentCallId = null;
+
     this.polite = this.username < targetUser;
     console.log(`🎭 This peer is ${this.polite ? 'POLITE' : 'IMPOLITE'}`);
 
@@ -323,7 +331,9 @@ export class WebRTCService {
       type: 'call-response',
       to: this.currentCall.with,
       from: this.username,
-      accepted: true
+      accepted: true,
+      // FIX: Includi callId se è una chiamata SIP
+      ...(this.currentCallId && { callId: this.currentCallId })
     });
 
     if (!this.peerConnection) {
@@ -348,27 +358,49 @@ export class WebRTCService {
 
     console.log('📤 Sending call-response (rejected)');
     this.sendSignalingMessage({
-      type: 'call-response',
+      type: 'reject',
       to: this.currentCall.with,
       from: this.username,
-      accepted: false
+      accepted: false,
+      // FIX: Includi callId se è una chiamata SIP
+      ...(this.currentCallId && { callId: this.currentCallId })
     });
 
     this.currentCall = null;
+    this.currentCallId = null;
+    this.isSipCall = false;
     this.pendingOffer = null;
   }
 
   endCall(): void {
+    console.log('🔴 Ending call', {
+      currentCall: this.currentCall,
+      isSipCall: this.isSipCall,
+      callId: this.currentCallId
+    });
+
     if (this.currentCall) {
-      this.sendSignalingMessage({
+      // FIX: Includi callId per chiamate SIP
+      const hangupMessage: SignalingMessage = {
         type: 'hangup',
         to: this.currentCall.with,
         from: this.username
-      });
+      };
+
+      if (this.isSipCall && this.currentCallId) {
+        hangupMessage.callId = this.currentCallId;
+        console.log('📤 Sending SIP hangup with callId:', this.currentCallId);
+      } else {
+        console.log('📤 Sending WebRTC hangup');
+      }
+
+      this.sendSignalingMessage(hangupMessage);
     }
 
     this.closePeerConnection();
     this.currentCall = null;
+    this.currentCallId = null;
+    this.isSipCall = false;
     this.pendingOffer = null;
     this.stopLocalMedia();
     this.events.onCallEnd?.();
@@ -650,6 +682,8 @@ export class WebRTCService {
         case 'call-request':
           console.log('📞 Call request from:', message.from);
           this.currentCall = { with: message.from!, isInitiator: false };
+          this.isSipCall = false;
+          this.currentCallId = null;
           this.events.onCallRequest?.(message.from!);
           break;
 
@@ -663,14 +697,25 @@ export class WebRTCService {
             this.events.onCallResponse?.(true, message.from!);
           } else {
             this.currentCall = null;
+            this.currentCallId = null;
+            this.isSipCall = false;
             this.pendingOffer = null;
             this.events.onCallResponse?.(false, message.from!);
           }
           break;
 
         case 'incoming-call':
-          console.log('📞 Incoming call from:', message.from);
+          console.log('📞 Incoming SIP call from:', message.from, 'callId:', message.callId);
+
+          // FIX: Memorizza che questa è una chiamata SIP e il suo callId
           this.currentCall = { with: message.from!, isInitiator: false };
+          this.isSipCall = true;
+          this.currentCallId = message.callId || null;
+
+          console.log('💾 Saved SIP call info:', {
+            isSipCall: this.isSipCall,
+            callId: this.currentCallId
+          });
 
           if (message.sdp) {
             console.log('💾 Saving pending offer with SDP');
@@ -683,6 +728,31 @@ export class WebRTCService {
         case 'call-answered':
           console.log('✅ Call answered by:', message.from);
           this.events.onCallResponse?.(true, message.from!);
+
+          if (message.sdp) {
+            try {
+              if (!this.peerConnection) {
+                await this.createPeerConnection();
+              }
+              const answerDesc = new RTCSessionDescription({
+                type: 'answer',
+                sdp: typeof message.sdp === 'string' ? message.sdp : message.sdp.sdp || JSON.stringify(message.sdp)
+              });
+              console.log('📥 Setting remote description (SIP answer)');
+              await this.peerConnection!.setRemoteDescription(answerDesc);
+
+              if (this.pendingIceCandidates.length > 0) {
+                console.log(`🧊 Adding ${this.pendingIceCandidates.length} pending ICE candidates`);
+                for (const candidate of this.pendingIceCandidates) {
+                  await this.peerConnection!.addIceCandidate(new RTCIceCandidate(candidate));
+                }
+                this.pendingIceCandidates = [];
+              }
+            } catch (error) {
+              console.error('❌ Failed to apply SIP answer SDP:', error);
+              this.events.onError?.('Failed to apply SIP answer SDP');
+            }
+          }
           break;
 
         case 'call-ringing':
@@ -692,6 +762,8 @@ export class WebRTCService {
         case 'call-failed':
           console.log('❌ Call failed:', message.reason);
           this.currentCall = null;
+          this.currentCallId = null;
+          this.isSipCall = false;
           this.pendingOffer = null;
           this.events.onError?.(message.reason || 'Call failed');
           break;
@@ -699,6 +771,8 @@ export class WebRTCService {
         case 'call-rejected':
           console.log('❌ Call rejected by:', message.from);
           this.currentCall = null;
+          this.currentCallId = null;
+          this.isSipCall = false;
           this.pendingOffer = null;
           this.events.onCallResponse?.(false, message.from!);
           break;
@@ -734,6 +808,8 @@ export class WebRTCService {
           console.log('📞 Call ended by:', message.from);
           this.closePeerConnection();
           this.currentCall = null;
+          this.currentCallId = null;
+          this.isSipCall = false;
           this.pendingOffer = null;
           this.events.onCallEnd?.();
           break;
@@ -820,12 +896,24 @@ export class WebRTCService {
       await this.peerConnection!.setLocalDescription(answer);
 
       console.log('📤 Sending answer');
-      this.sendSignalingMessage({
+
+      // FIX: Invia solo la stringa SDP, non l'intero oggetto RTCSessionDescription
+      // Per chiamate SIP, il server ha bisogno SOLO della stringa SDP
+      const answerMessage: SignalingMessage = {
         type: 'answer',
         to: message.from!,
         from: this.username,
-        data: answer
+        data: this.isSipCall ? answer.sdp : answer  // ← FIX: Se SIP, invia solo SDP string
+      };
+
+      console.log('📤 Answer message details', {
+        isSipCall: this.isSipCall,
+        dataType: typeof answerMessage.data,
+        hasSdpField: !!(answer as any).sdp,
+        sdpLength: this.isSipCall ? (answer.sdp?.length || 0) : JSON.stringify(answer).length
       });
+
+      this.sendSignalingMessage(answerMessage);
     } catch (error) {
       console.error('❌ Error handling offer:', error);
       throw error;
@@ -900,6 +988,8 @@ export class WebRTCService {
 
     this.isInitialized = false;
     this.username = '';
+    this.currentCallId = null;
+    this.isSipCall = false;
     this.events = {};
     this.pendingOffer = null;
   }

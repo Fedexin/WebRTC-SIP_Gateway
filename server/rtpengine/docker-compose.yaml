@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  rtpengine:
+    image: fonoster/rtpengine:latest
+    container_name: rtpengine-sip-webrtc
+
+    env_file:
+      - .env.rtpengine
+
+    ports:
+      - "22222:22222/udp"
+      - "8090:8080/tcp"
+      - "10000-10500:10000-10500/udp"
+
+    volumes:
+      - rtpengine-recordings:/tmp/rtpengine-recordings
+
+    restart: unless-stopped
+
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
+        reservations:
+          cpus: "1"
+          memory: 1G
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  rtpengine-recordings:
+    driver: local

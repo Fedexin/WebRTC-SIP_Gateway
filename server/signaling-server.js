@@ -1,4 +1,5 @@
 // ==================== LOAD ENVIRONMENT VARIABLES ====================
+// V1
 require('dotenv').config();
 
 if (!process.env.PORT && !process.env.ENABLE_SIP_GATEWAY) {
@@ -282,11 +283,17 @@ if (sipGateway) {
         callId: data.callId
       });
 
+      // Convert SDP string to RTCSessionDescription format for WebRTC client
+      const sdpOffer = {
+        type: 'offer',
+        sdp: data.sdp
+      };
+
       const sent = sendToUser(targetUser, {
         type: 'incoming-call',
         from: data.from,
         callId: data.callId,
-        sdp: data.sdp
+        sdp: sdpOffer
       });
 
       if (!sent) {
@@ -461,11 +468,38 @@ wss.on('connection', (ws, req) => {
             accepted: message.accepted
           });
 
-          sendToUser(message.to, {
-            type: 'call-response',
-            from: username,
-            accepted: message.accepted
-          });
+          // Check if this is a response to an incoming SIP call
+          const sipCallResponseData = Array.from(activeCalls.values()).find(
+            call => call.webrtcUser === username && call.direction === 'incoming'
+          );
+
+          if (sipCallResponseData && sipGateway) {
+            if (message.accepted) {
+              // User accepted - wait for answer SDP
+              logger.info('SIP call accepted by user, waiting for answer SDP', {
+                callId: sipCallResponseData.callId
+              });
+              // The answer will be handled in the 'answer' case
+            } else {
+              // User rejected
+              logger.info('SIP call rejected by user', {
+                callId: sipCallResponseData.callId
+              });
+              try {
+                await sipGateway.rejectCall(sipCallResponseData.callId, 603, 'Decline');
+                activeCalls.delete(sipCallResponseData.callId);
+              } catch (error) {
+                logger.error('Error rejecting SIP call', { error: error.message, callId: sipCallResponseData.callId });
+              }
+            }
+          } else {
+            // Regular WebRTC-to-WebRTC call response
+            sendToUser(message.to, {
+              type: 'call-response',
+              from: username,
+              accepted: message.accepted
+            });
+          }
           break;
 
         case 'offer':
@@ -484,73 +518,268 @@ wss.on('connection', (ws, req) => {
           break;
 
         case 'answer':
-          if (!username || !message.to || !message.data) {
+          if (!username || !message.data) {
             ws.send(JSON.stringify({ type: 'error', message: 'Invalid answer' }));
             return;
           }
 
-          logger.debug('Forwarding answer', { from: username, to: message.to });
+          // Check if this is an answer to an incoming SIP call
+          const sipCallData = Array.from(activeCalls.values()).find(
+            call => call.webrtcUser === username && call.direction === 'incoming'
+          );
 
-          sendToUser(message.to, {
-            type: 'answer',
-            from: username,
-            data: message.data
-          });
-          break;
+          if (sipCallData && sipGateway) {
+            logger.info('Answering incoming SIP call', {
+              callId: sipCallData.callId,
+              webrtcUser: username
+            });
 
-        case 'ice-candidate':
-          if (!username || !message.to || !message.data) return;
+            try {
+              // FIX: Gestione robusta dell'SDP in vari formati
+              let sdpString;
 
-          sendToUser(message.to, {
-            type: 'ice-candidate',
-            from: username,
-            data: message.data
-          });
+              if (typeof message.data === 'string') {
+                // Caso 1: SDP già come stringa
+                sdpString = message.data;
+                logger.debug('SDP received as string', {
+                  callId: sipCallData.callId,
+                  length: sdpString.length
+                });
+              }
+              else if (message.data && typeof message.data === 'object') {
+                // Caso 2: RTCSessionDescription object
+                if (message.data.type && message.data.sdp) {
+                  sdpString = message.data.sdp;
+                  logger.debug('SDP extracted from RTCSessionDescription', {
+                    callId: sipCallData.callId,
+                    type: message.data.type,
+                    length: sdpString.length
+                  });
+                }
+                // Caso 3: Solo il campo sdp nell'oggetto
+                else if (message.data.sdp) {
+                  sdpString = message.data.sdp;
+                  logger.debug('SDP extracted from object.sdp', {
+                    callId: sipCallData.callId,
+                    length: sdpString.length
+                  });
+                }
+                // Caso 4: Oggetto serializzato male
+                else {
+                  logger.warn('Received object without sdp field, attempting JSON stringify', {
+                    callId: sipCallData.callId,
+                    keys: Object.keys(message.data)
+                  });
+                  sdpString = JSON.stringify(message.data);
+                }
+              }
+              else {
+                throw new Error(`Invalid SDP format: ${typeof message.data}`);
+              }
+
+              // Validazione SDP
+              if (!sdpString || sdpString.trim().length === 0) {
+                throw new Error('SDP is empty after extraction');
+              }
+
+              // Verifica che sia SDP valido
+              if (!sdpString.startsWith('v=0')) {
+                logger.error('SDP does not start with v=0', {
+                  callId: sipCallData.callId,
+                  firstChars: sdpString.substring(0, 50)
+                });
+                throw new Error('Invalid SDP: does not start with v=0');
+              }
+
+              // Log dettagliato PRIMA di inviare a SIP Gateway
+              const sdpLines = sdpString.split(/\r?\n/);
+              const audioLine = sdpLines.find(l => l.startsWith('m=audio'));
+              const codecLines = sdpLines.filter(l => l.startsWith('a=rtpmap:'));
+
+              logger.info('WebRTC Answer SDP Analysis', {
+                callId: sipCallData.callId,
+                totalLines: sdpLines.length,
+                audioLine: audioLine || 'NOT FOUND',
+                codecs: codecLines,
+                hasPCMU: sdpString.includes('PCMU'),
+                hasPCMA: sdpString.includes('PCMA'),
+                hasOpus: sdpString.includes('opus'),
+                hasICE: sdpString.includes('ice-ufrag'),
+                hasDTLS: sdpString.includes('fingerprint')
+              });
+
+              // Log completo in debug mode
+              if (process.env.LOG_LEVEL === 'debug') {
+                logger.debug('Complete WebRTC Answer SDP', {
+                  callId: sipCallData.callId,
+                  sdp: sdpString
+                });
+              }
+
+              // Invia a SIP Gateway
+              await sipGateway.answerSipCall(sipCallData.callId, username, sdpString);
+
+              logger.info('SIP call answered successfully', {
+                callId: sipCallData.callId
+              });
+
+            } catch (error) {
+              logger.error('Error answering SIP call', {
+                error: error.message,
+                callId: sipCallData.callId,
+                stack: error.stack,
+                messageDataType: typeof message.data
+              });
+              ws.send(JSON.stringify({
+                type: 'error',
+                message: 'Failed to answer call: ' + error.message
+              }));
+            }
+          } else {
+            // Regular WebRTC-to-WebRTC answer
+            if (!message.to) {
+              ws.send(JSON.stringify({ type: 'error', message: 'Invalid answer: missing to field' }));
+              return;
+            }
+            logger.debug('Forwarding answer', { from: username, to: message.to });
+
+            sendToUser(message.to, {
+              type: 'answer',
+              from: username,
+              data: message.data
+            });
+          }
           break;
 
         case 'hangup':
         case 'hang-up':
+          if (!username) {
+            ws.send(JSON.stringify({ type: 'error', message: 'Not registered' }));
+            return;
+          }
+
+          logger.info('Hangup request received', {
+            username,
+            callId: message.callId,
+            to: message.to
+          });
+
+          // Gestione hangup per chiamate SIP
           if (message.callId && sipGateway) {
             const callData = activeCalls.get(message.callId);
-            if (callData && (callData.sipTarget || callData.sipCaller)) {
-              logger.info('Hanging up SIP call', { callId: message.callId });
-              sipGateway.hangup(message.callId)
-                .catch(err => logger.error('Error hanging up', {
+
+            if (callData) {
+              logger.info('Hanging up SIP call', {
+                callId: message.callId,
+                direction: callData.direction,
+                webrtcUser: callData.webrtcUser
+              });
+
+              if (callData.webrtcUser === username) {
+                try {
+                  await sipGateway.hangup(message.callId);
+                  logger.info('SIP hangup successful', { callId: message.callId });
+                } catch (err) {
+                  logger.error('Error hanging up SIP call', {
+                    callId: message.callId,
+                    error: err.message
+                  });
+                }
+
+                activeCalls.delete(message.callId);
+
+                ws.send(JSON.stringify({
+                  type: 'call-ended',
                   callId: message.callId,
-                  error: err.message
+                  reason: 'Call terminated'
                 }));
-              activeCalls.delete(message.callId);
+              } else {
+                logger.warn('User attempted to hangup call they are not part of', {
+                  username,
+                  callId: message.callId,
+                  actualUser: callData.webrtcUser
+                });
+              }
+            } else {
+              logger.warn('Call ID not found in active calls', {
+                callId: message.callId,
+                username
+              });
             }
           }
 
-          if (username && message.to) {
+          // Gestione hangup per chiamate WebRTC-to-WebRTC
+          if (message.to) {
+            logger.debug('Forwarding hangup to WebRTC peer', {
+              from: username,
+              to: message.to
+            });
+
             sendToUser(message.to, {
               type: 'hang-up',
               from: username,
-              reason: 'Call ended by remote party'
+              reason: message.reason || 'Call ended by remote party'
             });
           }
           break;
 
         case 'reject':
+          if (!username) {
+            ws.send(JSON.stringify({ type: 'error', message: 'Not registered' }));
+            return;
+          }
+
+          logger.info('Reject request received', {
+            username,
+            callId: message.callId,
+            to: message.to
+          });
+
+          // Gestione reject per chiamate SIP in arrivo
           if (message.callId && sipGateway) {
             const callData = activeCalls.get(message.callId);
-            if (callData && callData.direction === 'incoming') {
-              logger.info('Rejecting SIP call', {
+
+            if (callData && callData.direction === 'incoming' && callData.webrtcUser === username) {
+              logger.info('Rejecting incoming SIP call', {
                 webrtcUser: username,
                 callId: message.callId
               });
-              await sipGateway.rejectCall(message.callId, 603, 'Decline');
+
+              try {
+                await sipGateway.rejectCall(message.callId, 603, 'Decline');
+                logger.info('SIP reject successful', { callId: message.callId });
+              } catch (err) {
+                logger.error('Error rejecting SIP call', {
+                  callId: message.callId,
+                  error: err.message
+                });
+              }
+
               activeCalls.delete(message.callId);
             }
           }
 
-          if (username && message.to) {
+          // Gestione reject per chiamate WebRTC-to-WebRTC
+          if (message.to) {
+            logger.debug('Forwarding reject to WebRTC peer', {
+              from: username,
+              to: message.to
+            });
+
             sendToUser(message.to, {
               type: 'call-rejected',
               from: username
             });
           }
+          break;
+
+        case 'ice-candidate':
+          if (!username || !message.to || !message.data) return;
+          sendToUser(message.to, {
+            type: 'ice-candidate',
+            from: username,
+            data: message.data
+          });
           break;
 
         default:
@@ -569,7 +798,7 @@ wss.on('connection', (ws, req) => {
     }
   });
 
-  ws.on('close', () => {
+  ws.on('close', async () => {
     if (username) {
       users.delete(username);
       logger.info('User disconnected', {
@@ -577,19 +806,35 @@ wss.on('connection', (ws, req) => {
         totalUsers: users.size
       });
 
+      // Cleanup migliorato delle chiamate SIP quando l'utente si disconnette
       if (sipGateway) {
+        const callsToCleanup = [];
+
         activeCalls.forEach((callData, callId) => {
-          if (callData.webrtcUser === username && (callData.sipTarget || callData.sipCaller)) {
-            sipGateway.hangup(callId)
-              .catch(err => logger.error('Error cleanup hangup', {
-                callId,
-                error: err.message
-              }));
-          }
           if (callData.webrtcUser === username) {
-            activeCalls.delete(callId);
+            callsToCleanup.push({ callId, callData });
           }
         });
+
+        for (const { callId, callData } of callsToCleanup) {
+          logger.info('Cleaning up SIP call on user disconnect', {
+            username,
+            callId,
+            direction: callData.direction
+          });
+
+          try {
+            await sipGateway.hangup(callId);
+            logger.info('SIP call terminated on disconnect', { callId });
+          } catch (err) {
+            logger.error('Error cleaning up SIP call on disconnect', {
+              callId,
+              error: err.message
+            });
+          }
+
+          activeCalls.delete(callId);
+        }
       }
 
       broadcast({
@@ -597,7 +842,7 @@ wss.on('connection', (ws, req) => {
         username: username
       }, username);
     } else {
-      logger.debug('Anonymous connection closed', { clientIP });
+      logger.debug('Anonymous connection closed', { clientIP: 'unknown' });
     }
   });
 
