@@ -1545,3 +1545,210 @@ DEBUG: Clearing timeout expired.
 DEBUG: Removing SipProviderListener: 345316347536@192.168.1.209-1-REGISTER-client-z9hG4bKb98b347b
 2025-11-17 20:25:39 [pool-1-thread-5] org.mjsip.sip.transaction.Transaction.changeStatus()
 DEBUG: changed transaction state: T_Terminated
+2025-11-17 20:47:03 [main] org.mjsip.examples.UserAgentCli.call()
+INFO: CALLING sip:fede@192.168.1.127
+2025-11-17 20:47:03 [main] org.mjsip.sip.call.Call.changeState()
+DEBUG: changed call state: C_IDLE
+2025-11-17 20:47:03 [main] org.mjsip.sip.call.Call.changeState()
+DEBUG: changed call state: C_IDLE
+2025-11-17 20:47:03 [main] org.mjsip.sip.call.ExtendedCall.call()
+DEBUG: calling <sip:fede@192.168.1.127>
+2025-11-17 20:47:03 [main] org.mjsip.sip.dialog.Dialog.changeStatus()
+DEBUG: Set state of dialog  to: D_INIT
+2025-11-17 20:47:03 [main] org.mjsip.sip.dialog.InviteDialog.invite()
+DEBUG: inside invite(callee,caller,contact,sdp)
+2025-11-17 20:47:03 [main] org.mjsip.sip.dialog.InviteDialog.invite()
+DEBUG: inside invite(invite)
+2025-11-17 20:47:03 [main] org.mjsip.sip.dialog.Dialog.changeStatus()
+DEBUG: Set state of dialog  to: D_INVITING
+2025-11-17 20:47:03 [main] org.mjsip.sip.dialog.Dialog.updateDialogInfo()
+DEBUG: Updated dialog ID to: 046741721358@192.168.1.209-843923104485-null
+2025-11-17 20:47:03 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 046741721358@192.168.1.209-843923104485-null
+2025-11-17 20:47:03 [main] org.mjsip.sip.transaction.InviteTransactionClient.init()
+INFO: new transaction-id: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK40e1a8ab
+2025-11-17 20:47:03 [main] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 20:47:03 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK40e1a8ab
+2025-11-17 20:47:03 [main] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 20:47:03 [main] org.mjsip.sip.call.Call.changeState()
+DEBUG: changed call state: C_OUTGOING
+2025-11-17 20:47:03 [main] org.mjsip.examples.UserAgentCli.changeStatus()
+DEBUG: state: OUTGOING_CALL
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK40e1a8ab
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Proceeding
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.dialog.InviteDialog.onTransProvisionalResponse()
+DEBUG: inside onTransProvisionalResponse(tc,mdg)
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK40e1a8ab
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.dialog.InviteDialog.onTransProvisionalResponse()
+DEBUG: inside onTransProvisionalResponse(tc,mdg)
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.dialog.Dialog.updateDialogInfo()
+DEBUG: Updated dialog ID to: 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 046741721358@192.168.1.209-843923104485-null
+2025-11-17 20:47:03 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249
+2025-11-17 20:47:03 [Thread-1] org.mjsip.ua.UserAgent.onCallRinging()
+DEBUG: onCallRinging()
+2025-11-17 20:47:03 [Thread-1] org.mjsip.ua.UserAgent.onCallRinging()
+DEBUG: RINGING
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK40e1a8ab
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK40e1a8ab
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.dialog.InviteDialog.onTransSuccessResponse()
+DEBUG: inside onTransSuccessResponse(tc,msg)
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.dialog.Dialog.changeStatus()
+DEBUG: Set state of dialog 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249 to: D_CALL
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.transaction.AckTransactionClient.<init>()
+INFO: new transaction-id: 046741721358@192.168.1.209-1-INVITE-client-z9hG4bK0550c395
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 20:47:07 [Thread-1] org.mjsip.sip.call.Call.changeState()
+DEBUG: changed call state: C_ACTIVE
+2025-11-17 20:47:07 [Thread-1] org.mjsip.ua.UserAgent.onCallAccepted()
+DEBUG: Call accepted: mozilla...THIS_IS_SDPARTA-99.0 2608210234880759937 0 IN IP4 0.0.0.0
+2025-11-17 20:47:07 [Thread-1] org.mjsip.examples.UserAgentCli.changeStatus()
+DEBUG: state: ONCALL
+2025-11-17 20:47:07 [Thread-1] org.mjsip.examples.UserAgentCli.onUaCallAccepted()
+INFO: call accepted
+2025-11-17 20:47:07 [Thread-1] org.mjsip.examples.UserAgentCli.onUaCallAccepted()
+INFO: press 'enter' to hangup
+2025-11-17 20:47:07 [Thread-1] org.mjsip.ua.UserAgent.startMediaSessions()
+DEBUG: Local media: m=audio 50000 rtp/avp 0 8
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to dialog: 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.dialog.InviteDialog.onReceivedMessage()
+DEBUG: inside onReceivedMessage(sip_provider,message)
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.dialog.Dialog.changeStatus()
+DEBUG: Set state of dialog 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249 to: D_BYED
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.transaction.TransactionServer.init()
+DEBUG: Starting transaction 046741721358@192.168.1.209-2-BYE-server-z9hG4bK1382cb31bd604381226dc93f:BYE sip:client1@192.168.1.209:5062 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport=5060;branch=z9hG4bK1382cb31bd604381226dc93f
+Via: SIP/2.0/UDP 192.168.1.127:5060;branch=z9hG4bKe7c6482c4b9e97c9c8fe3f37db41813e
+Max-Forwards: 69
+From: <sip:fede@192.168.1.127>;tag=0e3dfd1466eba249
+To: "Client1" <sip:client1@192.168.1.209>;tag=843923104485
+Call-ID: 046741721358@192.168.1.209
+CSeq: 2 BYE
+Content-Length: 0
+
+
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 046741721358@192.168.1.209-2-BYE-server-z9hG4bK1382cb31bd604381226dc93f
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.dialog.ExtendedInviteDialog.respond()
+DEBUG: inside x-respond(resp)
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.dialog.InviteDialog.respond()
+DEBUG: inside respond(resp)
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.transaction.TransactionServer.respondWith()
+DEBUG: Transaction 046741721358@192.168.1.209-2-BYE-server-z9hG4bK1382cb31bd604381226dc93f response: SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport=5060;branch=z9hG4bK1382cb31bd604381226dc93f
+Via: SIP/2.0/UDP 192.168.1.127:5060;branch=z9hG4bKe7c6482c4b9e97c9c8fe3f37db41813e
+To: "Client1" <sip:client1@192.168.1.209>;tag=843923104485
+From: <sip:fede@192.168.1.127>;tag=0e3dfd1466eba249
+Call-ID: 046741721358@192.168.1.209
+CSeq: 2 BYE
+Server: mjsip 2.0.5
+Content-Length: 0
+
+
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Completed
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.call.Call.changeState()
+DEBUG: changed call state: C_CLOSED
+2025-11-17 20:47:36 [Thread-1] org.mjsip.ua.UserAgent.onCallBye()
+DEBUG: onCallBye()
+2025-11-17 20:47:36 [Thread-1] org.mjsip.ua.UserAgent.onCallBye()
+DEBUG: CLOSE
+2025-11-17 20:47:36 [Thread-1] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: WAITING FOR INCOMING CALL
+2025-11-17 20:47:36 [Thread-1] org.mjsip.examples.UserAgentCli.changeStatus()
+DEBUG: state: IDLE
+2025-11-17 20:47:36 [Thread-1] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: digit the callee's URI to make a call or press 'enter' to exit
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.dialog.Dialog.changeStatus()
+DEBUG: Set state of dialog 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249 to: D_CLOSE
+2025-11-17 20:47:36 [Thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 046741721358@192.168.1.209-843923104485-0e3dfd1466eba249
+2025-11-17 20:47:37 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.onClearingTimeout()
+DEBUG: Transaction timeout reached: 046741721358@192.168.1.209-2-BYE-server-z9hG4bK1382cb31bd604381226dc93f
+2025-11-17 20:47:37 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 046741721358@192.168.1.209-2-BYE-server-z9hG4bK1382cb31bd604381226dc93f
+2025-11-17 20:47:37 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 20:47:37 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.doTerminate()
+DEBUG: Transaction terminated: 046741721358@192.168.1.209-2-BYE-server-z9hG4bK1382cb31bd604381226dc93f
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.209:5062> (expiry 3600 secs) at sip:192.168.1.209:5060
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 251470202750@192.168.1.209-1-REGISTER-client-z9hG4bKddc95c1a
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 251470202750@192.168.1.209-1-REGISTER-client-z9hG4bKddc95c1a
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 20:55:34 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 20:55:34 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 251470202750@192.168.1.209-1-REGISTER-client-z9hG4bKddc95c1a
+2025-11-17 20:55:34 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Completed
+2025-11-17 20:55:34 [Thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationSucceeded()
+INFO: Registration succeeded: 200 OK
+2025-11-17 20:55:34 [Thread-1] org.mjsip.sip.transaction.TransactionClient.startClearingTimeout()
+DEBUG: Starting clearing timeout: 5000ms
+2025-11-17 20:55:39 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onClearingTimeout()
+DEBUG: Clearing timeout expired.
+2025-11-17 20:55:39 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 251470202750@192.168.1.209-1-REGISTER-client-z9hG4bKddc95c1a
+2025-11-17 20:55:39 [pool-1-thread-2] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.209:5062> (expiry 3600 secs) at sip:192.168.1.209:5060
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 629789200830@192.168.1.209-1-REGISTER-client-z9hG4bKdaafcfba
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 629789200830@192.168.1.209-1-REGISTER-client-z9hG4bKdaafcfba
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 21:25:34 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 21:25:34 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to transaction: 629789200830@192.168.1.209-1-REGISTER-client-z9hG4bKdaafcfba
+2025-11-17 21:25:34 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Completed
+2025-11-17 21:25:34 [Thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationSucceeded()
+INFO: Registration succeeded: 200 OK
+2025-11-17 21:25:34 [Thread-1] org.mjsip.sip.transaction.TransactionClient.startClearingTimeout()
+DEBUG: Starting clearing timeout: 5000ms
+2025-11-17 21:25:39 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onClearingTimeout()
+DEBUG: Clearing timeout expired.
+2025-11-17 21:25:39 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 629789200830@192.168.1.209-1-REGISTER-client-z9hG4bKdaafcfba
+2025-11-17 21:25:39 [pool-1-thread-2] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated

@@ -902,13 +902,13 @@ class SipGateway extends EventEmitter {
           'from-tag': fromTag,
           'to-tag': toTag,
           'sdp': sipAnswerSdp,
-          'transport-protocol': 'RTP/SAVPF',  // WebRTC preferred
+          'transport-protocol': 'UDP/TLS/RTP/SAVPF',  // RTP/SAVPF
           'ICE': 'force',                       // Forza ICE
           'DTLS': 'passive',                    // Browser active, RTPEngine passive
-          'rtcp-mux': ['offer'],               // Offri rtcp-mux
+          'rtcp-mux': ['require'],               // offer
           'codec': {
             'strip': ['telephone-event'],
-            'offer': ['opus', 'PCMU', 'PCMA'],
+            'offer': ['opus', 'PCMU', 'PCMA'],   // opus
             //'transcode': ['opus']
           }
         };
@@ -1000,10 +1000,10 @@ class SipGateway extends EventEmitter {
         'call-id': callId,
         'from-tag': fromTag,
         'sdp': sipOfferSdp,
-        'transport-protocol': 'RTP/SAVPF',  // WebRTC preferred
+        'transport-protocol': 'UDP/TLS/RTP/SAVPF',  // WebRTC preferred
         'ICE': 'force',                       // Forza ICE
         'DTLS': 'passive',                    // RTPEngine passive, browser active
-        'rtcp-mux': ['offer'],                // Offri rtcp-mux
+        'rtcp-mux': ['require'],                // Offri rtcp-mux
         'codec': {
           'strip': ['telephone-event'],
           'offer': ['opus', 'PCMU', 'PCMA'],
