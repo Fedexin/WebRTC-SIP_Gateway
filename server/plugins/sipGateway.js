@@ -109,6 +109,13 @@ class SipGateway extends EventEmitter {
         try {
           const messageStr = msg.toString();
 
+          this.logger.debug('Received raw message', {
+            source: `${rinfo.address}:${rinfo.port}`,
+            length: messageStr.length,
+            firstChars: messageStr.substring(0, 50),
+            fullMessage: messageStr  // Log il messaggio completo
+          });
+
           if (this.isDTMFNotification(messageStr)) {
             this.handleDTMFNotification(messageStr);
             return;

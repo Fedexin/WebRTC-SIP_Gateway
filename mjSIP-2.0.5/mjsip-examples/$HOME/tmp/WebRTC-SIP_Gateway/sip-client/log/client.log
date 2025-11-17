@@ -1,0 +1,800 @@
+2025-11-17 17:23:31 [main] org.mjsip.config.OptionParser.parseOptions()
+DEBUG: Reading options from: /Users/fede/tmp/WebRTC-SIP_Gateway/sip-client/client1.cfg
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipStack: mjsip 2.0.5
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipProvider: 5062
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: udp is up at port 5062
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: tcp is up at port 5062
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (linear): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.ua.clip.AudioClipPlayer.setVolumeGain()
+DEBUG: set clip volume gain (dB): 0.0
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: INVITE
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: OPTIONS
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: ANY
+2025-11-17 17:23:31 [main] org.mjsip.examples.UserAgentCli.run()
+INFO: REGISTRATION
+2025-11-17 17:23:31 [main] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.127:5062> (expiry 3600 secs) at sip:192.168.1.127:5060
+2025-11-17 17:23:31 [main] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 057875038196@192.168.1.127-1-REGISTER-client-z9hG4bK26d7455c
+2025-11-17 17:23:31 [main] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 17:23:31 [main] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 057875038196@192.168.1.127-1-REGISTER-client-z9hG4bK26d7455c
+2025-11-17 17:23:31 [main] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:31 [main] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 17:23:31 [main] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: WAITING FOR INCOMING CALL
+2025-11-17 17:23:31 [main] org.mjsip.examples.UserAgentCli.changeStatus()
+DEBUG: state: IDLE
+2025-11-17 17:23:31 [main] org.mjsip.examples.UserAgentCli.readyToReceive()
+INFO: digit the callee's URI to make a call or press 'enter' to exit
+2025-11-17 17:23:31 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:31 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:32 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:32 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:34 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:34 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:38 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:38 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:42 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:42 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:46 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:46 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:51 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:51 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:55 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:55 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:23:59 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:23:59 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:24:03 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:24:03 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:24:03 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onTransactionTimeout()
+DEBUG: Transaction timeout expired.
+2025-11-17 17:24:03 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 057875038196@192.168.1.127-1-REGISTER-client-z9hG4bK26d7455c
+2025-11-17 17:24:03 [pool-1-thread-4] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 17:24:03 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.onTransTimeout()
+INFO: Registration of <sip:client1@192.168.1.127:5062> timed out.
+2025-11-17 17:24:03 [pool-1-thread-4] org.mjsip.examples.UserAgentCli.onUaRegistrationFailed()
+ERROR: Registration failed: Timeout
+2025-11-17 17:24:03 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.scheduleNextAttempt()
+INFO: Waiting 60000ms for next registration of <sip:client1@192.168.1.127:5062>.
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.127:5062> (expiry 3600 secs) at sip:192.168.1.127:5060
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 387907044827@192.168.1.127-1-REGISTER-client-z9hG4bK00aff62e
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 387907044827@192.168.1.127-1-REGISTER-client-z9hG4bK00aff62e
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:03 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:04 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:04 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:06 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:06 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:10 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:10 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:15 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:15 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:19 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:19 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:23 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:23 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:27 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:27 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:31 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:31 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:35 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:25:35 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:25:35 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onTransactionTimeout()
+DEBUG: Transaction timeout expired.
+2025-11-17 17:25:35 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 387907044827@192.168.1.127-1-REGISTER-client-z9hG4bK00aff62e
+2025-11-17 17:25:35 [pool-1-thread-4] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 17:25:35 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.onTransTimeout()
+INFO: Registration of <sip:client1@192.168.1.127:5062> timed out.
+2025-11-17 17:25:35 [pool-1-thread-4] org.mjsip.examples.UserAgentCli.onUaRegistrationFailed()
+ERROR: Registration failed: Timeout
+2025-11-17 17:25:35 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.scheduleNextAttempt()
+INFO: Waiting 120000ms for next registration of <sip:client1@192.168.1.127:5062>.
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.127:5062> (expiry 3600 secs) at sip:192.168.1.127:5060
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 628317655713@192.168.1.127-1-REGISTER-client-z9hG4bKe6c2a811
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 628317655713@192.168.1.127-1-REGISTER-client-z9hG4bKe6c2a811
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:35 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 17:27:35 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:35 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:36 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:36 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:38 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:38 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:42 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:42 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:46 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:46 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:50 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:50 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:54 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:54 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:27:58 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:27:58 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:28:02 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:28:02 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:28:06 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:28:06 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:28:07 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onTransactionTimeout()
+DEBUG: Transaction timeout expired.
+2025-11-17 17:28:07 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 628317655713@192.168.1.127-1-REGISTER-client-z9hG4bKe6c2a811
+2025-11-17 17:28:07 [pool-1-thread-4] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 17:28:07 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.onTransTimeout()
+INFO: Registration of <sip:client1@192.168.1.127:5062> timed out.
+2025-11-17 17:28:07 [pool-1-thread-4] org.mjsip.examples.UserAgentCli.onUaRegistrationFailed()
+ERROR: Registration failed: Timeout
+2025-11-17 17:28:07 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.scheduleNextAttempt()
+INFO: Waiting 240000ms for next registration of <sip:client1@192.168.1.127:5062>.
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.127:5062> (expiry 3600 secs) at sip:192.168.1.127:5060
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 488127254551@192.168.1.127-1-REGISTER-client-z9hG4bK0fb50ca7
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 488127254551@192.168.1.127-1-REGISTER-client-z9hG4bK0fb50ca7
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:07 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:08 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:08 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:10 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:10 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:14 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:14 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:18 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:18 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:22 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:22 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:26 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:26 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:30 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:30 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:35 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:35 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:39 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:32:39 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:32:39 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onTransactionTimeout()
+DEBUG: Transaction timeout expired.
+2025-11-17 17:32:39 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 488127254551@192.168.1.127-1-REGISTER-client-z9hG4bK0fb50ca7
+2025-11-17 17:32:39 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 17:32:39 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.onTransTimeout()
+INFO: Registration of <sip:client1@192.168.1.127:5062> timed out.
+2025-11-17 17:32:39 [pool-1-thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationFailed()
+ERROR: Registration failed: Timeout
+2025-11-17 17:32:39 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.scheduleNextAttempt()
+INFO: Waiting 480000ms for next registration of <sip:client1@192.168.1.127:5062>.
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.127:5062> (expiry 3600 secs) at sip:192.168.1.127:5060
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 645988899583@192.168.1.127-1-REGISTER-client-z9hG4bKd841a1d6
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 645988899583@192.168.1.127-1-REGISTER-client-z9hG4bKd841a1d6
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:39 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 17:40:39 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:39 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:40 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:40 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:42 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:42 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:47 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:47 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:51 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:51 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:55 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:55 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:40:59 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:40:59 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:41:03 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:41:03 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:41:07 [pool-1-thread-3] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:41:07 [pool-1-thread-3] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:41:11 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:41:11 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:41:11 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onTransactionTimeout()
+DEBUG: Transaction timeout expired.
+2025-11-17 17:41:11 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 645988899583@192.168.1.127-1-REGISTER-client-z9hG4bKd841a1d6
+2025-11-17 17:41:11 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 17:41:11 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.onTransTimeout()
+INFO: Registration of <sip:client1@192.168.1.127:5062> timed out.
+2025-11-17 17:41:11 [pool-1-thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationFailed()
+ERROR: Registration failed: Timeout
+2025-11-17 17:41:11 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.scheduleNextAttempt()
+INFO: Waiting 900000ms for next registration of <sip:client1@192.168.1.127:5062>.
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.ua.registration.RegistrationClient.register()
+DEBUG: Registering <sip:client1@192.168.1.127:5062> (expiry 3600 secs) at sip:192.168.1.127:5060
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.init()
+DEBUG: new transaction-id: 707359257539@192.168.1.127-1-REGISTER-client-z9hG4bKe4771737
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Trying
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.startTransactionTimeout()
+DEBUG: Starting transaction timeout: 32000ms
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 707359257539@192.168.1.127-1-REGISTER-client-z9hG4bKe4771737
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.request()
+DEBUG: Starting retransmission timeout.
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:11 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:12 [pool-1-thread-5] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:12 [pool-1-thread-5] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:14 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:14 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:18 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:18 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:22 [pool-1-thread-2] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:22 [pool-1-thread-2] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:27 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:27 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:31 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:31 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:35 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:35 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:39 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:39 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:43 [pool-1-thread-4] org.mjsip.sip.transaction.TransactionClient.onRetransmissionTimeout()
+DEBUG: Retransmission timeout expired
+2025-11-17 17:56:43 [pool-1-thread-4] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-17 17:56:43 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionClient.onTransactionTimeout()
+DEBUG: Transaction timeout expired.
+2025-11-17 17:56:43 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 707359257539@192.168.1.127-1-REGISTER-client-z9hG4bKe4771737
+2025-11-17 17:56:43 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+DEBUG: changed transaction state: T_Terminated
+2025-11-17 17:56:43 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.onTransTimeout()
+INFO: Registration of <sip:client1@192.168.1.127:5062> timed out.
+2025-11-17 17:56:43 [pool-1-thread-1] org.mjsip.examples.UserAgentCli.onUaRegistrationFailed()
+ERROR: Registration failed: Timeout
+2025-11-17 17:56:43 [pool-1-thread-1] org.mjsip.ua.registration.RegistrationClient.scheduleNextAttempt()
+INFO: Waiting 900000ms for next registration of <sip:client1@192.168.1.127:5062>.
+2025-11-17 18:08:22 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:08:38 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:08:52 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:09:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:09:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:10:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:10:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:10:52 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:11:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:11:22 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:11:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:11:52 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:12:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:12:22 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:12:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:12:52 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:13:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:13:22 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:13:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:14:23 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:14:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:15:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:15:22 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:15:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:15:52 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:16:07 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:16:22 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)
+2025-11-17 18:16:37 [Thread-1] org.mjsip.sip.provider.SipProvider.onReceivedMessage()
+WARN: Error handling a new incoming message: java.lang.NumberFormatException: For input string: "undefined"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:588)
+	at java.base/java.lang.Integer.parseInt(Integer.java:685)
+	at org.zoolu.util.Parser.getInt(Parser.java:352)
+	at org.mjsip.sip.header.CSeqHeader.getSequenceNumber(CSeqHeader.java:63)
+	at org.mjsip.sip.provider.SipId.createTransactionId(SipId.java:85)
+	at org.mjsip.sip.provider.SipProvider.getListener(SipProvider.java:949)
+	at org.mjsip.sip.provider.SipProvider.onReceivedMessage(SipProvider.java:932)
+	at org.mjsip.sip.provider.UdpTransport.processReceivedPacket(UdpTransport.java:174)
+	at org.mjsip.sip.provider.UdpTransport$1.onReceivedPacket(UdpTransport.java:88)
+	at org.zoolu.net.UdpProvider.run(UdpProvider.java:183)

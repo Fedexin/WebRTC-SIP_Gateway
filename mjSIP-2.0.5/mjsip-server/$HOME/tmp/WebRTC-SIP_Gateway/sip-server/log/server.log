@@ -1,0 +1,16 @@
+2025-11-17 17:22:38 [main] org.mjsip.config.OptionParser.parseOptions()
+DEBUG: Reading options from: /Users/fede/tmp/WebRTC-SIP_Gateway/sip-server/server.cfg
+2025-11-17 17:22:38 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipStack: mjsip 2.0.5
+2025-11-17 17:22:38 [main] org.mjsip.sip.provider.SipProvider.initLog()
+INFO: SipProvider: 5060
+2025-11-17 17:22:38 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+INFO: udp is up at port 5060
+2025-11-17 17:22:38 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: ANY
+2025-11-17 17:22:38 [main] org.mjsip.server.ServerEngine.<init>()
+INFO: Domains=192.168.1.127
+2025-11-17 17:22:38 [main] org.mjsip.server.ServerEngine.<init>()
+DEBUG: LocationService (local): size=1
+To: client1@192.168.1.209:5060
+
