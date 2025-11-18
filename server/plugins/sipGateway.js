@@ -1005,9 +1005,9 @@ class SipGateway extends EventEmitter {
         'DTLS': 'passive',                    // RTPEngine passive, browser active
         'rtcp-mux': ['require'],                // Offri rtcp-mux
         'codec': {
-          'strip': ['telephone-event', 'opus'],
+          'strip': ['telephone-event'],
           'offer': ['PCMU', 'PCMA'],
-          //'transcode': ['opus']
+          'transcode': ['PCMU', 'PCMA']
         }
       };
 
@@ -1091,9 +1091,9 @@ class SipGateway extends EventEmitter {
         'ICE': 'remove',                   // Rimuovi ICE per SIP
         'rtcp-mux': ['demux'],            // SIP non usa mux
         'codec': {
-          'strip': ['opus'],
-          'offer': ['PCMU', 'PCMA'],
-          //'transcode': ['PCMU']
+          'strip': ['telephone-event'],
+          //'offer': ['PCMU', 'PCMA'],
+          'transcode': ['PCMU', 'PCMA']
         }
       };
 
