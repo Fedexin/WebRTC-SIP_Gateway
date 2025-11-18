@@ -332,7 +332,6 @@ export class WebRTCService {
       to: this.currentCall.with,
       from: this.username,
       accepted: true,
-      // FIX: Includi callId se è una chiamata SIP
       ...(this.currentCallId && { callId: this.currentCallId })
     });
 
@@ -340,14 +339,41 @@ export class WebRTCService {
       await this.createPeerConnection();
     }
 
+    // ✅ FIX: Gestione corretta del pending offer
     if (this.pendingOffer) {
-      console.log('📥 Processing pending offer after accept...');
-      await this.handleOffer({
-        type: 'offer',
-        data: this.pendingOffer,
-        from: this.currentCall.with
+      console.log('📥 Processing pending SIP offer after accept...');
+      console.log('📝 Pending offer structure:', {
+        hasType: !!this.pendingOffer.type,
+        hasSdp: !!this.pendingOffer.sdp,
+        sdpLength: this.pendingOffer.sdp?.length || 0
       });
-      this.pendingOffer = null;
+
+      try {
+        // Applica direttamente come remote description
+        console.log('📥 Setting remote description from pending offer');
+        await this.peerConnection!.setRemoteDescription(
+          new RTCSessionDescription(this.pendingOffer)
+        );
+
+        // Crea e invia la risposta
+        console.log('📝 Creating answer for SIP call...');
+        const answer = await this.peerConnection!.createAnswer();
+        await this.peerConnection!.setLocalDescription(answer);
+
+        console.log('📤 Sending answer to signaling server');
+        this.sendSignalingMessage({
+          type: 'answer',
+          to: this.currentCall.with,
+          from: this.username,
+          data: this.isSipCall ? answer.sdp : answer  // Solo SDP per SIP
+        });
+
+        this.pendingOffer = null;
+        console.log('✅ SIP offer processed successfully');
+      } catch (error) {
+        console.error('❌ Error processing pending SIP offer:', error);
+        throw error;
+      }
     }
   }
 
@@ -707,7 +733,6 @@ export class WebRTCService {
         case 'incoming-call':
           console.log('📞 Incoming SIP call from:', message.from, 'callId:', message.callId);
 
-          // FIX: Memorizza che questa è una chiamata SIP e il suo callId
           this.currentCall = { with: message.from!, isInitiator: false };
           this.isSipCall = true;
           this.currentCallId = message.callId || null;
@@ -719,7 +744,17 @@ export class WebRTCService {
 
           if (message.sdp) {
             console.log('💾 Saving pending offer with SDP');
-            this.pendingOffer = message.sdp;
+            // ✅ FIX: Salva come RTCSessionDescriptionInit valido
+            this.pendingOffer = {
+              type: 'offer',
+              sdp: typeof message.sdp === 'string'
+                ? message.sdp
+                : (message.sdp.sdp || JSON.stringify(message.sdp))
+            };
+            console.log('📝 Pending offer details:', {
+              type: this.pendingOffer.type,
+              sdpLength: this.pendingOffer.sdp?.length || 0
+            });
           }
 
           this.events.onCallRequest?.(message.from!);
