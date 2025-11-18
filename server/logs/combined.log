@@ -1,97 +1,49 @@
 
-{"level":"info","message":"PUBLIC_IP=auto detected, using local IP for LAN deployment","timestamp":"2025-11-18T17:41:19.960Z"}
-{"advertiseIP":"192.168.1.127","level":"info","localIP":"192.168.1.127","message":"SIP Gateway initialized","rtpengine":"127.0.0.1:22222","sipServer":"192.168.1.209:5060","timestamp":"2025-11-18T17:41:19.966Z"}
-{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-11-18T17:41:19.968Z"}
-{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-11-18T17:41:19.970Z"}
-{"level":"info","message":"Testing RTPEngine connection...","timestamp":"2025-11-18T17:41:19.972Z"}
-{"level":"info","message":"RTPEngine ping successful","result":{"result":"pong"},"timestamp":"2025-11-18T17:41:19.987Z"}
-{"address":"192.168.1.127","level":"info","message":"SIP socket listening","port":5060,"timestamp":"2025-11-18T17:41:19.989Z"}
-{"level":"info","message":"SIP Gateway ready and listening","timestamp":"2025-11-18T17:41:19.990Z"}
-{"level":"info","message":"SIP Gateway initialized and ready","timestamp":"2025-11-18T17:41:19.991Z"}
-{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-11-18T17:41:20.000Z"}
-{"clientIP":"127.0.0.1","clientPort":38140,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-11-18T17:41:58.238Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T17:42:00.976Z","type":"register","username":"anonymous"}
-{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-11-18T17:42:00.978Z","totalUsers":1,"username":"fede"}
-{"firstChars":"INVITE sip:fede@192.168.1.127:5060 SIP/2.0\r\nVia: S","fullMessage":"INVITE sip:fede@192.168.1.127:5060 SIP/2.0\r\nVia: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK3766c8e4efaf5adeb22abc70\r\nVia: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKbf5f0c97\r\nMax-Forwards: 69\r\nTo: <sip:fede@192.168.1.127>\r\nFrom: \"Client1\" <sip:client1@192.168.1.209>;tag=616407401860\r\nCall-ID: 316576754583@192.168.1.209\r\nCSeq: 1 INVITE\r\nRecord-Route: <sip:192.168.1.209;lr>\r\nContact: <sip:client1@192.168.1.209:5062>\r\nExpires: 3600\r\nUser-Agent: mjsip 2.0.5\r\nSupported: 100rel,timer\r\nAllow: INVITE,ACK,OPTIONS,BYE,CANCEL,INFO,PRACK,NOTIFY,MESSAGE,UPDATE\r\nContent-Length: 148\r\nContent-Type: application/sdp\r\n\r\nv=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nc=IN IP4 192.168.1.209\r\nt=0 0\r\nm=audio 50000 rtp/avp 0 8\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\n","length":768,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T17:42:14.769Z"}
-{"callId":"316576754583@192.168.1.209","from":"sip:client1@192.168.1.209","level":"info","message":"Incoming SIP call","timestamp":"2025-11-18T17:42:14.774Z","to":"fede"}
-{"direction":"sip-incoming-offer","inputType":"string","level":"debug","lines":9,"message":"SDP validation passed","timestamp":"2025-11-18T17:42:14.775Z"}
-{"callId":"316576754583@192.168.1.209","from":"sip:client1@192.168.1.209","level":"info","message":"Incoming SIP call","targetUser":"fede","timestamp":"2025-11-18T17:42:14.784Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T17:42:17.500Z","type":"call-response","username":"fede"}
-{"accepted":true,"from":"fede","level":"info","message":"Call response","timestamp":"2025-11-18T17:42:17.506Z","to":"sip:client1@192.168.1.209"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"SIP call accepted by user, waiting for answer SDP","timestamp":"2025-11-18T17:42:17.512Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T17:42:17.668Z","type":"answer","username":"fede"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"Answering incoming SIP call","timestamp":"2025-11-18T17:42:17.675Z","webrtcUser":"fede"}
-{"callId":"316576754583@192.168.1.209","length":613,"level":"debug","message":"SDP received as string","timestamp":"2025-11-18T17:42:17.680Z"}
-{"audioLine":"m=audio 9 UDP/TLS/RTP/SAVPF 0 8","callId":"316576754583@192.168.1.209","codecs":["a=rtpmap:0 PCMU/8000","a=rtpmap:8 PCMA/8000"],"hasDTLS":true,"hasICE":true,"hasOpus":false,"hasPCMA":true,"hasPCMU":true,"level":"info","message":"WebRTC Answer SDP Analysis","timestamp":"2025-11-18T17:42:17.684Z","totalLines":20}
-{"callId":"316576754583@192.168.1.209","level":"debug","message":"Complete WebRTC Answer SDP","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-99.0 1471592775276087423 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=fingerprint:sha-256 C6:E5:78:90:EE:9F:86:1E:43:57:6B:51:8A:29:09:16:CF:1E:8B:62:94:36:CE:8E:75:6E:AD:EF:4C:16:92:07\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 0 8\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=ice-pwd:2ba0c22def0b82a3d2d41cf351ad0773\r\na=ice-ufrag:62d22ee7\r\na=mid:0\r\na=msid:{98586c80-bf35-4a84-a29f-dfea5927354c} {995279b3-a57a-46c4-8484-97d262f15145}\r\na=rtcp-mux\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=setup:active\r\na=ssrc:3420996613 cname:{f091b4a5-c89e-497d-a12a-fc0dce8a717b}\r\n","timestamp":"2025-11-18T17:42:17.690Z"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"Answering SIP call","timestamp":"2025-11-18T17:42:17.700Z","webrtcUserId":"fede"}
-{"direction":"webrtc-answer","inputType":"string","level":"debug","lines":20,"message":"SDP validation passed","timestamp":"2025-11-18T17:42:17.702Z"}
-{"direction":"sip-answer","inputType":"string","level":"debug","lines":14,"message":"SDP validation passed","timestamp":"2025-11-18T17:42:17.716Z"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"200 OK sent","timestamp":"2025-11-18T17:42:17.723Z","toTag":"d7c31da9c3c3c773"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"SIP call answered successfully","timestamp":"2025-11-18T17:42:17.730Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T17:42:17.822Z","type":"offer","username":"fede"}
-{"from":"fede","level":"debug","message":"Forwarding offer","timestamp":"2025-11-18T17:42:17.823Z","to":"sip:client1@192.168.1.209"}
-{"firstChars":"ACK sip:gateway@192.168.1.127:5060 SIP/2.0\r\nVia: S","fullMessage":"ACK sip:gateway@192.168.1.127:5060 SIP/2.0\r\nVia: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKd8b6038748387f27b007c0f2\r\nVia: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK535762f2\r\nRoute: <sip:gateway@192.168.1.127:5060;lr>\r\nMax-Forwards: 69\r\nTo: <sip:fede@192.168.1.127>;tag=d7c31da9c3c3c773\r\nFrom: \"Client1\" <sip:client1@192.168.1.209>;tag=616407401860\r\nCall-ID: 316576754583@192.168.1.209\r\nCSeq: 1 ACK\r\nContact: <sip:client1@192.168.1.209:5062>\r\nExpires: 3600\r\nUser-Agent: mjsip 2.0.5\r\nContent-Length: 0\r\n\r\n","length":515,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T17:42:17.922Z"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"ACK received - call fully established","retransmissions":0,"timestamp":"2025-11-18T17:42:17.924Z"}
-{"callId":"316576754583@192.168.1.209","level":"debug","message":"INVITE transaction completed and removed","timestamp":"2025-11-18T17:42:17.925Z","transactionKey":"316576754583@192.168.1.209-1 INVITE-z9hG4bK3766c8e4efaf5adeb22abc70"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T17:42:58.774Z","type":"hangup","username":"fede"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"Hangup request received","timestamp":"2025-11-18T17:42:58.778Z","to":"sip:client1@192.168.1.209","username":"fede"}
-{"callId":"316576754583@192.168.1.209","direction":"incoming","level":"info","message":"Hanging up SIP call","timestamp":"2025-11-18T17:42:58.782Z","webrtcUser":"fede"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"Hanging up call","timestamp":"2025-11-18T17:42:58.786Z"}
-{"callId":"316576754583@192.168.1.209","level":"debug","message":"BYE sent","timestamp":"2025-11-18T17:42:58.794Z"}
-{"callId":"316576754583@192.168.1.209","level":"debug","message":"Cleaning up session","timestamp":"2025-11-18T17:42:58.798Z"}
-{"callId":"316576754583@192.168.1.209","level":"debug","message":"INVITE transaction removed during cleanup","timestamp":"2025-11-18T17:42:58.799Z","transactionKey":"316576754583@192.168.1.209-1 INVITE-z9hG4bK3766c8e4efaf5adeb22abc70"}
-{"callId":"316576754583@192.168.1.209","level":"debug","message":"RTPEngine session deleted","timestamp":"2025-11-18T17:42:58.808Z"}
-{"activeSessions":0,"callId":"316576754583@192.168.1.209","level":"info","message":"Session cleanup complete","timestamp":"2025-11-18T17:42:58.809Z"}
-{"callId":"316576754583@192.168.1.209","level":"info","message":"SIP hangup successful","timestamp":"2025-11-18T17:42:58.810Z"}
-{"from":"fede","level":"debug","message":"Forwarding hangup to WebRTC peer","timestamp":"2025-11-18T17:42:58.812Z","to":"sip:client1@192.168.1.209"}
-{"firstChars":"SIP/2.0 200 OK\r\nVia: SIP/2.0/UDP 192.168.1.127:506","fullMessage":"SIP/2.0 200 OK\r\nVia: SIP/2.0/UDP 192.168.1.127:5060;branch=z9hG4bK95756908bbadff6bba73fc770b7450c5\r\nTo: \"Client1\" <sip:client1@192.168.1.209>;tag=616407401860\r\nFrom: <sip:fede@192.168.1.127>;tag=d7c31da9c3c3c773\r\nCall-ID: 316576754583@192.168.1.209\r\nCSeq: 2 BYE\r\nServer: mjsip 2.0.5\r\nContent-Length: 0\r\n\r\n","length":305,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T17:42:59.005Z"}
-{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-11-18T17:43:17.898Z"}
-{"level":"info","message":"PUBLIC_IP=auto detected, using local IP for LAN deployment","timestamp":"2025-11-18T22:27:42.151Z"}
-{"advertiseIP":"192.168.1.127","level":"info","localIP":"192.168.1.127","message":"SIP Gateway initialized","rtpengine":"127.0.0.1:22222","sipServer":"192.168.1.209:5060","timestamp":"2025-11-18T22:27:42.156Z"}
-{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-11-18T22:27:42.159Z"}
-{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-11-18T22:27:42.160Z"}
-{"level":"info","message":"Testing RTPEngine connection...","timestamp":"2025-11-18T22:27:42.162Z"}
-{"level":"info","message":"RTPEngine ping successful","result":{"result":"pong"},"timestamp":"2025-11-18T22:27:42.179Z"}
-{"address":"192.168.1.127","level":"info","message":"SIP socket listening","port":5060,"timestamp":"2025-11-18T22:27:42.181Z"}
-{"level":"info","message":"SIP Gateway ready and listening","timestamp":"2025-11-18T22:27:42.181Z"}
-{"level":"info","message":"SIP Gateway initialized and ready","timestamp":"2025-11-18T22:27:42.182Z"}
-{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-11-18T22:27:42.191Z"}
-{"clientIP":"127.0.0.1","clientPort":40418,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-11-18T22:28:36.953Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T22:28:39.969Z","type":"register","username":"anonymous"}
-{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-11-18T22:28:39.970Z","totalUsers":1,"username":"fede"}
-{"firstChars":"INVITE sip:fede@192.168.1.127:5060 SIP/2.0\r\nVia: S","fullMessage":"INVITE sip:fede@192.168.1.127:5060 SIP/2.0\r\nVia: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK3c60b4e0d1e7f9829a869b5f\r\nVia: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKfd74cd95\r\nMax-Forwards: 69\r\nTo: <sip:fede@192.168.1.127>\r\nFrom: \"Client1\" <sip:client1@192.168.1.209>;tag=916783438433\r\nCall-ID: 259508061962@192.168.1.209\r\nCSeq: 1 INVITE\r\nRecord-Route: <sip:192.168.1.209;lr>\r\nContact: <sip:client1@192.168.1.209:5062>\r\nExpires: 3600\r\nUser-Agent: mjsip 2.0.5\r\nSupported: 100rel,timer\r\nAllow: INVITE,ACK,OPTIONS,BYE,CANCEL,INFO,PRACK,NOTIFY,MESSAGE,UPDATE\r\nContent-Length: 148\r\nContent-Type: application/sdp\r\n\r\nv=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nc=IN IP4 192.168.1.209\r\nt=0 0\r\nm=audio 50000 rtp/avp 0 8\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\n","length":768,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T22:28:55.164Z"}
-{"callId":"259508061962@192.168.1.209","from":"sip:client1@192.168.1.209","level":"info","message":"Incoming SIP call","timestamp":"2025-11-18T22:28:55.169Z","to":"fede"}
-{"direction":"sip-incoming-offer","inputType":"string","level":"debug","lines":9,"message":"SDP validation passed","timestamp":"2025-11-18T22:28:55.171Z"}
-{"callId":"259508061962@192.168.1.209","from":"sip:client1@192.168.1.209","level":"info","message":"Incoming SIP call","targetUser":"fede","timestamp":"2025-11-18T22:28:55.185Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T22:29:00.188Z","type":"call-response","username":"fede"}
-{"accepted":true,"from":"fede","level":"info","message":"Call response","timestamp":"2025-11-18T22:29:00.200Z","to":"sip:client1@192.168.1.209"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"SIP call accepted by user, waiting for answer SDP","timestamp":"2025-11-18T22:29:00.204Z"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T22:29:00.362Z","type":"answer","username":"fede"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"Answering incoming SIP call","timestamp":"2025-11-18T22:29:00.367Z","webrtcUser":"fede"}
-{"callId":"259508061962@192.168.1.209","length":613,"level":"debug","message":"SDP received as string","timestamp":"2025-11-18T22:29:00.368Z"}
-{"audioLine":"m=audio 9 UDP/TLS/RTP/SAVPF 0 8","callId":"259508061962@192.168.1.209","codecs":["a=rtpmap:0 PCMU/8000","a=rtpmap:8 PCMA/8000"],"hasDTLS":true,"hasICE":true,"hasOpus":false,"hasPCMA":true,"hasPCMU":true,"level":"info","message":"WebRTC Answer SDP Analysis","timestamp":"2025-11-18T22:29:00.369Z","totalLines":20}
-{"callId":"259508061962@192.168.1.209","level":"debug","message":"Complete WebRTC Answer SDP","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-99.0 3594103257033996597 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=fingerprint:sha-256 81:DD:0B:DE:19:EB:A0:F7:FE:CF:6C:D4:92:87:9F:DF:1D:2E:68:C7:A3:6F:6E:3E:1C:B5:48:38:50:D7:4F:99\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 0 8\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=ice-pwd:1fc71b294310fb086a7e003f0be7861b\r\na=ice-ufrag:46c6ac36\r\na=mid:0\r\na=msid:{e98079a3-3618-485b-80d1-e991ac9d89c7} {0606d757-a76e-412c-9537-37e08e9d3a6f}\r\na=rtcp-mux\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=setup:active\r\na=ssrc:3676502309 cname:{a4db6728-eebb-4089-8447-2dc205207721}\r\n","timestamp":"2025-11-18T22:29:00.370Z"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"Answering SIP call","timestamp":"2025-11-18T22:29:00.372Z","webrtcUserId":"fede"}
-{"direction":"webrtc-answer","inputType":"string","level":"debug","lines":20,"message":"SDP validation passed","timestamp":"2025-11-18T22:29:00.379Z"}
-{"direction":"sip-answer","inputType":"string","level":"debug","lines":14,"message":"SDP validation passed","timestamp":"2025-11-18T22:29:00.393Z"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"200 OK sent","timestamp":"2025-11-18T22:29:00.400Z","toTag":"7524ca43191366c1"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"SIP call answered successfully","timestamp":"2025-11-18T22:29:00.402Z"}
-{"firstChars":"ACK sip:gateway@192.168.1.127:5060 SIP/2.0\r\nVia: S","fullMessage":"ACK sip:gateway@192.168.1.127:5060 SIP/2.0\r\nVia: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK228c0a416a7f394c8e5d3a9a\r\nVia: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKf014795b\r\nRoute: <sip:gateway@192.168.1.127:5060;lr>\r\nMax-Forwards: 69\r\nTo: <sip:fede@192.168.1.127>;tag=7524ca43191366c1\r\nFrom: \"Client1\" <sip:client1@192.168.1.209>;tag=916783438433\r\nCall-ID: 259508061962@192.168.1.209\r\nCSeq: 1 ACK\r\nContact: <sip:client1@192.168.1.209:5062>\r\nExpires: 3600\r\nUser-Agent: mjsip 2.0.5\r\nContent-Length: 0\r\n\r\n","length":515,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T22:29:00.425Z"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"ACK received - call fully established","retransmissions":0,"timestamp":"2025-11-18T22:29:00.434Z"}
-{"callId":"259508061962@192.168.1.209","level":"debug","message":"INVITE transaction completed and removed","timestamp":"2025-11-18T22:29:00.440Z","transactionKey":"259508061962@192.168.1.209-1 INVITE-z9hG4bK3c60b4e0d1e7f9829a869b5f"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T22:29:00.572Z","type":"offer","username":"fede"}
-{"from":"fede","level":"debug","message":"Forwarding offer","timestamp":"2025-11-18T22:29:00.574Z","to":"sip:client1@192.168.1.209"}
-{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T22:34:04.314Z","type":"hangup","username":"fede"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"Hangup request received","timestamp":"2025-11-18T22:34:04.316Z","to":"sip:client1@192.168.1.209","username":"fede"}
-{"callId":"259508061962@192.168.1.209","direction":"incoming","level":"info","message":"Hanging up SIP call","timestamp":"2025-11-18T22:34:04.320Z","webrtcUser":"fede"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"Hanging up call","timestamp":"2025-11-18T22:34:04.325Z"}
-{"callId":"259508061962@192.168.1.209","level":"debug","message":"BYE sent","timestamp":"2025-11-18T22:34:04.326Z"}
-{"callId":"259508061962@192.168.1.209","level":"debug","message":"Cleaning up session","timestamp":"2025-11-18T22:34:04.334Z"}
-{"callId":"259508061962@192.168.1.209","level":"debug","message":"INVITE transaction removed during cleanup","timestamp":"2025-11-18T22:34:04.336Z","transactionKey":"259508061962@192.168.1.209-1 INVITE-z9hG4bK3c60b4e0d1e7f9829a869b5f"}
-{"callId":"259508061962@192.168.1.209","level":"debug","message":"RTPEngine session deleted","timestamp":"2025-11-18T22:34:04.344Z"}
-{"activeSessions":0,"callId":"259508061962@192.168.1.209","level":"info","message":"Session cleanup complete","timestamp":"2025-11-18T22:34:04.346Z"}
-{"callId":"259508061962@192.168.1.209","level":"info","message":"SIP hangup successful","timestamp":"2025-11-18T22:34:04.351Z"}
-{"from":"fede","level":"debug","message":"Forwarding hangup to WebRTC peer","timestamp":"2025-11-18T22:34:04.355Z","to":"sip:client1@192.168.1.209"}
-{"firstChars":"SIP/2.0 200 OK\r\nVia: SIP/2.0/UDP 192.168.1.127:506","fullMessage":"SIP/2.0 200 OK\r\nVia: SIP/2.0/UDP 192.168.1.127:5060;branch=z9hG4bK8be2c5bd63c8a777e6b388027c9c7001\r\nTo: \"Client1\" <sip:client1@192.168.1.209>;tag=916783438433\r\nFrom: <sip:fede@192.168.1.127>;tag=7524ca43191366c1\r\nCall-ID: 259508061962@192.168.1.209\r\nCSeq: 2 BYE\r\nServer: mjsip 2.0.5\r\nContent-Length: 0\r\n\r\n","length":305,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T22:34:04.425Z"}
-{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-11-18T22:34:20.288Z"}
+{"level":"info","message":"PUBLIC_IP=auto detected, using local IP for LAN deployment","timestamp":"2025-11-18T23:08:19.690Z"}
+{"advertiseIP":"192.168.1.127","level":"info","localIP":"192.168.1.127","message":"SIP Gateway initialized","rtpengine":"127.0.0.1:22222","sipServer":"192.168.1.209:5060","timestamp":"2025-11-18T23:08:19.694Z"}
+{"level":"info","message":"HTTP server created (SSL disabled)","timestamp":"2025-11-18T23:08:19.697Z"}
+{"level":"info","maxPayload":65536,"message":"WebSocket server created","protocol":"WS","timestamp":"2025-11-18T23:08:19.698Z"}
+{"level":"info","message":"Testing RTPEngine connection...","timestamp":"2025-11-18T23:08:19.700Z"}
+{"level":"info","message":"RTPEngine ping successful","result":{"result":"pong"},"timestamp":"2025-11-18T23:08:19.718Z"}
+{"address":"192.168.1.127","level":"info","message":"SIP socket listening","port":5060,"timestamp":"2025-11-18T23:08:19.719Z"}
+{"level":"info","message":"SIP Gateway ready and listening","timestamp":"2025-11-18T23:08:19.719Z"}
+{"level":"info","message":"SIP Gateway initialized and ready","timestamp":"2025-11-18T23:08:19.720Z"}
+{"level":"info","message":"Server ready, waiting for connections","timestamp":"2025-11-18T23:08:19.730Z"}
+{"clientIP":"127.0.0.1","clientPort":48846,"level":"info","message":"New WebSocket connection","protocol":"WS","timestamp":"2025-11-18T23:08:25.830Z"}
+{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T23:08:28.361Z","type":"register","username":"anonymous"}
+{"clientIP":"127.0.0.1","level":"info","message":"User registered","timestamp":"2025-11-18T23:08:28.363Z","totalUsers":1,"username":"fede"}
+{"firstChars":"INVITE sip:fede@192.168.1.127:5060 SIP/2.0\r\nVia: S","fullMessage":"INVITE sip:fede@192.168.1.127:5060 SIP/2.0\r\nVia: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK5b7ed3e7eef8ca8769fc9557\r\nVia: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKfd0ec504\r\nMax-Forwards: 69\r\nTo: <sip:fede@192.168.1.127>\r\nFrom: \"Client1\" <sip:client1@192.168.1.209>;tag=092696935808\r\nCall-ID: 319423741660@192.168.1.209\r\nCSeq: 1 INVITE\r\nRecord-Route: <sip:192.168.1.209;lr>\r\nContact: <sip:client1@192.168.1.209:5062>\r\nExpires: 3600\r\nUser-Agent: mjsip 2.0.5\r\nSupported: 100rel,timer\r\nAllow: INVITE,ACK,OPTIONS,BYE,CANCEL,INFO,PRACK,NOTIFY,MESSAGE,UPDATE\r\nContent-Length: 148\r\nContent-Type: application/sdp\r\n\r\nv=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nc=IN IP4 192.168.1.209\r\nt=0 0\r\nm=audio 50000 rtp/avp 0 8\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\n","length":768,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T23:08:38.790Z"}
+{"callId":"319423741660@192.168.1.209","from":"sip:client1@192.168.1.209","level":"info","message":"Incoming SIP call","timestamp":"2025-11-18T23:08:38.795Z","to":"fede"}
+{"direction":"sip-incoming-offer","inputType":"string","level":"debug","lines":9,"message":"SDP validation passed","timestamp":"2025-11-18T23:08:38.796Z"}
+{"callId":"319423741660@192.168.1.209","from":"sip:client1@192.168.1.209","level":"info","message":"Incoming SIP call","targetUser":"fede","timestamp":"2025-11-18T23:08:38.806Z"}
+{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T23:08:40.998Z","type":"call-response","username":"fede"}
+{"accepted":true,"from":"fede","level":"info","message":"Call response","timestamp":"2025-11-18T23:08:41.003Z","to":"sip:client1@192.168.1.209"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"SIP call accepted by user, waiting for answer SDP","timestamp":"2025-11-18T23:08:41.007Z"}
+{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T23:08:41.241Z","type":"answer","username":"fede"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"Answering incoming SIP call","timestamp":"2025-11-18T23:08:41.247Z","webrtcUser":"fede"}
+{"callId":"319423741660@192.168.1.209","length":612,"level":"debug","message":"SDP received as string","timestamp":"2025-11-18T23:08:41.252Z"}
+{"audioLine":"m=audio 9 UDP/TLS/RTP/SAVPF 0 8","callId":"319423741660@192.168.1.209","codecs":["a=rtpmap:0 PCMU/8000","a=rtpmap:8 PCMA/8000"],"hasDTLS":true,"hasICE":true,"hasOpus":false,"hasPCMA":true,"hasPCMU":true,"level":"info","message":"WebRTC Answer SDP Analysis","timestamp":"2025-11-18T23:08:41.254Z","totalLines":20}
+{"callId":"319423741660@192.168.1.209","level":"debug","message":"Complete WebRTC Answer SDP","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-99.0 6311771890684730227 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=fingerprint:sha-256 C6:29:38:FB:DD:4D:97:CB:77:32:76:7D:C4:49:83:08:6C:1C:E6:69:40:67:D4:7F:79:8B:E3:E1:1D:D0:C1:9D\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 0 8\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=ice-pwd:06111e559464f0d02c6ca58b6b212a74\r\na=ice-ufrag:b482954b\r\na=mid:0\r\na=msid:{ae5ad308-e90b-4077-b0ba-10ad8c84b3a0} {528fc09c-036d-4db5-bf61-ba2b84ca5dac}\r\na=rtcp-mux\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=setup:active\r\na=ssrc:978293307 cname:{f72f63ae-9c5c-4239-b8a9-b2128d9ec861}\r\n","timestamp":"2025-11-18T23:08:41.261Z"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"Answering SIP call","timestamp":"2025-11-18T23:08:41.266Z","webrtcUserId":"fede"}
+{"direction":"webrtc-answer","inputType":"string","level":"debug","lines":20,"message":"SDP validation passed","timestamp":"2025-11-18T23:08:41.268Z"}
+{"direction":"sip-answer","inputType":"string","level":"debug","lines":14,"message":"SDP validation passed","timestamp":"2025-11-18T23:08:41.284Z"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"200 OK sent","timestamp":"2025-11-18T23:08:41.293Z","toTag":"ba13446110b4259e"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"SIP call answered successfully","timestamp":"2025-11-18T23:08:41.296Z"}
+{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T23:08:41.386Z","type":"offer","username":"fede"}
+{"from":"fede","level":"debug","message":"Forwarding offer","timestamp":"2025-11-18T23:08:41.391Z","to":"sip:client1@192.168.1.209"}
+{"firstChars":"ACK sip:gateway@192.168.1.127:5060 SIP/2.0\r\nVia: S","fullMessage":"ACK sip:gateway@192.168.1.127:5060 SIP/2.0\r\nVia: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKedb41e610a9d02a79b5e1e9d\r\nVia: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK519d367c\r\nRoute: <sip:gateway@192.168.1.127:5060;lr>\r\nMax-Forwards: 69\r\nTo: <sip:fede@192.168.1.127>;tag=ba13446110b4259e\r\nFrom: \"Client1\" <sip:client1@192.168.1.209>;tag=092696935808\r\nCall-ID: 319423741660@192.168.1.209\r\nCSeq: 1 ACK\r\nContact: <sip:client1@192.168.1.209:5062>\r\nExpires: 3600\r\nUser-Agent: mjsip 2.0.5\r\nContent-Length: 0\r\n\r\n","length":515,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T23:08:41.396Z"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"ACK received - call fully established","retransmissions":0,"timestamp":"2025-11-18T23:08:41.403Z"}
+{"callId":"319423741660@192.168.1.209","level":"debug","message":"INVITE transaction completed and removed","timestamp":"2025-11-18T23:08:41.406Z","transactionKey":"319423741660@192.168.1.209-1 INVITE-z9hG4bK5b7ed3e7eef8ca8769fc9557"}
+{"level":"debug","message":"WebSocket message received","timestamp":"2025-11-18T23:08:53.432Z","type":"hangup","username":"fede"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"Hangup request received","timestamp":"2025-11-18T23:08:53.435Z","to":"sip:client1@192.168.1.209","username":"fede"}
+{"callId":"319423741660@192.168.1.209","direction":"incoming","level":"info","message":"Hanging up SIP call","timestamp":"2025-11-18T23:08:53.436Z","webrtcUser":"fede"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"Hanging up call","timestamp":"2025-11-18T23:08:53.439Z"}
+{"callId":"319423741660@192.168.1.209","level":"debug","message":"BYE sent","timestamp":"2025-11-18T23:08:53.443Z"}
+{"callId":"319423741660@192.168.1.209","level":"debug","message":"Cleaning up session","timestamp":"2025-11-18T23:08:53.446Z"}
+{"callId":"319423741660@192.168.1.209","level":"debug","message":"INVITE transaction removed during cleanup","timestamp":"2025-11-18T23:08:53.450Z","transactionKey":"319423741660@192.168.1.209-1 INVITE-z9hG4bK5b7ed3e7eef8ca8769fc9557"}
+{"callId":"319423741660@192.168.1.209","level":"debug","message":"RTPEngine session deleted","timestamp":"2025-11-18T23:08:53.467Z"}
+{"activeSessions":0,"callId":"319423741660@192.168.1.209","level":"info","message":"Session cleanup complete","timestamp":"2025-11-18T23:08:53.468Z"}
+{"callId":"319423741660@192.168.1.209","level":"info","message":"SIP hangup successful","timestamp":"2025-11-18T23:08:53.471Z"}
+{"from":"fede","level":"debug","message":"Forwarding hangup to WebRTC peer","timestamp":"2025-11-18T23:08:53.475Z","to":"sip:client1@192.168.1.209"}
+{"firstChars":"SIP/2.0 200 OK\r\nVia: SIP/2.0/UDP 192.168.1.127:506","fullMessage":"SIP/2.0 200 OK\r\nVia: SIP/2.0/UDP 192.168.1.127:5060;branch=z9hG4bKaf49c1f772dcec7b5f64cbe73c75aad9\r\nTo: \"Client1\" <sip:client1@192.168.1.209>;tag=092696935808\r\nFrom: <sip:fede@192.168.1.127>;tag=ba13446110b4259e\r\nCall-ID: 319423741660@192.168.1.209\r\nCSeq: 2 BYE\r\nServer: mjsip 2.0.5\r\nContent-Length: 0\r\n\r\n","length":305,"level":"debug","message":"Received raw message","source":"192.168.1.209:5060","timestamp":"2025-11-18T23:08:53.482Z"}
+{"level":"warn","message":"Shutdown initiated","signal":"SIGINT","timestamp":"2025-11-18T23:09:07.837Z"}
