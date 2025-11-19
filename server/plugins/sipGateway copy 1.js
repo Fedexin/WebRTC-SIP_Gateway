@@ -30,6 +30,7 @@ class SipGateway extends EventEmitter {
 
     this.sessions = new Map();
     this.transactions = new Map();
+    // FIX: Aggiungi tracking delle transazioni INVITE per deduplicazione
     this.inviteTransactions = new Map();
 
     this.rtpengineClient = new Client({
@@ -47,6 +48,7 @@ class SipGateway extends EventEmitter {
     this.T2 = 4000;
     this.TIMER_B = 64 * this.T1;
     this.TIMER_F = 64 * this.T1;
+    // FIX: Timer per ACK timeout (32 secondi come da RFC 3261)
     this.TIMER_H = 64 * this.T1;
 
     this.metrics = {
@@ -111,7 +113,7 @@ class SipGateway extends EventEmitter {
             source: `${rinfo.address}:${rinfo.port}`,
             length: messageStr.length,
             firstChars: messageStr.substring(0, 50),
-            fullMessage: messageStr
+            fullMessage: messageStr  // Log il messaggio completo
           });
 
           if (this.isDTMFNotification(messageStr)) {
@@ -376,6 +378,7 @@ class SipGateway extends EventEmitter {
     const callId = request.headers['call-id'];
     const cseq = request.headers['cseq'];
 
+    // FIX: Estrai il branch dalla Via header per identificare la transazione
     const viaHeader = Array.isArray(request.headers['via']) ?
       request.headers['via'][0] : request.headers['via'];
     const branchMatch = viaHeader ? viaHeader.match(/branch=([^;\s>]+)/) : null;
@@ -383,6 +386,7 @@ class SipGateway extends EventEmitter {
 
     const transactionKey = `${callId}-${cseq}-${branch}`;
 
+    // FIX: Controlla se questo INVITE è un retransmit
     if (this.inviteTransactions.has(transactionKey)) {
       const existingTransaction = this.inviteTransactions.get(transactionKey);
       this.logger.debug('INVITE retransmission detected, re-sending last response', {
@@ -392,6 +396,7 @@ class SipGateway extends EventEmitter {
       });
       this.metrics.retriedInvites++;
 
+      // Ritrasmetti l'ultima risposta inviata
       if (existingTransaction.lastResponse) {
         this.sendResponse(
           request,
@@ -424,13 +429,19 @@ class SipGateway extends EventEmitter {
 
       this.logger.debug('Processing RE-INVITE through RTPEngine', { callId });
 
-      const updatePayload = {
+      // ✅ CORRETTO: Usa flags corrette per il direzione
+      const updatePayload = this.addDTMFFlags({
         'call-id': callId,
         'from-tag': session.fromTag,
         'to-tag': session.toTag,
-        'sdp': newSdp
-      };
+        'sdp': newSdp,
 
+        'flags': session.direction === 'incoming'
+          ? ['SRTP/DTLS', 'ICE=force', 'endpoint-learning']
+          : ['RTP/AVP', 'endpoint-learning']
+      });
+
+      // ✅ RE-INVITE usa 'offer' di nuovo (non 'delete' e 'offer')
       const updateResponse = await this.rtpengineOperationWithRetry(() =>
         this.rtpengineClient.offer(
           this.config.rtpenginePort,
@@ -471,6 +482,7 @@ class SipGateway extends EventEmitter {
     }
   }
 
+
   handleInfo(request, rinfo) {
     const callId = request.headers['call-id'];
     const contentType = request.headers['content-type'];
@@ -504,6 +516,7 @@ class SipGateway extends EventEmitter {
       }
     }
 
+    // FIX: Assicurati che Content-Length sia sempre presente
     const hasContentLength = Object.keys(message.headers).some(
       k => k.toLowerCase() === 'content-length'
     );
@@ -525,6 +538,7 @@ class SipGateway extends EventEmitter {
 
     const result = lines.join('\r\n');
 
+    // FIX: Verifica che il messaggio non sia vuoto o malformato
     if (result.length < 20) {
       this.logger.error('Generated SIP message too short', {
         length: result.length,
@@ -643,6 +657,7 @@ class SipGateway extends EventEmitter {
 
     this.sendSipMessage(response, rinfo.address, rinfo.port);
 
+    // FIX: Salva l'ultima risposta per i retransmit
     const callId = request.headers['call-id'];
     const cseq = request.headers['cseq'];
     const viaHeader = Array.isArray(request.headers['via']) ?
@@ -721,6 +736,30 @@ class SipGateway extends EventEmitter {
     return true;
   }
 
+  addDTMFFlags(rtpenginePayload) {
+    // ✅ CORRETTO: Codec handling con support per WebRTC e SIP
+    return {
+      ...rtpenginePayload,
+      'codec': {
+        'strip': ['telephone-event'],  // Rimuovi DTMF tone da RFC 2833
+        'offer': [
+          'opus',        // ✅ WebRTC audio codec (browser default)
+          'PCMU',        // ✅ SIP fallback (G.711 µ-law)
+          'PCMA',        // ✅ SIP fallback (G.711 A-law)
+          'G729'         // ✅ SIP premium codec
+        ],
+        'accept': [
+          'opus',
+          'PCMU',
+          'PCMA',
+          'G729',
+          'telephone-event'
+        ]
+      }
+    };
+  }
+
+
   async makeCallToSip(webrtcClientId, targetSipUri, webrtcOfferSdp) {
     if (this.sessions.size >= this.config.maxConcurrentSessions) {
       throw new Error('Maximum concurrent sessions reached');
@@ -738,14 +777,19 @@ class SipGateway extends EventEmitter {
     try {
       this.validateSDP(webrtcOfferSdp, 'webrtc-offer');
 
-      // ✅ CORRETTO: WebRTC → SIP conversion
+      // ✅ CORRETTO: WebRTC SAVPF → SIP RTP/AVP
       const offerPayload = {
         'call-id': callId,
         'from-tag': fromTag,
         'sdp': webrtcOfferSdp,
-        'transport-protocol': 'RTP/AVP',
-        'ICE': 'remove',
-        'rtcp-mux': ['demux']
+        'transport-protocol': 'RTP/AVP',  // SIP standard
+        'ICE': 'remove',                   // Rimuovi ICE
+        'rtcp-mux': ['demux'],            // SIP non usa mux
+        'codec': {
+          'strip': ['opus'],
+          'offer': ['PCMU', 'PCMA'],
+          //'transcode': ['PCMU']
+        }
       };
 
       const offerResponse = await this.rtpengineOperationWithRetry(() =>
@@ -816,6 +860,7 @@ class SipGateway extends EventEmitter {
     }
   }
 
+
   async handleInviteResponse(response, callId, fromTag, targetUri) {
     if (response.isTimeout) {
       this.logger.error('INVITE timeout', { callId });
@@ -851,13 +896,21 @@ class SipGateway extends EventEmitter {
         const sipAnswerSdp = response.body;
         this.validateSDP(sipAnswerSdp, 'sip-answer');
 
-        // ✅ CORRETTO: SIP answer processing
+        // ✅ CORRETTO: SIP RTP/AVP → WebRTC SAVPF
         const answerPayload = {
           'call-id': callId,
           'from-tag': fromTag,
           'to-tag': toTag,
-          'sdp': sipAnswerSdp
-          // ✅ No transport-protocol, no ICE, no rtcp-mux
+          'sdp': sipAnswerSdp,
+          'transport-protocol': 'UDP/TLS/RTP/SAVPF',  // RTP/SAVPF
+          'ICE': 'force',                       // Forza ICE
+          'DTLS': 'passive',                    // Browser active, RTPEngine passive
+          'rtcp-mux': ['require'],               // offer
+          'codec': {
+            'strip': ['telephone-event', 'opus'],
+            'offer': ['PCMU', 'PCMA'],   // opus
+            //'transcode': ['opus']
+          }
         };
 
         const answerResponse = await this.rtpengineOperationWithRetry(() =>
@@ -915,6 +968,8 @@ class SipGateway extends EventEmitter {
     }
   }
 
+
+
   async handleIncomingInvite(request, rinfo, transactionKey) {
     const callId = request.headers['call-id'];
     const fromHeader = request.headers['from'];
@@ -940,16 +995,20 @@ class SipGateway extends EventEmitter {
       const sipOfferSdp = request.body;
       this.validateSDP(sipOfferSdp, 'sip-incoming-offer');
 
-      // ✅ CORRETTO: SIP → WebRTC conversion
+      // ✅ CORRETTO: SIP RTP/AVP → WebRTC UDP/TLS/RTP/SAVPF
       const offerPayload = {
         'call-id': callId,
         'from-tag': fromTag,
         'sdp': sipOfferSdp,
-        'transport-protocol': 'UDP/TLS/RTP/SAVPF',
-        'ICE': 'force',
-        'DTLS': 'passive',
-        'rtcp-mux': ['require']
-        // ✅ Rimosso blocco codec - passthrough PCMU/PCMA
+        'transport-protocol': 'UDP/TLS/RTP/SAVPF',  // WebRTC preferred
+        'ICE': 'force',                       // Forza ICE
+        'DTLS': 'passive',                    // RTPEngine passive, browser active
+        'rtcp-mux': ['require'],                // Offri rtcp-mux
+        'codec': {
+          'strip': ['telephone-event'],
+          'offer': ['PCMU', 'PCMA'],
+          'transcode': ['PCMU', 'PCMA']
+        }
       };
 
       const offerResponse = await this.rtpengineOperationWithRetry(() =>
@@ -994,7 +1053,7 @@ class SipGateway extends EventEmitter {
         callId,
         from: callerUri,
         toUser: targetUser,
-        sdp: offerResponse.sdp
+        sdp: offerResponse.sdp  // WebRTC offer
       });
 
     } catch (error) {
@@ -1006,6 +1065,8 @@ class SipGateway extends EventEmitter {
       this.sendResponse(request, 500, 'Internal Server Error', rinfo);
     }
   }
+
+
 
   async answerSipCall(callId, webrtcUserId, webrtcAnswerSdp) {
     this.logger.info('Answering SIP call', { callId, webrtcUserId });
@@ -1020,30 +1081,21 @@ class SipGateway extends EventEmitter {
       sessionData.state = 'answered';
       sessionData.webrtcUserId = webrtcUserId;
 
-      // ✅ CORRETTO: Payload minimale per answer
-      // RTPEngine userà automaticamente i parametri dell'offer precedente
+      // ✅ CORRETTO: WebRTC SAVPF → SIP RTP/AVP
       const answerPayload = {
         'call-id': callId,
         'from-tag': sessionData.fromTag,
         'to-tag': sessionData.toTag,
-        'sdp': webrtcAnswerSdp
-
-        // ✅ RIMOSSO:
-        // - 'transport-protocol': 'RTP/AVP'
-        // - 'rtcp-mux': ['demux']
-        // - 'codec': {...}
-        //
-        // RTPEngine sa già dall'offer() che:
-        // - Lato SIP = RTP/AVP senza ICE
-        // - Lato WebRTC = UDP/TLS/RTP/SAVPF con ICE
-        // L'answer() completa solo la negoziazione ICE/DTLS
+        'sdp': webrtcAnswerSdp,
+        'transport-protocol': 'RTP/AVP',  // SIP standard
+        //'ICE': 'remove',                   // Rimuovi ICE per SIP
+        'rtcp-mux': ['demux'],            // SIP non usa mux
+        'codec': {
+          'strip': ['telephone-event'],
+          //'offer': ['PCMU', 'PCMA'],
+          'transcode': ['PCMU', 'PCMA']
+        }
       };
-
-      this.logger.debug('Sending answer to RTPEngine', {
-        callId,
-        fromTag: sessionData.fromTag,
-        toTag: sessionData.toTag
-      });
 
       const answerResponse = await this.rtpengineOperationWithRetry(() =>
         this.rtpengineClient.answer(
@@ -1059,16 +1111,12 @@ class SipGateway extends EventEmitter {
 
       this.validateSDP(answerResponse.sdp, 'sip-answer');
 
-      this.logger.debug('RTPEngine answer successful', {
-        callId,
-        outputSdpPreview: answerResponse.sdp.substring(0, 200)
-      });
-
       const request = sessionData.sipRequest;
       this.sendResponse(request, 200, 'OK', sessionData.rinfo, answerResponse.sdp);
 
       this.logger.info('200 OK sent', { callId, toTag: sessionData.toTag });
 
+      // ACK timeout handling
       sessionData.retransmit200Count = 0;
       sessionData.retransmit200Interval = this.T1;
       sessionData.maxRetransmits = 7;
@@ -1097,15 +1145,13 @@ class SipGateway extends EventEmitter {
       sessionData.retransmit200Timer = setTimeout(retransmit200OK, this.T1);
 
     } catch (error) {
-      this.logger.error('Error answering SIP call', {
-        callId,
-        error: error.message,
-        stack: error.stack
-      });
+      this.logger.error('Error answering SIP call', { callId, error: error.message });
       await this.cleanupSession(callId);
       throw error;
     }
   }
+
+
 
   async rejectCall(callId, statusCode = 603, reason = 'Decline') {
     this.logger.info('Rejecting call', { callId, statusCode, reason });
@@ -1137,6 +1183,7 @@ class SipGateway extends EventEmitter {
     const session = this.sessions.get(callId);
 
     if (session) {
+      // FIX: Cancella tutti i timer di ritrasmissione
       if (session.retransmit200Timer) {
         clearTimeout(session.retransmit200Timer);
         session.retransmit200Timer = null;
@@ -1155,6 +1202,7 @@ class SipGateway extends EventEmitter {
         retransmissions: session.retransmit200Count || 0
       });
 
+      // FIX: Rimuovi la transazione INVITE dal tracking
       if (session.transactionKey) {
         this.inviteTransactions.delete(session.transactionKey);
         this.logger.debug('INVITE transaction completed and removed', {
@@ -1163,122 +1211,183 @@ class SipGateway extends EventEmitter {
         });
       }
     } else {
-      this.logger.warn('ACK received for unknown call', { callId });
+      this.logger.warn('ACK received for unknown session', { callId });
     }
+  }
+
+  async hangup(callId) {
+    this.logger.info('Hanging up call', { callId });
+
+    const sessionData = this.sessions.get(callId);
+    if (!sessionData) {
+      return;
+    }
+
+    try {
+      if (sessionData.state === 'established' || sessionData.state === 'answered') {
+        const branch = this.generateBranch();
+        sessionData.cseq++;
+
+        let targetUri, targetHost, targetPort;
+
+        if (sessionData.direction === 'outgoing') {
+          targetUri = sessionData.targetUri;
+          targetHost = this.config.sipServerHost;
+          targetPort = this.config.sipServerPort;
+        } else {
+          const fromHeader = sessionData.sipRequest.headers['from'];
+          const contactMatch = fromHeader ? fromHeader.match(/<([^>]+)>/) : null;
+          targetUri = contactMatch ? contactMatch[1] : fromHeader.split(';')[0];
+          targetHost = sessionData.rinfo.address;
+          targetPort = sessionData.rinfo.port;
+        }
+
+        const byeMessage = {
+          method: 'BYE',
+          uri: targetUri,
+          headers: {
+            'via': `SIP/2.0/UDP ${this.advertiseIP}:${this.config.localSipPort};branch=${branch}`,
+            'max-forwards': '70',
+            'from': sessionData.direction === 'outgoing' ?
+              `"${this.config.displayName}" <sip:gateway@${this.config.sipDomain}>;tag=${sessionData.fromTag}` :
+              `${sessionData.sipRequest.headers['to']};tag=${sessionData.toTag}`,
+            'to': sessionData.direction === 'outgoing' ?
+              `<${sessionData.targetUri}>;tag=${sessionData.toTag}` :
+              sessionData.sipRequest.headers['from'],
+            'call-id': callId,
+            'cseq': `${sessionData.cseq} BYE`
+          }
+        };
+
+        this.sendSipMessage(byeMessage, targetHost, targetPort);
+        this.logger.debug('BYE sent', { callId });
+
+      } else if (sessionData.direction === 'outgoing' && sessionData.state === 'calling') {
+        const cancelMessage = {
+          method: 'CANCEL',
+          uri: sessionData.targetUri,
+          headers: {
+            'via': `SIP/2.0/UDP ${this.advertiseIP}:${this.config.localSipPort};branch=${sessionData.viaBranch}`,
+            'max-forwards': '70',
+            'from': `"${this.config.displayName}" <sip:gateway@${this.config.sipDomain}>;tag=${sessionData.fromTag}`,
+            'to': `<${sessionData.targetUri}>`,
+            'call-id': callId,
+            'cseq': `${sessionData.cseq} CANCEL`
+          }
+        };
+
+        this.sendSipMessage(cancelMessage, this.config.sipServerHost, this.config.sipServerPort);
+        this.logger.debug('CANCEL sent', { callId });
+      }
+
+    } catch (error) {
+      this.logger.error('Error sending hangup', {
+        callId,
+        error: error.message
+      });
+    }
+
+    await this.cleanupSession(callId);
   }
 
   handleBye(request, rinfo) {
     const callId = request.headers['call-id'];
-    this.logger.info('BYE received', { callId });
 
-    const session = this.sessions.get(callId);
-    if (session) {
-      this.sendResponse(request, 200, 'OK', rinfo);
+    this.logger.info('BYE received', {
+      callId,
+      from: request.headers['from'],
+      to: request.headers['to']
+    });
 
-      if (session.direction === 'incoming' && session.webrtcUserId) {
+    // FIX: Invia 200 OK correttamente formattato
+    this.sendResponse(request, 200, 'OK', rinfo);
+    this.logger.debug('200 OK sent for BYE', { callId });
+
+    const sessionData = this.sessions.get(callId);
+    if (sessionData) {
+      if (sessionData.direction === 'outgoing') {
+        this.emit('call-ended', sessionData.webrtcClientId);
+      } else {
         this.emit('sip-call-ended', callId);
-      } else if (session.direction === 'outgoing' && session.webrtcClientId) {
-        this.emit('call-ended', session.webrtcClientId);
       }
 
       this.cleanupSession(callId);
     } else {
-      this.sendResponse(request, 481, 'Call/Transaction Does Not Exist', rinfo);
+      this.logger.warn('BYE received for unknown session', { callId });
     }
   }
 
   handleCancel(request, rinfo) {
     const callId = request.headers['call-id'];
-    this.logger.info('CANCEL received', { callId });
+    this.sendResponse(request, 200, 'OK', rinfo);
 
-    const session = this.sessions.get(callId);
-    if (session && session.state === 'ringing') {
-      this.sendResponse(request, 200, 'OK', rinfo);
+    const sessionData = this.sessions.get(callId);
+    if (sessionData) {
+      this.logger.info('CANCEL received', { callId });
 
-      this.sendResponse(session.sipRequest, 487, 'Request Terminated', session.rinfo);
-
-      if (session.webrtcUserId) {
-        this.emit('sip-call-ended', callId);
+      if (sessionData.sipRequest) {
+        this.sendResponse(sessionData.sipRequest, 487, 'Request Terminated', sessionData.rinfo);
+      } else if (sessionData.direction === 'outgoing') {
+        this.emit('call-ended', sessionData.webrtcClientId);
       }
 
       this.cleanupSession(callId);
-    } else {
-      this.sendResponse(request, 481, 'Call/Transaction Does Not Exist', rinfo);
     }
-  }
-
-  async hangup(callId) {
-    const sessionData = this.sessions.get(callId);
-    if (!sessionData) {
-      throw new Error('Session not found');
-    }
-
-    this.logger.info('Hanging up call', { callId });
-
-    const byeMessage = {
-      method: 'BYE',
-      uri: sessionData.targetUri || `sip:${sessionData.fromTag}@${this.config.sipServerHost}`,
-      headers: {
-        'via': `SIP/2.0/UDP ${this.advertiseIP}:${this.config.localSipPort};branch=${this.generateBranch()}`,
-        'max-forwards': '70',
-        'from': sessionData.direction === 'outgoing'
-          ? `<sip:webrtc@${this.advertiseIP}>;tag=${sessionData.fromTag}`
-          : `<sip:fede@${this.advertiseIP}>;tag=${sessionData.toTag}`,
-        'to': sessionData.direction === 'outgoing'
-          ? `<${sessionData.targetUri}>;tag=${sessionData.toTag}`
-          : `<sip:${sessionData.from}>;tag=${sessionData.fromTag}`,
-        'call-id': callId,
-        'cseq': `${++sessionData.cseq} BYE`
-      }
-    };
-
-    this.sendSipMessage(
-      byeMessage,
-      this.config.sipServerHost,
-      this.config.sipServerPort
-    );
-
-    this.logger.debug('BYE sent', { callId });
-
-    await this.cleanupSession(callId);
   }
 
   async cleanupSession(callId) {
-    const session = this.sessions.get(callId);
-    if (!session) {
+    const sessionData = this.sessions.get(callId);
+    if (!sessionData) {
+      return;
+    }
+
+    if (sessionData.state === 'terminating') {
+      this.logger.debug('Session already terminating, skipping duplicate cleanup', { callId });
       return;
     }
 
     this.logger.debug('Cleaning up session', { callId });
 
-    if (session.retransmit200Timer) {
-      clearTimeout(session.retransmit200Timer);
+    sessionData.state = 'terminating';
+
+    // FIX: Cancella TUTTI i timer
+    if (sessionData.ackTimeoutTimer) {
+      clearTimeout(sessionData.ackTimeoutTimer);
+      sessionData.ackTimeoutTimer = null;
     }
 
-    if (session.ackTimeoutTimer) {
-      clearTimeout(session.ackTimeoutTimer);
+    if (sessionData.retransmit200Timer) {
+      clearTimeout(sessionData.retransmit200Timer);
+      sessionData.retransmit200Timer = null;
     }
 
-    if (session.transactionKey) {
-      this.inviteTransactions.delete(session.transactionKey);
+    // FIX: Rimuovi la transazione INVITE dal tracking
+    if (sessionData.transactionKey) {
+      this.inviteTransactions.delete(sessionData.transactionKey);
       this.logger.debug('INVITE transaction removed during cleanup', {
         callId,
-        transactionKey: session.transactionKey
+        transactionKey: sessionData.transactionKey
       });
     }
 
     try {
+      const deleteOptions = {
+        'call-id': callId,
+        'from-tag': sessionData.fromTag
+      };
+
+      if (sessionData.toTag) {
+        deleteOptions['to-tag'] = sessionData.toTag;
+      }
+
       await this.rtpengineOperationWithRetry(() =>
         this.rtpengineClient.delete(
           this.config.rtpenginePort,
           this.config.rtpengineHost,
-          {
-            'call-id': callId,
-            'from-tag': session.fromTag,
-            'to-tag': session.toTag
-          }
+          deleteOptions
         )
       );
+
       this.logger.debug('RTPEngine session deleted', { callId });
     } catch (error) {
       this.logger.error('Error deleting RTPEngine session', {
@@ -1287,8 +1396,9 @@ class SipGateway extends EventEmitter {
       });
     }
 
+    this.metrics.activeSessions--;
+
     this.sessions.delete(callId);
-    this.metrics.activeSessions = Math.max(0, this.metrics.activeSessions - 1);
 
     this.logger.info('Session cleanup complete', {
       callId,
@@ -1296,33 +1406,34 @@ class SipGateway extends EventEmitter {
     });
   }
 
-  async rtpengineOperationWithRetry(operation, retries = 3) {
-    for (let i = 0; i < retries; i++) {
+  async rtpengineOperationWithRetry(operation, maxRetries = 3) {
+    for (let i = 0; i < maxRetries; i++) {
       try {
         return await operation();
       } catch (error) {
-        if (i === retries - 1) {
-          throw error;
-        }
-        this.logger.warn('RTPEngine operation failed, retrying...', {
+        this.logger.warn('RTPEngine operation failed', {
           attempt: i + 1,
+          maxRetries,
           error: error.message
         });
-        await new Promise(resolve => setTimeout(resolve, 100 * (i + 1)));
+
+        if (i === maxRetries - 1) throw error;
+
+        await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
       }
     }
   }
 
   generateCallId() {
-    return `${Date.now()}${Math.floor(Math.random() * 1000000)}@${this.advertiseIP}`;
+    return crypto.randomBytes(16).toString('hex') + '@' + this.advertiseIP;
   }
 
   generateTag() {
-    return crypto.randomBytes(6).toString('hex');
+    return crypto.randomBytes(8).toString('hex');
   }
 
   generateBranch() {
-    return `z9hG4bK${crypto.randomBytes(16).toString('hex')}`;
+    return 'z9hG4bK' + crypto.randomBytes(16).toString('hex');
   }
 
   getLocalIP() {
@@ -1338,33 +1449,41 @@ class SipGateway extends EventEmitter {
   }
 
   getMetrics() {
-    const uptime = Math.floor((Date.now() - this.metrics.startTime) / 1000);
     return {
       ...this.metrics,
-      uptimeSeconds: uptime
+      uptime: Date.now() - this.metrics.startTime,
+      sessionsCount: this.sessions.size,
+      transactionsCount: this.transactions.size,
+      inviteTransactionsCount: this.inviteTransactions.size
     };
   }
 
   async shutdown() {
-    this.logger.info('Shutting down SIP Gateway');
+    this.logger.info('Shutting down SIP Gateway...');
     this.isRunning = false;
 
-    for (const callId of this.sessions.keys()) {
-      try {
-        await this.hangup(callId);
-      } catch (error) {
-        this.logger.error('Error hanging up call during shutdown', {
+    const hangupPromises = Array.from(this.sessions.keys()).map(callId =>
+      this.hangup(callId).catch(err =>
+        this.logger.error('Error hanging up during shutdown', {
           callId,
-          error: error.message
-        });
-      }
-    }
+          error: err.message
+        })
+      )
+    );
+
+    await Promise.all(hangupPromises);
+
+    // FIX: Pulisci anche le transazioni INVITE
+    this.inviteTransactions.clear();
 
     if (this.socket) {
       this.socket.close();
     }
 
-    this.logger.info('SIP Gateway shutdown complete');
+    const finalMetrics = this.getMetrics();
+    this.logger.info('SIP Gateway shutdown complete', {
+      metrics: finalMetrics
+    });
   }
 }
 

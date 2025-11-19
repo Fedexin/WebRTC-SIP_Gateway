@@ -1,158 +1,158 @@
-[1763507296.422490] INFO: [core] Creating metadata directory "/tmp/metadata".
-[1763507296.422724] INFO: [core] Creating pcaps directory "/tmp/pcaps".
-[1763507296.422775] INFO: [core] Creating tmp directory "/tmp/tmp".
-[1763507296.422814] INFO: [core] compile-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
-[1763507296.422823] INFO: [core] run-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
-[1763507296.423840] DEBUG: [core] FIPS mode not enabled in OpenSSL library
-[1763507296.426663] INFO: [crypto] Generating new DTLS certificate
-[1763507296.426706] DEBUG: [crypto] Using EC-prime256v1 key for DTLS certificate
-[1763507296.429431] DEBUG: [srtp] Dump of DTLS certificate:
-[1763507296.429445] DEBUG: [srtp] --- -----BEGIN CERTIFICATE-----
-[1763507296.429448] DEBUG: [srtp] --- MIIBbDCCARICCQDE6/2Qm59YeTAKBggqhkjOPQQDAjA+MTwwOgYDVQQDDDNydHBl
-[1763507296.429450] DEBUG: [srtp] --- bmdpbmUtMTMtMi0wLTAtMC1tcjEzLTItMC0wLWdpdC1tYXN0ZXItYTczNDAyYjgw
-[1763507296.429452] DEBUG: [srtp] --- HhcNMjUxMTE3MjMwODE2WhcNMjUxMjE4MjMwODE2WjA+MTwwOgYDVQQDDDNydHBl
-[1763507296.429454] DEBUG: [srtp] --- bmdpbmUtMTMtMi0wLTAtMC1tcjEzLTItMC0wLWdpdC1tYXN0ZXItYTczNDAyYjgw
-[1763507296.429456] DEBUG: [srtp] --- WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQfYKLthJ78dX2777KMm1Zjdew7WXT4
-[1763507296.429457] DEBUG: [srtp] --- GOauJT2LiWzRcEsArGjK6Kg4xIn4gOIs/pLKwmc99KXKYTzXqLN1BeUGMAoGCCqG
-[1763507296.429459] DEBUG: [srtp] --- SM49BAMCA0gAMEUCIEa4Q0NWUhGFj5HYmDO5+XqH4BzPfJeGgeZFQlMM8KcKAiEA
-[1763507296.429461] DEBUG: [srtp] --- h8rbGV/pQEr0oEtAHlONm5J5/m/a74QB0UCfuMLvIhI=
-[1763507296.429463] DEBUG: [srtp] --- -----END CERTIFICATE-----
-[1763507296.429853] DEBUG: [srtp] Dump of DTLS private key:
-[1763507296.429862] DEBUG: [srtp] --- -----BEGIN PRIVATE KEY-----
-[1763507296.429864] DEBUG: [srtp] --- MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgWz+b5cMm0pO8EfD9
-[1763507296.429866] DEBUG: [srtp] --- jv5QGj6BSIgnf2FR7XY7dY3cIP2hRANCAAQfYKLthJ78dX2777KMm1Zjdew7WXT4
-[1763507296.429868] DEBUG: [srtp] --- GOauJT2LiWzRcEsArGjK6Kg4xIn4gOIs/pLKwmc99KXKYTzXqLN1BeUG
-[1763507296.429870] DEBUG: [srtp] --- -----END PRIVATE KEY-----
-[1763507296.451833] DEBUG: [core] Codec QCELP is only supported for decoding by codec library
-[1763507296.451866] DEBUG: [core] Codec G729 is only supported for decoding by codec library
-[1763507296.451880] DEBUG: [core] Codec G729a is only supported for decoding by codec library
-[1763507296.451910] DEBUG: [core] Codec iLBC is only supported for decoding by codec library
-[1763507296.451914] DEBUG: [core] Codec EVS is not supported by codec library
-[1763507296.452096] DEBUG: [core] Codec ATRAC3 is only supported for decoding by codec library
-[1763507296.452136] DEBUG: [core] Codec ATRAC-X is only supported for decoding by codec library
-[1763507296.452152] DEBUG: [core] Codec EVRC is only supported for decoding by codec library
-[1763507296.452166] DEBUG: [core] Codec EVRC0 is only supported for decoding by codec library
-[1763507296.452180] DEBUG: [core] Codec EVRC1 is only supported for decoding by codec library
-[1763507296.452240] DEBUG: [core] Codec AMR is only supported for decoding by codec library
-[1763507296.452307] DEBUG: [core] Codec AMR-WB is only supported for decoding by codec library
-[1763507296.452374] DEBUG: [core] log dtmf over ng 0
-[1763507296.452378] DEBUG: [core] no log injected dtmf 0
-[1763507296.457870] DEBUG: [http] Starting HTTP/WS '0.0.0.0:9090'
-[1763507296.458329] DEBUG: [http] Websocket init complete with 4 threads
-[1763507296.458345] INFO: [core] Startup complete, version 13.2.0.0+0~mr13.2.0.0 git-master-a73402b8
-[1763507296.459075] INFO: [http] Websocket listener thread running
-[1763507296.459104] DEBUG: [http] http-only callback 31 0x55dbe5b76648 (nil)
-[1763507296.459115] DEBUG: [http] http-only callback 27 0x55dbe5b76648 (nil)
-[1763507296.459119] DEBUG: [http] Websocket protocol 'janus-protocol' callback 27 0x55dbe5b76648 (nil)
-[1763507296.459123] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 27 0x55dbe5b76648 (nil)
-[1763507296.459126] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 27 0x55dbe5b76648 (nil)
-[1763507296.459128] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 27 0x55dbe5b76648 (nil)
-[1763507296.459131] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 27 0x55dbe5b76648 (nil)
-[1763507296.459147] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507296.459151] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507296.459153] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507296.459155] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507296.459158] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507296.459161] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507299.708760] DEBUG: [control] Adding a proxy for control ng stats:127.0.0.1
-[1763507299.708798] INFO: [control] Received command 'ping' from 127.0.0.1:54496
-[1763507299.708814] DEBUG: [control] Dump for 'ping' from 127.0.0.1:54496: { "command": "ping" }
-[1763507299.708823] INFO: [control] Replying to 'ping' from 127.0.0.1:54496 (elapsed time 0.000001 sec)
-[1763507299.708834] DEBUG: [control] Response dump for 'ping' to 127.0.0.1:54496: { "result": "pong" }
-[1763507301.401692] DEBUG: [http] http-only callback 17 0x55dbe5b30000 0x7f36b041dc60
-[1763507301.401766] DEBUG: [http] http-only callback 29 0x7f3698002d50 (nil)
-[1763507301.402012] DEBUG: [http] WS client created 0x7f3698002d50
-[1763507301.402044] DEBUG: [http] http-only callback 19 0x7f3698002d50 (nil)
-[1763507301.402060] DEBUG: [http] New WS client 0x7f3698002d50
-[1763507301.402102] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507301.402121] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402137] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402153] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402169] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402186] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402226] DEBUG: [http] http-only callback 18 0x7f3698002d50 0x7f3698004810
-[1763507301.402245] DEBUG: [http] http-only callback 49 0x7f3698002d50 0x7f3698004810
-[1763507301.402267] DEBUG: [http] http-only callback 12 0x7f3698002d50 0x7f3698004810
-[1763507301.402283] DEBUG: [http] HTTP request start: /
-[1763507301.402343] INFO: [http] HTTP GET from 127.0.0.1:35204: '/'
-[1763507301.402368] DEBUG: [http] Adding HTTP/WS message to processing queue
-[1763507301.402643] WARNING: [http] Unhandled HTTP URI: '/'
-[1763507301.402761] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507301.402766] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402769] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402772] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402774] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402776] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402793] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507301.402807] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507301.402811] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402813] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402815] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402817] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402820] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507301.402823] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507301.402826] DEBUG: [http] http-only callback 16 0x7f3698002d50 0x7f3698004810
-[1763507301.403023] DEBUG: [http] Writing back to LWS: 'not found
+[1763556225.081791] INFO: [core] Creating metadata directory "/tmp/metadata".
+[1763556225.082205] INFO: [core] Creating pcaps directory "/tmp/pcaps".
+[1763556225.082355] INFO: [core] Creating tmp directory "/tmp/tmp".
+[1763556225.082432] INFO: [core] compile-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
+[1763556225.082496] INFO: [core] run-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
+[1763556225.083314] DEBUG: [core] FIPS mode not enabled in OpenSSL library
+[1763556225.085581] INFO: [crypto] Generating new DTLS certificate
+[1763556225.085813] DEBUG: [crypto] Using EC-prime256v1 key for DTLS certificate
+[1763556225.088233] DEBUG: [srtp] Dump of DTLS certificate:
+[1763556225.088454] DEBUG: [srtp] --- -----BEGIN CERTIFICATE-----
+[1763556225.088472] DEBUG: [srtp] --- MIIBbTCCARICCQD3GNNzLUByyjAKBggqhkjOPQQDAjA+MTwwOgYDVQQDDDNydHBl
+[1763556225.088489] DEBUG: [srtp] --- bmdpbmUtMTMtMi0wLTAtMC1tcjEzLTItMC0wLWdpdC1tYXN0ZXItYTczNDAyYjgw
+[1763556225.088522] DEBUG: [srtp] --- HhcNMjUxMTE4MTI0MzQ1WhcNMjUxMjE5MTI0MzQ1WjA+MTwwOgYDVQQDDDNydHBl
+[1763556225.088540] DEBUG: [srtp] --- bmdpbmUtMTMtMi0wLTAtMC1tcjEzLTItMC0wLWdpdC1tYXN0ZXItYTczNDAyYjgw
+[1763556225.088556] DEBUG: [srtp] --- WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS79SQ2LtOhunkTbpnpDbY/RgmugoBD
+[1763556225.088594] DEBUG: [srtp] --- Hcaq4hzjtJaJubTTH3+6MGf6ZOxYy4OeZ7RPyjc5EsxulFXNiNC+p2gsMAoGCCqG
+[1763556225.088647] DEBUG: [srtp] --- SM49BAMCA0kAMEYCIQCNURvoB7UecM85qzSethyAvX0LGjk+GrDu9NVY1U46QQIh
+[1763556225.088663] DEBUG: [srtp] --- AL765xQuPJaR5VVHyChw8wLiIY3Wf+mGKNr4eYuHIx4P
+[1763556225.088710] DEBUG: [srtp] --- -----END CERTIFICATE-----
+[1763556225.089025] DEBUG: [srtp] Dump of DTLS private key:
+[1763556225.089099] DEBUG: [srtp] --- -----BEGIN PRIVATE KEY-----
+[1763556225.089114] DEBUG: [srtp] --- MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg5+nGHaSTwXOql3RR
+[1763556225.089137] DEBUG: [srtp] --- c6bwlyDky76TRc9Qo8awmI+2SkmhRANCAAS79SQ2LtOhunkTbpnpDbY/RgmugoBD
+[1763556225.089166] DEBUG: [srtp] --- Hcaq4hzjtJaJubTTH3+6MGf6ZOxYy4OeZ7RPyjc5EsxulFXNiNC+p2gs
+[1763556225.089188] DEBUG: [srtp] --- -----END PRIVATE KEY-----
+[1763556225.109859] DEBUG: [core] Codec QCELP is only supported for decoding by codec library
+[1763556225.109981] DEBUG: [core] Codec G729 is only supported for decoding by codec library
+[1763556225.110013] DEBUG: [core] Codec G729a is only supported for decoding by codec library
+[1763556225.110086] DEBUG: [core] Codec iLBC is only supported for decoding by codec library
+[1763556225.110107] DEBUG: [core] Codec EVS is not supported by codec library
+[1763556225.110322] DEBUG: [core] Codec ATRAC3 is only supported for decoding by codec library
+[1763556225.110377] DEBUG: [core] Codec ATRAC-X is only supported for decoding by codec library
+[1763556225.110407] DEBUG: [core] Codec EVRC is only supported for decoding by codec library
+[1763556225.110447] DEBUG: [core] Codec EVRC0 is only supported for decoding by codec library
+[1763556225.110482] DEBUG: [core] Codec EVRC1 is only supported for decoding by codec library
+[1763556225.110559] DEBUG: [core] Codec AMR is only supported for decoding by codec library
+[1763556225.110619] DEBUG: [core] Codec AMR-WB is only supported for decoding by codec library
+[1763556225.110686] DEBUG: [core] log dtmf over ng 0
+[1763556225.110712] DEBUG: [core] no log injected dtmf 0
+[1763556225.116409] DEBUG: [http] Starting HTTP/WS '0.0.0.0:9090'
+[1763556225.116861] DEBUG: [http] Websocket init complete with 4 threads
+[1763556225.116910] INFO: [core] Startup complete, version 13.2.0.0+0~mr13.2.0.0 git-master-a73402b8
+[1763556225.117922] INFO: [http] Websocket listener thread running
+[1763556225.118055] DEBUG: [http] http-only callback 31 0x55d48eee3648 (nil)
+[1763556225.118080] DEBUG: [http] http-only callback 27 0x55d48eee3648 (nil)
+[1763556225.118117] DEBUG: [http] Websocket protocol 'janus-protocol' callback 27 0x55d48eee3648 (nil)
+[1763556225.118141] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 27 0x55d48eee3648 (nil)
+[1763556225.118158] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 27 0x55d48eee3648 (nil)
+[1763556225.118175] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 27 0x55d48eee3648 (nil)
+[1763556225.118193] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 27 0x55d48eee3648 (nil)
+[1763556225.118228] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556225.118251] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556225.118268] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556225.118283] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556225.118300] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556225.118324] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556227.343118] DEBUG: [control] Adding a proxy for control ng stats:127.0.0.1
+[1763556227.343169] INFO: [control] Received command 'ping' from 127.0.0.1:38491
+[1763556227.343190] DEBUG: [control] Dump for 'ping' from 127.0.0.1:38491: { "command": "ping" }
+[1763556227.343199] INFO: [control] Replying to 'ping' from 127.0.0.1:38491 (elapsed time 0.000001 sec)
+[1763556227.343204] DEBUG: [control] Response dump for 'ping' to 127.0.0.1:38491: { "result": "pong" }
+[1763556230.061409] DEBUG: [http] http-only callback 17 0x55d48ee9d000 0x7f79e958cc60
+[1763556230.061434] DEBUG: [http] http-only callback 29 0x7f79c0005620 (nil)
+[1763556230.061447] DEBUG: [http] WS client created 0x7f79c0005620
+[1763556230.061456] DEBUG: [http] http-only callback 19 0x7f79c0005620 (nil)
+[1763556230.061460] DEBUG: [http] New WS client 0x7f79c0005620
+[1763556230.061480] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556230.061487] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556230.061490] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556230.061492] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556230.061495] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556230.061498] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556230.061641] DEBUG: [http] http-only callback 18 0x7f79c0005620 0x7f79c00070e0
+[1763556230.061652] DEBUG: [http] http-only callback 49 0x7f79c0005620 0x7f79c00070e0
+[1763556230.061656] DEBUG: [http] http-only callback 12 0x7f79c0005620 0x7f79c00070e0
+[1763556230.061659] DEBUG: [http] HTTP request start: /
+[1763556230.061720] INFO: [http] HTTP GET from 127.0.0.1:33052: '/'
+[1763556230.061731] DEBUG: [http] Adding HTTP/WS message to processing queue
+[1763556230.061940] WARNING: [http] Unhandled HTTP URI: '/'
+[1763556230.062012] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556230.062018] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556230.062021] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556230.062023] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556230.062026] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556230.062028] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556230.062038] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556230.062055] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556230.062059] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556230.062071] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556230.062075] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556230.062078] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556230.062081] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556230.062084] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556230.062087] DEBUG: [http] http-only callback 16 0x7f79c0005620 0x7f79c00070e0
+[1763556230.062274] DEBUG: [http] Writing back to LWS: 'not found
 '
-[1763507301.403054] DEBUG: [http] http-only callback 50 0x7f3698002d50 0x7f3698004810
-[1763507301.403058] DEBUG: [http] HTTP connection reset 0x7f3698002d50
-[1763507301.403072] DEBUG: [http] http-only callback 49 0x7f3698002d50 0x7f3698004810
-[1763507301.403078] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507301.403086] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507301.403239] DEBUG: [http] http-only callback 50 0x7f3698002d50 0x7f3698004810
-[1763507301.403242] DEBUG: [http] HTTP connection reset 0x7f3698002d50
-[1763507301.403253] DEBUG: [http] http-only callback 5 0x7f3698002d50 0x7f3698004810
-[1763507301.403256] DEBUG: [http] HTTP connection closed 0x7f3698002d50
-[1763507301.405372] DEBUG: [http] http-only callback 30 0x7f3698002d50 0x7f3698004810
-[1763507301.405416] DEBUG: [http] WS client destroyed 0x7f3698002d50
-[1763507306.479448] DEBUG: [http] http-only callback 17 0x55dbe5b30000 0x7f36b041dc60
-[1763507306.479469] DEBUG: [http] http-only callback 29 0x7f3698002d50 (nil)
-[1763507306.479473] DEBUG: [http] WS client created 0x7f3698002d50
-[1763507306.479482] DEBUG: [http] http-only callback 19 0x7f3698002d50 (nil)
-[1763507306.479484] DEBUG: [http] New WS client 0x7f3698002d50
-[1763507306.479518] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507306.479522] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479525] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479527] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479529] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479532] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479755] DEBUG: [http] http-only callback 18 0x7f3698002d50 0x7f3698004810
-[1763507306.479765] DEBUG: [http] http-only callback 49 0x7f3698002d50 0x7f3698004810
-[1763507306.479768] DEBUG: [http] http-only callback 12 0x7f3698002d50 0x7f3698004810
-[1763507306.479770] DEBUG: [http] HTTP request start: /
-[1763507306.479796] INFO: [http] HTTP GET from 127.0.0.1:35206: '/'
-[1763507306.479800] DEBUG: [http] Adding HTTP/WS message to processing queue
-[1763507306.479910] WARNING: [http] Unhandled HTTP URI: '/'
-[1763507306.479970] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507306.479974] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479977] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479979] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479981] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507306.479983] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507306.480143] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507306.480164] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507306.480168] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507306.480170] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507306.480173] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507306.480175] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507306.480178] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507306.480181] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507306.480184] DEBUG: [http] http-only callback 16 0x7f3698002d50 0x7f3698004810
-[1763507306.480243] DEBUG: [http] Writing back to LWS: 'not found
+[1763556230.062297] DEBUG: [http] http-only callback 50 0x7f79c0005620 0x7f79c00070e0
+[1763556230.062300] DEBUG: [http] HTTP connection reset 0x7f79c0005620
+[1763556230.062315] DEBUG: [http] http-only callback 49 0x7f79c0005620 0x7f79c00070e0
+[1763556230.062322] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556230.062419] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556230.062434] DEBUG: [http] http-only callback 50 0x7f79c0005620 0x7f79c00070e0
+[1763556230.062437] DEBUG: [http] HTTP connection reset 0x7f79c0005620
+[1763556230.062444] DEBUG: [http] http-only callback 5 0x7f79c0005620 0x7f79c00070e0
+[1763556230.062447] DEBUG: [http] HTTP connection closed 0x7f79c0005620
+[1763556230.063542] DEBUG: [http] http-only callback 30 0x7f79c0005620 0x7f79c00070e0
+[1763556230.063561] DEBUG: [http] WS client destroyed 0x7f79c0005620
+[1763556235.129438] DEBUG: [http] http-only callback 17 0x55d48ee9d000 0x7f79e958cc60
+[1763556235.129458] DEBUG: [http] http-only callback 29 0x7f79c0005620 (nil)
+[1763556235.129462] DEBUG: [http] WS client created 0x7f79c0005620
+[1763556235.129587] DEBUG: [http] http-only callback 19 0x7f79c0005620 (nil)
+[1763556235.129593] DEBUG: [http] New WS client 0x7f79c0005620
+[1763556235.129626] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556235.129631] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556235.129634] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556235.129637] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556235.129640] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556235.129642] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556235.129767] DEBUG: [http] http-only callback 18 0x7f79c0005620 0x7f79c00070e0
+[1763556235.129774] DEBUG: [http] http-only callback 49 0x7f79c0005620 0x7f79c00070e0
+[1763556235.129777] DEBUG: [http] http-only callback 12 0x7f79c0005620 0x7f79c00070e0
+[1763556235.129828] DEBUG: [http] HTTP request start: /
+[1763556235.129883] INFO: [http] HTTP GET from 127.0.0.1:52520: '/'
+[1763556235.129888] DEBUG: [http] Adding HTTP/WS message to processing queue
+[1763556235.129989] WARNING: [http] Unhandled HTTP URI: '/'
+[1763556235.130045] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556235.130050] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556235.130052] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556235.130055] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556235.130058] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556235.130060] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556235.130067] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556235.130102] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556235.130106] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556235.130108] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556235.130138] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556235.130142] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556235.130145] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556235.130160] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556235.130164] DEBUG: [http] http-only callback 16 0x7f79c0005620 0x7f79c00070e0
+[1763556235.130265] DEBUG: [http] Writing back to LWS: 'not found
 '
-[1763507306.480260] DEBUG: [http] http-only callback 50 0x7f3698002d50 0x7f3698004810
-[1763507306.480264] DEBUG: [http] HTTP connection reset 0x7f3698002d50
-[1763507306.480554] DEBUG: [http] http-only callback 49 0x7f3698002d50 0x7f3698004810
-[1763507306.480570] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507306.480585] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507306.480598] DEBUG: [http] http-only callback 50 0x7f3698002d50 0x7f3698004810
-[1763507306.480601] DEBUG: [http] HTTP connection reset 0x7f3698002d50
-[1763507306.480661] DEBUG: [http] http-only callback 5 0x7f3698002d50 0x7f3698004810
-[1763507306.480664] DEBUG: [http] HTTP connection closed 0x7f3698002d50
-[1763507306.484340] DEBUG: [http] http-only callback 30 0x7f3698002d50 0x7f3698004810
-[1763507306.484610] DEBUG: [http] WS client destroyed 0x7f3698002d50
-[1763507318.799724] INFO: [319423741660@192.168.1.209]: [control] Received command 'offer' from 127.0.0.1:54496
-[1763507318.799763] DEBUG: [319423741660@192.168.1.209]: [control] Dump for 'offer' from 127.0.0.1:54496: { "DTLS": "passive", "ICE": "force", "call-id": "319423741660@192.168.1.209", "codec": { "offer": [ "PCMU", "PCMA" ], "strip": [ "telephone-event" ], "transcode": [ "PCMU", "PCMA" ] }, "command": "offer", "from-tag": "092696935808", "rtcp-mux": [ "require" ], "sdp": "v=0
+[1763556235.130278] DEBUG: [http] http-only callback 50 0x7f79c0005620 0x7f79c00070e0
+[1763556235.130281] DEBUG: [http] HTTP connection reset 0x7f79c0005620
+[1763556235.130288] DEBUG: [http] http-only callback 49 0x7f79c0005620 0x7f79c00070e0
+[1763556235.130296] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556235.130303] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556235.130402] DEBUG: [http] http-only callback 50 0x7f79c0005620 0x7f79c00070e0
+[1763556235.130405] DEBUG: [http] HTTP connection reset 0x7f79c0005620
+[1763556235.130412] DEBUG: [http] http-only callback 5 0x7f79c0005620 0x7f79c00070e0
+[1763556235.130415] DEBUG: [http] HTTP connection closed 0x7f79c0005620
+[1763556235.131704] DEBUG: [http] http-only callback 30 0x7f79c0005620 0x7f79c00070e0
+[1763556235.131724] DEBUG: [http] WS client destroyed 0x7f79c0005620
+[1763556246.411151] INFO: [593288285349@192.168.1.209]: [control] Received command 'offer' from 127.0.0.1:38491
+[1763556246.411194] DEBUG: [593288285349@192.168.1.209]: [control] Dump for 'offer' from 127.0.0.1:38491: { "DTLS": "passive", "ICE": "force", "call-id": "593288285349@192.168.1.209", "codec": { "offer": [ "PCMU", "PCMA" ], "strip": [ "telephone-event" ], "transcode": [ "PCMU", "PCMA" ] }, "command": "offer", "from-tag": "511592629399", "rtcp-mux": [ "require" ], "sdp": "v=0
 o=client1 0 0 IN IP4 192.168.1.209
 s=-
 c=IN IP4 192.168.1.209
@@ -161,275 +161,275 @@ m=audio 50000 rtp/avp 0 8
 a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 ", "transport-protocol": "UDP/TLS/RTP/SAVPF" }
-[1763507318.800377] NOTICE: [319423741660@192.168.1.209]: [core] Creating new call
-[1763507318.800719] WARNING: [319423741660@192.168.1.209]: [core] No matching media (index: 1) for answer using subscription, just use an index.
-[1763507318.800730] DEBUG: [319423741660@192.168.1.209]: [core] Subscribing media with monologue tag '092696935808' (index: 1) to media with monologue tag '' (index: 1)
-[1763507318.800738] DEBUG: [319423741660@192.168.1.209]: [core] Subscribing media with monologue tag '' (index: 1) to media with monologue tag '092696935808' (index: 1)
-[1763507318.800746] DEBUG: [319423741660@192.168.1.209]: [core] setting other slot to 0, setting slot to 0
-[1763507318.800750] DEBUG: [319423741660@192.168.1.209]: [codec] Updating codecs for offerer 092696935808 #1
-[1763507318.800765] DEBUG: [319423741660@192.168.1.209]: [codec] Adding codec PCMU/8000/ (0)
-[1763507318.800783] DEBUG: [319423741660@192.168.1.209]: [codec] Adding codec PCMA/8000/ (8)
-[1763507318.800789] DEBUG: [319423741660@192.168.1.209]: [codec] Codec telephone-event not present for stripping
-[1763507318.800792] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMU already present (0)
-[1763507318.800794] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMA already present (8)
-[1763507318.801186] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMU already present (0)
-[1763507318.801195] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMA already present (8)
-[1763507318.801200] DEBUG: [319423741660@192.168.1.209]: [codec] Updating offer codecs for answerer  #1
-[1763507318.801210] DEBUG: [319423741660@192.168.1.209]: [codec] Adding codec PCMU/8000/ (0)
-[1763507318.801222] DEBUG: [319423741660@192.168.1.209]: [codec] Adding codec PCMA/8000/ (8)
-[1763507318.801230] DEBUG: [319423741660@192.168.1.209]: [codec] Codec telephone-event not present for stripping
-[1763507318.801233] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMU already present (0)
-[1763507318.801236] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMA already present (8)
-[1763507318.801242] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMU already present (0)
-[1763507318.801246] DEBUG: [319423741660@192.168.1.209]: [codec] Codec PCMA already present (8)
-[1763507318.801249] DEBUG: [319423741660@192.168.1.209]: [codec] Updating supplemental codecs for  #1
-[1763507318.801314] DEBUG: [319423741660@192.168.1.209]: [codec] Setting up codec handlers for  #1 -> 092696935808 #1
-[1763507318.801478] DEBUG: [319423741660@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
-[1763507318.801487] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
-[1763507318.801491] DEBUG: [319423741660@192.168.1.209]: [codec] Creating codec handler for PCMU/8000/ (0)
-[1763507318.801620] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
-[1763507318.801662] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
-[1763507318.801667] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
-[1763507318.801679] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
-[1763507318.801683] DEBUG: [319423741660@192.168.1.209]: [codec] Creating codec handler for PCMA/8000/ (8)
-[1763507318.801688] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
-[1763507318.801704] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
-[1763507318.801707] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
-[1763507318.801752] DEBUG: [319423741660@192.168.1.209]: [codec] Updating supplemental codecs for  #1
-[1763507318.801760] DEBUG: [319423741660@192.168.1.209]: [codec] Setting up codec handlers for  #1 -> 092696935808 #1
-[1763507318.801765] DEBUG: [319423741660@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
-[1763507318.801769] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
-[1763507318.801773] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
-[1763507318.801777] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
-[1763507318.801798] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
-[1763507318.801803] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
-[1763507318.801817] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
-[1763507318.801821] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
-[1763507318.801826] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
-[1763507318.801988] DEBUG: [319423741660@192.168.1.209]: [core] Trying to bind the socket for RTP/RTCP ports (allocation attempt = '1')
-[1763507318.801992] DEBUG: [319423741660@192.168.1.209]: [core] Trying to bind the socket for port = '18352'
-[1763507318.802038] DEBUG: [319423741660@192.168.1.209]: [core] Opened a socket on port '18352' (on interface '192.168.1.127') for a media relay
-[1763507318.802118] DEBUG: [319423741660@192.168.1.209]: [core] Trying to bind the socket for RTP/RTCP ports (allocation attempt = '3')
-[1763507318.802123] DEBUG: [319423741660@192.168.1.209]: [core] Trying to bind the socket for port = '11262'
-[1763507318.802173] DEBUG: [319423741660@192.168.1.209]: [core] Trying to bind the socket for port = '11263'
-[1763507318.802187] DEBUG: [319423741660@192.168.1.209]: [core] Opened a socket on port '11262' (on interface '192.168.1.127') for a media relay
-[1763507318.802203] DEBUG: [319423741660@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:11262 remote 192.168.1.209:50000
-[1763507318.802210] DEBUG: [319423741660@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:11263 remote 192.168.1.209:50001
-[1763507318.802318] DEBUG: [319423741660@192.168.1.209]: [crypto] [192.168.1.127:18352] Initialized incoming SRTP with SDES crypto params: <none>
-[1763507318.802329] DEBUG: [319423741660@192.168.1.209]: [crypto] [1] Initialized outgoing SRTP with SDES crypto params: suite AEAD_AES_256_GCM, tag 1, key OZmNE61pWv9Xh8PH2OqhJgyjxdFS8Lorpfham2KOgAo= salt 8jG2lvUVGWm+qqEw
-[1763507318.802365] DEBUG: [319423741660@192.168.1.209]: [crypto] Creating passive DTLS connection context
-[1763507318.803410] DEBUG: [319423741660@192.168.1.209]: [crypto] Creating passive DTLS connection context
-[1763507318.804135] DEBUG: [319423741660@192.168.1.209]: [crypto] [192.168.1.127:0] Initialized incoming SRTP with SDES crypto params: <none>
-[1763507318.804149] DEBUG: [319423741660@192.168.1.209]: [crypto] [2] Initialized outgoing SRTP with SDES crypto params: suite AEAD_AES_256_GCM, tag 1, key OZmNE61pWv9Xh8PH2OqhJgyjxdFS8Lorpfham2KOgAo= salt 8jG2lvUVGWm+qqEw
-[1763507318.804246] INFO: [319423741660@192.168.1.209]: [control] Replying to 'offer' from 127.0.0.1:54496 (elapsed time 0.004458 sec)
-[1763507318.804268] DEBUG: [319423741660@192.168.1.209]: [control] Response dump for 'offer' to 127.0.0.1:54496: { "sdp": "v=0
+[1763556246.411256] NOTICE: [593288285349@192.168.1.209]: [core] Creating new call
+[1763556246.411549] WARNING: [593288285349@192.168.1.209]: [core] No matching media (index: 1) for answer using subscription, just use an index.
+[1763556246.411561] DEBUG: [593288285349@192.168.1.209]: [core] Subscribing media with monologue tag '511592629399' (index: 1) to media with monologue tag '' (index: 1)
+[1763556246.411572] DEBUG: [593288285349@192.168.1.209]: [core] Subscribing media with monologue tag '' (index: 1) to media with monologue tag '511592629399' (index: 1)
+[1763556246.411582] DEBUG: [593288285349@192.168.1.209]: [core] setting other slot to 0, setting slot to 0
+[1763556246.411588] DEBUG: [593288285349@192.168.1.209]: [codec] Updating codecs for offerer 511592629399 #1
+[1763556246.411612] DEBUG: [593288285349@192.168.1.209]: [codec] Adding codec PCMU/8000/ (0)
+[1763556246.411633] DEBUG: [593288285349@192.168.1.209]: [codec] Adding codec PCMA/8000/ (8)
+[1763556246.411643] DEBUG: [593288285349@192.168.1.209]: [codec] Codec telephone-event not present for stripping
+[1763556246.411649] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMU already present (0)
+[1763556246.411654] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMA already present (8)
+[1763556246.411658] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMU already present (0)
+[1763556246.411662] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMA already present (8)
+[1763556246.411667] DEBUG: [593288285349@192.168.1.209]: [codec] Updating offer codecs for answerer  #1
+[1763556246.411672] DEBUG: [593288285349@192.168.1.209]: [codec] Adding codec PCMU/8000/ (0)
+[1763556246.411680] DEBUG: [593288285349@192.168.1.209]: [codec] Adding codec PCMA/8000/ (8)
+[1763556246.411688] DEBUG: [593288285349@192.168.1.209]: [codec] Codec telephone-event not present for stripping
+[1763556246.411693] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMU already present (0)
+[1763556246.411697] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMA already present (8)
+[1763556246.411705] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMU already present (0)
+[1763556246.411712] DEBUG: [593288285349@192.168.1.209]: [codec] Codec PCMA already present (8)
+[1763556246.411717] DEBUG: [593288285349@192.168.1.209]: [codec] Updating supplemental codecs for  #1
+[1763556246.411729] DEBUG: [593288285349@192.168.1.209]: [codec] Setting up codec handlers for  #1 -> 511592629399 #1
+[1763556246.411739] DEBUG: [593288285349@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
+[1763556246.411745] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1763556246.411750] DEBUG: [593288285349@192.168.1.209]: [codec] Creating codec handler for PCMU/8000/ (0)
+[1763556246.411785] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1763556246.411792] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1763556246.411799] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
+[1763556246.411814] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1763556246.411819] DEBUG: [593288285349@192.168.1.209]: [codec] Creating codec handler for PCMA/8000/ (8)
+[1763556246.411827] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1763556246.411836] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1763556246.411841] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
+[1763556246.411853] DEBUG: [593288285349@192.168.1.209]: [codec] Updating supplemental codecs for  #1
+[1763556246.411861] DEBUG: [593288285349@192.168.1.209]: [codec] Setting up codec handlers for  #1 -> 511592629399 #1
+[1763556246.411868] DEBUG: [593288285349@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
+[1763556246.411874] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1763556246.411880] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1763556246.411886] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1763556246.411898] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
+[1763556246.411904] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1763556246.411910] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1763556246.411914] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1763556246.411920] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
+[1763556246.412660] DEBUG: [593288285349@192.168.1.209]: [core] Trying to bind the socket for RTP/RTCP ports (allocation attempt = '1')
+[1763556246.412677] DEBUG: [593288285349@192.168.1.209]: [core] Trying to bind the socket for port = '15037'
+[1763556246.412740] DEBUG: [593288285349@192.168.1.209]: [core] Opened a socket on port '15037' (on interface '192.168.1.127') for a media relay
+[1763556246.412858] DEBUG: [593288285349@192.168.1.209]: [core] Trying to bind the socket for RTP/RTCP ports (allocation attempt = '1')
+[1763556246.412866] DEBUG: [593288285349@192.168.1.209]: [core] Trying to bind the socket for port = '16568'
+[1763556246.412886] DEBUG: [593288285349@192.168.1.209]: [core] Trying to bind the socket for port = '16569'
+[1763556246.412903] DEBUG: [593288285349@192.168.1.209]: [core] Opened a socket on port '16568' (on interface '192.168.1.127') for a media relay
+[1763556246.412927] DEBUG: [593288285349@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:16568 remote 192.168.1.209:50000
+[1763556246.412936] DEBUG: [593288285349@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:16569 remote 192.168.1.209:50001
+[1763556246.413171] DEBUG: [593288285349@192.168.1.209]: [crypto] [192.168.1.127:15037] Initialized incoming SRTP with SDES crypto params: <none>
+[1763556246.413187] DEBUG: [593288285349@192.168.1.209]: [crypto] [1] Initialized outgoing SRTP with SDES crypto params: suite AEAD_AES_256_GCM, tag 1, key iGS6urbwbXrqueGxw7ENgj6njCjVX9+bZyiscvPPDGE= salt Q3Z/CoVkT6xY2EB4
+[1763556246.413192] DEBUG: [593288285349@192.168.1.209]: [crypto] Creating passive DTLS connection context
+[1763556246.414994] DEBUG: [593288285349@192.168.1.209]: [crypto] Creating passive DTLS connection context
+[1763556246.415963] DEBUG: [593288285349@192.168.1.209]: [crypto] [192.168.1.127:0] Initialized incoming SRTP with SDES crypto params: <none>
+[1763556246.415980] DEBUG: [593288285349@192.168.1.209]: [crypto] [2] Initialized outgoing SRTP with SDES crypto params: suite AEAD_AES_256_GCM, tag 1, key iGS6urbwbXrqueGxw7ENgj6njCjVX9+bZyiscvPPDGE= salt Q3Z/CoVkT6xY2EB4
+[1763556246.416096] INFO: [593288285349@192.168.1.209]: [control] Replying to 'offer' from 127.0.0.1:38491 (elapsed time 0.004878 sec)
+[1763556246.416118] DEBUG: [593288285349@192.168.1.209]: [control] Response dump for 'offer' to 127.0.0.1:38491: { "sdp": "v=0
 o=client1 0 0 IN IP4 192.168.1.209
 s=-
 t=0 0
-m=audio 18352 UDP/TLS/RTP/SAVPF 0 8
+m=audio 15037 UDP/TLS/RTP/SAVPF 0 8
 c=IN IP4 192.168.1.127
 a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 a=sendrecv
-a=rtcp:18352
+a=rtcp:15037
 a=rtcp-mux
-a=crypto:1 AEAD_AES_256_GCM inline:OZmNE61pWv9Xh8PH2OqhJgyjxdFS8Lorpfham2KOgAryMbaW9RUZab6qoTA
-a=crypto:2 AEAD_AES_128_GCM inline:bY1ckzcPDPs5IPuBSLD6FMtrTjf1NXRcaiYlUQ
-a=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:BaDbWY+QWbPSiCEyNkiGP8sLzRgNdeRWaie+fgD3Rwi680Oe/pCtVBGnPr2zBQ
-a=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:QiA+0jb8QdNe4pcA+rBd8Igu6DlyUeZraw657zcySSYkk1eWf4SAiTgCEXy9xg
-a=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:NSpk/uOPx4deV21LxtJAG+G7r6jY1Dulb3QpLMqBn5z5OurdbpM
-a=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:vLkIl+lfzwBuZSocPknqHyorrfo3s44uyqCevT7NHZafnSeklP0
-a=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:QNXJF5Hb4xhpjABDMDnxAJFPrW2D4JwwMRkn+fLc
-a=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:DUe3X+PJwASGIG6qGqlujBr13cZCyZvJNj8KgFjM
-a=crypto:9 F8_128_HMAC_SHA1_80 inline:5ufJLAVnBhUUj27+rQO6HNxPJJKbDcVWLGewyaZi
-a=crypto:10 F8_128_HMAC_SHA1_32 inline:v4jHT6RNRfEow1KCaVROoU70tdolmmBUkxuj5J0X
-a=crypto:11 NULL_HMAC_SHA1_80 inline:t4rtIftCp6YXcx5b6ss7PC5OTFXSesW9uUm563l1
-a=crypto:12 NULL_HMAC_SHA1_32 inline:Oo4PTpewKpRw4uoQlFGbgzOp1ThEz+Bab0OEE3K6
+a=crypto:1 AEAD_AES_256_GCM inline:iGS6urbwbXrqueGxw7ENgj6njCjVX9+bZyiscvPPDGFDdn8KhWRPrFjYQHg
+a=crypto:2 AEAD_AES_128_GCM inline:aAb7EBkOHyOqAI6DyLvHdclA4AeRn7aTmY3kyw
+a=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:NFPwvoFI6nSz9KuRXXekjWLd0OUaryqzFBaKlit+RigcQcIZnfPAgQHak1H6cA
+a=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:d4nMVCSmDa/sKD2ZOVkmeS9FCaD7Hp/fBdg0rgxPDR+Q6uZvMTctr83nCtunnA
+a=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:kXbUKsGDl7hwCAC6i2QOhwHariuS3I/O7ecD6omFj6Qlng/JfkA
+a=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:g8WMsZ/mFqxnhTvVPHOdrpHkzmCx5R2lgOdEVI/DqI7pKGShWjA
+a=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:EdBD6Yh6nJ9zCA6QeFBpa4c/emdw9WTH8exbAG4X
+a=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:uMh1hXhza+iE4G17ctoTtKl8RQ5uS4kxa+djYzbU
+a=crypto:9 F8_128_HMAC_SHA1_80 inline:rrbtqv5eqAVwEYP3RKGd/y8xCy5jAiV1W4wHq2y8
+a=crypto:10 F8_128_HMAC_SHA1_32 inline:91pDyUeSmsjOnpVgjanS/tETH28VzjTCkP4+wmbD
+a=crypto:11 NULL_HMAC_SHA1_80 inline:5I2OxD6GfWIm6Gq8nKwgMOtVu1VEAt5dObNmO7Kx
+a=crypto:12 NULL_HMAC_SHA1_32 inline:PGlfZ116rlH06r+haXzWyeRGvlQUA2fULLK8sOUW
 a=setup:actpass
-a=fingerprint:sha-256 C9:27:8B:2C:7C:15:EC:A2:6A:44:77:83:CC:59:F0:4C:DD:F8:E7:91:EE:16:19:31:94:5B:AE:DD:3F:7C:B5:59
-a=tls-id:04f1207e0c38968abf7d75e25c01cf09
-a=ice-ufrag:jug9jRYW
-a=ice-pwd:Z8Y45F0J4bgS67ErExt4cox8DD
-a=candidate:U6BLkzIWNTVgrYuv 1 UDP 2130706431 192.168.1.127 18352 typ host
+a=fingerprint:sha-256 F2:F6:1D:79:DB:66:E5:39:5D:27:87:E2:05:98:81:93:2A:C4:F7:61:A7:75:AD:F3:A9:D3:56:3C:0D:A6:E1:79
+a=tls-id:4eb1abb980dbd737c5b7f2560b43dd2d
+a=ice-ufrag:AaGm1Mj3
+a=ice-pwd:SogWGBZ9lY1ryu52J15jJAKPX4
+a=candidate:BIYo5wxKksrVhZ9P 1 UDP 2130706431 192.168.1.127 15037 typ host
 ", "result": "ok" }
-[1763507321.233835] DEBUG: [319423741660@192.168.1.209//1 port 18352]: [ice] Created candidate pair U6BLkzIWNTVgrYuv:bd9aca093c29b4fa0:1 between 192.168.1.127 and 192.168.1.127:59785, type prflx
-[1763507321.233858] DEBUG: [319423741660@192.168.1.209//1 port 18352]: [ice] Triggering check for U6BLkzIWNTVgrYuv:bd9aca093c29b4fa0:1
-[1763507321.233879] DEBUG: [319423741660@192.168.1.209//1 port 18352]: [core] Successful STUN binding request from 192.168.1.127:59785
-[1763507321.256033] DEBUG: [319423741660@192.168.1.209//1 port 18352]: [ice] Created candidate pair U6BLkzIWNTVgrYuv:bd9a80aa3c29b4fa0:1 between 192.168.1.127 and 192.168.1.127:41770, type prflx
-[1763507321.256055] DEBUG: [319423741660@192.168.1.209//1 port 18352]: [ice] Triggering check for U6BLkzIWNTVgrYuv:bd9a80aa3c29b4fa0:1
-[1763507321.256070] DEBUG: [319423741660@192.168.1.209//1 port 18352]: [core] Successful STUN binding request from 192.168.1.127:41770
-[1763507321.274122] INFO: [319423741660@192.168.1.209]: [control] Received command 'answer' from 127.0.0.1:54496
-[1763507321.274153] DEBUG: [319423741660@192.168.1.209]: [control] Dump for 'answer' from 127.0.0.1:54496: { "ICE": "remove", "call-id": "319423741660@192.168.1.209", "codec": { "strip": [ "telephone-event" ], "transcode": [ "PCMU", "PCMA" ] }, "command": "answer", "from-tag": "092696935808", "rtcp-mux": [ "demux" ], "sdp": "v=0
-o=mozilla...THIS_IS_SDPARTA-99.0 6311771890684730227 0 IN IP4 0.0.0.0
+[1763556250.242665] DEBUG: [593288285349@192.168.1.209//1 port 15037]: [ice] Created candidate pair BIYo5wxKksrVhZ9P:2fe353ac350e1efa0:1 between 192.168.1.127 and 192.168.1.127:53292, type prflx
+[1763556250.242688] DEBUG: [593288285349@192.168.1.209//1 port 15037]: [ice] Triggering check for BIYo5wxKksrVhZ9P:2fe353ac350e1efa0:1
+[1763556250.242927] DEBUG: [593288285349@192.168.1.209//1 port 15037]: [core] Successful STUN binding request from 192.168.1.127:53292
+[1763556250.264704] DEBUG: [593288285349@192.168.1.209//1 port 15037]: [ice] Created candidate pair BIYo5wxKksrVhZ9P:2fe345dd350e1efa0:1 between 192.168.1.127 and 192.168.1.127:50781, type prflx
+[1763556250.264728] DEBUG: [593288285349@192.168.1.209//1 port 15037]: [ice] Triggering check for BIYo5wxKksrVhZ9P:2fe345dd350e1efa0:1
+[1763556250.264927] DEBUG: [593288285349@192.168.1.209//1 port 15037]: [core] Successful STUN binding request from 192.168.1.127:50781
+[1763556250.278743] INFO: [593288285349@192.168.1.209]: [control] Received command 'answer' from 127.0.0.1:38491
+[1763556250.278778] DEBUG: [593288285349@192.168.1.209]: [control] Dump for 'answer' from 127.0.0.1:38491: { "ICE": "remove", "call-id": "593288285349@192.168.1.209", "codec": { "strip": [ "telephone-event" ], "transcode": [ "PCMU", "PCMA" ] }, "command": "answer", "from-tag": "511592629399", "rtcp-mux": [ "demux" ], "sdp": "v=0
+o=mozilla...THIS_IS_SDPARTA-99.0 100779590009358787 0 IN IP4 0.0.0.0
 s=-
 t=0 0
-a=fingerprint:sha-256 C6:29:38:FB:DD:4D:97:CB:77:32:76:7D:C4:49:83:08:6C:1C:E6:69:40:67:D4:7F:79:8B:E3:E1:1D:D0:C1:9D
+a=fingerprint:sha-256 03:D7:82:23:2B:88:12:1D:BD:64:5E:EB:F1:0C:B5:BD:F9:08:0F:82:D8:06:6E:DD:17:21:DF:0C:7A:1F:08:ED
 a=ice-options:trickle
 a=msid-semantic:WMS *
 m=audio 9 UDP/TLS/RTP/SAVPF 0 8
 c=IN IP4 0.0.0.0
 a=sendrecv
-a=ice-pwd:06111e559464f0d02c6ca58b6b212a74
-a=ice-ufrag:b482954b
+a=ice-pwd:e2331d933d4b7ce666dd69697d2520ed
+a=ice-ufrag:125f42ae
 a=mid:0
-a=msid:{ae5ad308-e90b-4077-b0ba-10ad8c84b3a0} {528fc09c-036d-4db5-bf61-ba2b84ca5dac}
+a=msid:{f83a8642-2166-4d39-9326-b7fe93568dd4} {4f56faa0-5537-449b-a10d-f1a3824ee0ae}
 a=rtcp-mux
 a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 a=setup:active
-a=ssrc:978293307 cname:{f72f63ae-9c5c-4239-b8a9-b2128d9ec861}
-", "to-tag": "ba13446110b4259e", "transport-protocol": "RTP/AVP" }
-[1763507321.274272] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:18352 (dialogue signalling event)
-[1763507321.274281] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:11262 (dialogue signalling event)
-[1763507321.274288] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:11263 (dialogue signalling event)
-[1763507321.274295] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:0 (dialogue signalling event)
-[1763507321.274377] DEBUG: [319423741660@192.168.1.209]: [core] Unsubscribing media with monologue tag '092696935808' (index: 1) from media with monologue tag 'ba13446110b4259e' (index: 1)
-[1763507321.274386] DEBUG: [319423741660@192.168.1.209]: [core] Unsubscribing media with monologue tag 'ba13446110b4259e' (index: 1) from media with monologue tag '092696935808' (index: 1)
-[1763507321.274392] DEBUG: [319423741660@192.168.1.209]: [core] Subscribing media with monologue tag 'ba13446110b4259e' (index: 1) to media with monologue tag '092696935808' (index: 1)
-[1763507321.274398] DEBUG: [319423741660@192.168.1.209]: [core] Subscribing media with monologue tag '092696935808' (index: 1) to media with monologue tag 'ba13446110b4259e' (index: 1)
-[1763507321.274404] INFO: [319423741660@192.168.1.209]: [core] Received answer SDP with media ID ('0') when no media ID was offered
-[1763507321.274411] DEBUG: [319423741660@192.168.1.209]: [codec] Updating codecs for answerer ba13446110b4259e #1
-[1763507321.274417] DEBUG: [319423741660@192.168.1.209]: [codec] Adding codec PCMU/8000/ (0)
-[1763507321.274425] DEBUG: [319423741660@192.168.1.209]: [codec] Adding codec PCMA/8000/ (8)
-[1763507321.274441] DEBUG: [319423741660@192.168.1.209]: [codec] Codec telephone-event not present for stripping
-[1763507321.274461] DEBUG: [319423741660@192.168.1.209]: [codec] Setting up codec handlers for ba13446110b4259e #1 -> 092696935808 #1
-[1763507321.274471] DEBUG: [319423741660@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
-[1763507321.274477] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
-[1763507321.274484] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
-[1763507321.274489] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
-[1763507321.274498] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
-[1763507321.274505] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
-[1763507321.274510] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
-[1763507321.274515] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
-[1763507321.274521] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
-[1763507321.274528] DEBUG: [319423741660@192.168.1.209]: [codec] Codec answer for ba13446110b4259e #1
-[1763507321.274535] DEBUG: [319423741660@192.168.1.209]: [codec] Reverse codec for PCMU/8000/ (0) is PCMU/8000/ (0)
-[1763507321.274542] DEBUG: [319423741660@192.168.1.209]: [codec] Reverse codec for PCMA/8000/ (8) is PCMA/8000/ (8)
-[1763507321.274551] DEBUG: [319423741660@192.168.1.209]: [codec] Setting up codec handlers for 092696935808 #1 -> ba13446110b4259e #1
-[1763507321.274556] DEBUG: [319423741660@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
-[1763507321.274561] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
-[1763507321.274564] DEBUG: [319423741660@192.168.1.209]: [codec] Creating codec handler for PCMU/8000/ (0)
-[1763507321.274583] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
-[1763507321.274587] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
-[1763507321.274592] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
-[1763507321.274601] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
-[1763507321.274606] DEBUG: [319423741660@192.168.1.209]: [codec] Creating codec handler for PCMA/8000/ (8)
-[1763507321.274612] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
-[1763507321.274616] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
-[1763507321.274620] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
-[1763507321.274630] DEBUG: [319423741660@192.168.1.209]: [codec] Updating supplemental codecs for 092696935808 #1
-[1763507321.274637] DEBUG: [319423741660@192.168.1.209]: [codec] Updating supplemental codecs for ba13446110b4259e #1
-[1763507321.274643] DEBUG: [319423741660@192.168.1.209]: [codec] Setting up codec handlers for 092696935808 #1 -> ba13446110b4259e #1
-[1763507321.274648] DEBUG: [319423741660@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
-[1763507321.274653] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
-[1763507321.274659] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
-[1763507321.274663] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
-[1763507321.274668] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
-[1763507321.274673] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
-[1763507321.274677] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
-[1763507321.274681] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
-[1763507321.274686] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
-[1763507321.274693] DEBUG: [319423741660@192.168.1.209]: [codec] Setting up codec handlers for ba13446110b4259e #1 -> 092696935808 #1
-[1763507321.274699] DEBUG: [319423741660@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
-[1763507321.274703] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
-[1763507321.274708] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
-[1763507321.274712] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
-[1763507321.274717] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
-[1763507321.274722] DEBUG: [319423741660@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
-[1763507321.274726] DEBUG: [319423741660@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
-[1763507321.274730] DEBUG: [319423741660@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
-[1763507321.274735] DEBUG: [319423741660@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
-[1763507321.274753] DEBUG: [319423741660@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:18352 remote 0.0.0.0:9
-[1763507321.274761] DEBUG: [319423741660@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:0 remote 0.0.0.0:10
-[1763507321.274769] DEBUG: [319423741660@192.168.1.209]: [crypto] [192.168.1.127:0] Initialized incoming SRTP with SDES crypto params: <none>
-[1763507321.274783] DEBUG: [319423741660@192.168.1.209]: [crypto] [2] Initialized outgoing SRTP with SDES crypto params: suite AEAD_AES_256_GCM, tag 1, key OZmNE61pWv9Xh8PH2OqhJgyjxdFS8Lorpfham2KOgAo= salt 8jG2lvUVGWm+qqEw
-[1763507321.274791] DEBUG: [319423741660@192.168.1.209/ba13446110b4259e/1]: [ice] Shutting down ICE agent (nothing to do)
-[1763507321.274843] INFO: [319423741660@192.168.1.209]: [control] Replying to 'answer' from 127.0.0.1:54496 (elapsed time 0.000679 sec)
-[1763507321.274853] DEBUG: [319423741660@192.168.1.209]: [control] Response dump for 'answer' to 127.0.0.1:54496: { "sdp": "v=0
-o=mozilla...THIS_IS_SDPARTA-99.0 6311771890684730227 0 IN IP4 0.0.0.0
+a=ssrc:4268380372 cname:{79a98a17-e388-4420-9b5a-145ba9a3179b}
+", "to-tag": "26ce58fb6632429d", "transport-protocol": "RTP/AVP" }
+[1763556250.278942] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:15037 (dialogue signalling event)
+[1763556250.278991] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:16568 (dialogue signalling event)
+[1763556250.278998] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:16569 (dialogue signalling event)
+[1763556250.279005] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:0 (dialogue signalling event)
+[1763556250.279409] DEBUG: [593288285349@192.168.1.209]: [core] Unsubscribing media with monologue tag '511592629399' (index: 1) from media with monologue tag '26ce58fb6632429d' (index: 1)
+[1763556250.279422] DEBUG: [593288285349@192.168.1.209]: [core] Unsubscribing media with monologue tag '26ce58fb6632429d' (index: 1) from media with monologue tag '511592629399' (index: 1)
+[1763556250.279428] DEBUG: [593288285349@192.168.1.209]: [core] Subscribing media with monologue tag '26ce58fb6632429d' (index: 1) to media with monologue tag '511592629399' (index: 1)
+[1763556250.279434] DEBUG: [593288285349@192.168.1.209]: [core] Subscribing media with monologue tag '511592629399' (index: 1) to media with monologue tag '26ce58fb6632429d' (index: 1)
+[1763556250.279442] INFO: [593288285349@192.168.1.209]: [core] Received answer SDP with media ID ('0') when no media ID was offered
+[1763556250.279450] DEBUG: [593288285349@192.168.1.209]: [codec] Updating codecs for answerer 26ce58fb6632429d #1
+[1763556250.279459] DEBUG: [593288285349@192.168.1.209]: [codec] Adding codec PCMU/8000/ (0)
+[1763556250.279472] DEBUG: [593288285349@192.168.1.209]: [codec] Adding codec PCMA/8000/ (8)
+[1763556250.279489] DEBUG: [593288285349@192.168.1.209]: [codec] Codec telephone-event not present for stripping
+[1763556250.279516] DEBUG: [593288285349@192.168.1.209]: [codec] Setting up codec handlers for 26ce58fb6632429d #1 -> 511592629399 #1
+[1763556250.279528] DEBUG: [593288285349@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
+[1763556250.279535] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1763556250.279544] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1763556250.279550] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1763556250.279563] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
+[1763556250.279573] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1763556250.279578] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1763556250.279583] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1763556250.279589] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
+[1763556250.279598] DEBUG: [593288285349@192.168.1.209]: [codec] Codec answer for 26ce58fb6632429d #1
+[1763556250.279608] DEBUG: [593288285349@192.168.1.209]: [codec] Reverse codec for PCMU/8000/ (0) is PCMU/8000/ (0)
+[1763556250.279617] DEBUG: [593288285349@192.168.1.209]: [codec] Reverse codec for PCMA/8000/ (8) is PCMA/8000/ (8)
+[1763556250.279641] DEBUG: [593288285349@192.168.1.209]: [codec] Setting up codec handlers for 511592629399 #1 -> 26ce58fb6632429d #1
+[1763556250.279649] DEBUG: [593288285349@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
+[1763556250.279654] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1763556250.279658] DEBUG: [593288285349@192.168.1.209]: [codec] Creating codec handler for PCMU/8000/ (0)
+[1763556250.279692] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1763556250.279701] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1763556250.279705] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
+[1763556250.279714] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1763556250.279718] DEBUG: [593288285349@192.168.1.209]: [codec] Creating codec handler for PCMA/8000/ (8)
+[1763556250.279725] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1763556250.279729] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1763556250.279734] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
+[1763556250.279744] DEBUG: [593288285349@192.168.1.209]: [codec] Updating supplemental codecs for 511592629399 #1
+[1763556250.279752] DEBUG: [593288285349@192.168.1.209]: [codec] Updating supplemental codecs for 26ce58fb6632429d #1
+[1763556250.279759] DEBUG: [593288285349@192.168.1.209]: [codec] Setting up codec handlers for 511592629399 #1 -> 26ce58fb6632429d #1
+[1763556250.279765] DEBUG: [593288285349@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
+[1763556250.279770] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1763556250.279775] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1763556250.279780] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1763556250.279786] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
+[1763556250.279791] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1763556250.279796] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1763556250.279800] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1763556250.279805] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
+[1763556250.279813] DEBUG: [593288285349@192.168.1.209]: [codec] Setting up codec handlers for 26ce58fb6632429d #1 -> 511592629399 #1
+[1763556250.279819] DEBUG: [593288285349@192.168.1.209]: [codec] Default sink codec is PCMU/8000/ (0)
+[1763556250.279824] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1763556250.279829] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1763556250.279833] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1763556250.279838] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF -1, CN -1
+[1763556250.279842] DEBUG: [593288285349@192.168.1.209]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1763556250.279847] DEBUG: [593288285349@192.168.1.209]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1763556250.279851] DEBUG: [593288285349@192.168.1.209]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1763556250.279856] DEBUG: [593288285349@192.168.1.209]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF -1, CN -1
+[1763556250.279875] DEBUG: [593288285349@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:15037 remote 0.0.0.0:9
+[1763556250.279883] DEBUG: [593288285349@192.168.1.209]: [core] set FILLED flag for stream, local 192.168.1.127:0 remote 0.0.0.0:10
+[1763556250.279892] DEBUG: [593288285349@192.168.1.209]: [crypto] [192.168.1.127:0] Initialized incoming SRTP with SDES crypto params: <none>
+[1763556250.279903] DEBUG: [593288285349@192.168.1.209]: [crypto] [2] Initialized outgoing SRTP with SDES crypto params: suite AEAD_AES_256_GCM, tag 1, key iGS6urbwbXrqueGxw7ENgj6njCjVX9+bZyiscvPPDGE= salt Q3Z/CoVkT6xY2EB4
+[1763556250.279912] DEBUG: [593288285349@192.168.1.209/26ce58fb6632429d/1]: [ice] Shutting down ICE agent (nothing to do)
+[1763556250.279980] INFO: [593288285349@192.168.1.209]: [control] Replying to 'answer' from 127.0.0.1:38491 (elapsed time 0.001188 sec)
+[1763556250.279990] DEBUG: [593288285349@192.168.1.209]: [control] Response dump for 'answer' to 127.0.0.1:38491: { "sdp": "v=0
+o=mozilla...THIS_IS_SDPARTA-99.0 100779590009358787 0 IN IP4 0.0.0.0
 s=-
 t=0 0
 a=msid-semantic:WMS *
-m=audio 11262 RTP/AVP 0 8
+m=audio 16568 RTP/AVP 0 8
 c=IN IP4 192.168.1.127
 a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
-a=msid:{ae5ad308-e90b-4077-b0ba-10ad8c84b3a0} {528fc09c-036d-4db5-bf61-ba2b84ca5dac}
-a=ssrc:978293307 cname:{f72f63ae-9c5c-4239-b8a9-b2128d9ec861}
+a=msid:{f83a8642-2166-4d39-9326-b7fe93568dd4} {4f56faa0-5537-449b-a10d-f1a3824ee0ae}
+a=ssrc:4268380372 cname:{79a98a17-e388-4420-9b5a-145ba9a3179b}
 a=sendrecv
-a=rtcp:11263
+a=rtcp:16569
 ", "result": "ok" }
-[1763507333.458890] INFO: [319423741660@192.168.1.209]: [control] Received command 'delete' from 127.0.0.1:54496
-[1763507333.458916] DEBUG: [319423741660@192.168.1.209]: [control] Dump for 'delete' from 127.0.0.1:54496: { "call-id": "319423741660@192.168.1.209", "command": "delete", "from-tag": "092696935808", "to-tag": "ba13446110b4259e" }
-[1763507333.458939] INFO: [319423741660@192.168.1.209]: [core] Deleting call branch '092696935808' (via-branch '')
-[1763507333.458943] DEBUG: [319423741660@192.168.1.209]: [core] Destroying monologue '092696935808' ()
-[1763507333.458969] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:11262 (destroying monologue)
-[1763507333.458975] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:18352 (destroying monologue)
-[1763507333.458980] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:11263 (destroying monologue)
-[1763507333.459003] INFO: [319423741660@192.168.1.209]: [core] Deleting call branch 'ba13446110b4259e' (via-branch '')
-[1763507333.459006] DEBUG: [319423741660@192.168.1.209]: [core] Destroying monologue 'ba13446110b4259e' ()
-[1763507333.459016] DEBUG: [319423741660@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:0 (destroying monologue)
-[1763507333.459135] INFO: [319423741660@192.168.1.209]: [core] Deleting entire call
-[1763507333.459141] DEBUG: [319423741660@192.168.1.209]: [core] Redis delete_async=0
-[1763507333.459148] INFO: [319423741660@192.168.1.209]: [core] Final packet stats:
-[1763507333.459153] INFO: [319423741660@192.168.1.209]: [core] --- Tag '092696935808', created 0:15 ago for branch ''
-[1763507333.459157] DEBUG: [319423741660@192.168.1.209]: [core] ---     subscribed to media with monologue tag 'ba13446110b4259e' (index: 1)
-[1763507333.459160] DEBUG: [319423741660@192.168.1.209]: [core] ---     subscription for media with monologue tag 'ba13446110b4259e' (index: 1)
-[1763507333.459163] INFO: [319423741660@192.168.1.209]: [core] ------ Media #1 (audio over RTP/AVP) using unknown codec
-[1763507333.459170] INFO: [319423741660@192.168.1.209]: [core] --------- Port   192.168.1.127:11262 <>   192.168.1.209:50000, SSRC 0, in 0 p, 0 b, 0 e, 15 ts, out 0 p, 0 b, 0 e
-[1763507333.459176] INFO: [319423741660@192.168.1.209]: [core] --------- Port   192.168.1.127:11263 <>   192.168.1.209:50001 (RTCP), SSRC 0, in 0 p, 0 b, 0 e, 15 ts, out 0 p, 0 b, 0 e
-[1763507333.459181] INFO: [319423741660@192.168.1.209]: [core] --- Tag 'ba13446110b4259e', created 0:15 ago for branch ''
-[1763507333.459184] DEBUG: [319423741660@192.168.1.209]: [core] ---     subscribed to media with monologue tag '092696935808' (index: 1)
-[1763507333.459187] DEBUG: [319423741660@192.168.1.209]: [core] ---     subscription for media with monologue tag '092696935808' (index: 1)
-[1763507333.459190] INFO: [319423741660@192.168.1.209]: [core] ------ Media #1 (audio over UDP/TLS/RTP/SAVPF) using unknown codec
-[1763507333.459195] INFO: [319423741660@192.168.1.209]: [core] --------- Port   192.168.1.127:18352 <>         0.0.0.0:9    , SSRC 0, in 0 p, 0 b, 0 e, 12 ts, out 0 p, 0 b, 0 e
-[1763507333.459210] DEBUG: [319423741660@192.168.1.209]: [crypto] Resetting DTLS connection context
-[1763507333.459276] DEBUG: [319423741660@192.168.1.209]: [crypto] Resetting DTLS connection context
-[1763507333.459304] INFO: [319423741660@192.168.1.209]: [control] Replying to 'delete' from 127.0.0.1:54496 (elapsed time 0.000380 sec)
-[1763507333.459375] DEBUG: [319423741660@192.168.1.209]: [control] Response dump for 'delete' to 127.0.0.1:54496: { "created": 1763507318, "created_us": 799599, "last signal": 1763507321, "last redis update": 0, "SSRC": {  }, "tags": { "092696935808": { "tag": "092696935808", "created": 1763507318, "subscriptions": [ { "tag": "ba13446110b4259e", "type": "offer/answer" } ], "subscribers": [ { "tag": "ba13446110b4259e", "type": "offer/answer" } ], "medias": [ { "index": 1, "type": "audio", "protocol": "RTP/AVP", "streams": [ { "endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50000 }, "advertised endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50000 }, "last packet": 1763507318, "last kernel packet": 0, "last user packet": 1763507318, "flags": [ "RTP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } }, { "endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50001 }, "advertised endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50001 }, "last packet": 1763507318, "last kernel packet": 0, "last user packet": 1763507318, "flags": [ "RTCP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } } ], "flags": [ "initialized", "send", "recv" ] } ], "VSC": [  ] }, "ba13446110b4259e": { "tag": "ba13446110b4259e", "created": 1763507318, "subscriptions": [ { "tag": "092696935808", "type": "offer/answer" } ], "subscribers": [ { "tag": "092696935808", "type": "offer/answer" } ], "medias": [ { "index": 1, "type": "audio", "protocol": "UDP/TLS/RTP/SAVPF", "streams": [ { "endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 9 }, "advertised endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 9 }, "crypto suite": "AEAD_AES_256_GCM", "last packet": 1763507321, "last kernel packet": 0, "last user packet": 1763507321, "flags": [ "RTP", "RTCP", "filled", "ICE" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } }, { "endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 10 }, "advertised endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 10 }, "crypto suite": "AEAD_AES_256_GCM", "last packet": 1763507321, "last kernel packet": 0, "last user packet": 1763507321, "flags": [ "RTCP", "fallback RTCP", "filled", "ICE" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } } ], "flags": [ "initialized", "send", "recv", "rtcp-mux", "DTLS-SRTP", "DTLS role passive", "SDES", "ICE", "trickle ICE", "ICE controlling" ] } ], "VSC": [  ] } }, "totals": { "RTP": { "packets": 0, "bytes": 0, "errors": 0 }, "RTCP": { "packets": 0, "bytes": 0, "errors": 0 } }, "result": "ok" }
-[1763507336.577354] DEBUG: [http] http-only callback 17 0x55dbe5b30000 0x7f36b041dc60
-[1763507336.577369] DEBUG: [http] http-only callback 29 0x7f3698002d50 (nil)
-[1763507336.577374] DEBUG: [http] WS client created 0x7f3698002d50
-[1763507336.577395] DEBUG: [http] http-only callback 19 0x7f3698002d50 (nil)
-[1763507336.577399] DEBUG: [http] New WS client 0x7f3698002d50
-[1763507336.577424] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507336.577427] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577430] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577432] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577447] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577450] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577490] DEBUG: [http] http-only callback 18 0x7f3698002d50 0x7f3698004810
-[1763507336.577496] DEBUG: [http] http-only callback 49 0x7f3698002d50 0x7f3698004810
-[1763507336.577499] DEBUG: [http] http-only callback 12 0x7f3698002d50 0x7f3698004810
-[1763507336.577604] DEBUG: [http] HTTP request start: /
-[1763507336.577652] INFO: [http] HTTP GET from 127.0.0.1:57908: '/'
-[1763507336.577658] DEBUG: [http] Adding HTTP/WS message to processing queue
-[1763507336.577799] WARNING: [http] Unhandled HTTP URI: '/'
-[1763507336.577829] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507336.577834] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577837] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577839] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577842] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577844] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507336.577907] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507336.577973] DEBUG: [http] http-only callback 71 0x55dbe5b76648 (nil)
-[1763507336.578016] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55dbe5b76648 (nil)
-[1763507336.578022] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55dbe5b76648 (nil)
-[1763507336.578025] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55dbe5b76648 (nil)
-[1763507336.578049] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55dbe5b76648 (nil)
-[1763507336.578052] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55dbe5b76648 (nil)
-[1763507336.578090] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507336.578094] DEBUG: [http] http-only callback 16 0x7f3698002d50 0x7f3698004810
-[1763507336.578178] DEBUG: [http] Writing back to LWS: 'not found
+[1763556258.390522] INFO: [593288285349@192.168.1.209]: [control] Received command 'delete' from 127.0.0.1:38491
+[1763556258.390545] DEBUG: [593288285349@192.168.1.209]: [control] Dump for 'delete' from 127.0.0.1:38491: { "call-id": "593288285349@192.168.1.209", "command": "delete", "from-tag": "511592629399", "to-tag": "26ce58fb6632429d" }
+[1763556258.390568] INFO: [593288285349@192.168.1.209]: [core] Deleting call branch '511592629399' (via-branch '')
+[1763556258.390572] DEBUG: [593288285349@192.168.1.209]: [core] Destroying monologue '511592629399' ()
+[1763556258.390580] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:16568 (destroying monologue)
+[1763556258.390586] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:15037 (destroying monologue)
+[1763556258.390591] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:16569 (destroying monologue)
+[1763556258.390616] INFO: [593288285349@192.168.1.209]: [core] Deleting call branch '26ce58fb6632429d' (via-branch '')
+[1763556258.390619] DEBUG: [593288285349@192.168.1.209]: [core] Destroying monologue '26ce58fb6632429d' ()
+[1763556258.390630] DEBUG: [593288285349@192.168.1.209]: [core] Unconfirming peer address for local 192.168.1.127:0 (destroying monologue)
+[1763556258.390762] INFO: [593288285349@192.168.1.209]: [core] Deleting entire call
+[1763556258.390769] DEBUG: [593288285349@192.168.1.209]: [core] Redis delete_async=0
+[1763556258.390776] INFO: [593288285349@192.168.1.209]: [core] Final packet stats:
+[1763556258.390782] INFO: [593288285349@192.168.1.209]: [core] --- Tag '511592629399', created 0:12 ago for branch ''
+[1763556258.390786] DEBUG: [593288285349@192.168.1.209]: [core] ---     subscribed to media with monologue tag '26ce58fb6632429d' (index: 1)
+[1763556258.390789] DEBUG: [593288285349@192.168.1.209]: [core] ---     subscription for media with monologue tag '26ce58fb6632429d' (index: 1)
+[1763556258.390792] INFO: [593288285349@192.168.1.209]: [core] ------ Media #1 (audio over RTP/AVP) using unknown codec
+[1763556258.390799] INFO: [593288285349@192.168.1.209]: [core] --------- Port   192.168.1.127:16568 <>   192.168.1.209:50000, SSRC 0, in 0 p, 0 b, 0 e, 12 ts, out 0 p, 0 b, 0 e
+[1763556258.390805] INFO: [593288285349@192.168.1.209]: [core] --------- Port   192.168.1.127:16569 <>   192.168.1.209:50001 (RTCP), SSRC 0, in 0 p, 0 b, 0 e, 12 ts, out 0 p, 0 b, 0 e
+[1763556258.390809] INFO: [593288285349@192.168.1.209]: [core] --- Tag '26ce58fb6632429d', created 0:12 ago for branch ''
+[1763556258.390812] DEBUG: [593288285349@192.168.1.209]: [core] ---     subscribed to media with monologue tag '511592629399' (index: 1)
+[1763556258.390815] DEBUG: [593288285349@192.168.1.209]: [core] ---     subscription for media with monologue tag '511592629399' (index: 1)
+[1763556258.390819] INFO: [593288285349@192.168.1.209]: [core] ------ Media #1 (audio over UDP/TLS/RTP/SAVPF) using unknown codec
+[1763556258.390824] INFO: [593288285349@192.168.1.209]: [core] --------- Port   192.168.1.127:15037 <>         0.0.0.0:9    , SSRC 0, in 0 p, 0 b, 0 e, 8 ts, out 0 p, 0 b, 0 e
+[1763556258.390839] DEBUG: [593288285349@192.168.1.209]: [crypto] Resetting DTLS connection context
+[1763556258.390919] DEBUG: [593288285349@192.168.1.209]: [crypto] Resetting DTLS connection context
+[1763556258.391241] INFO: [593288285349@192.168.1.209]: [control] Replying to 'delete' from 127.0.0.1:38491 (elapsed time 0.000396 sec)
+[1763556258.391340] DEBUG: [593288285349@192.168.1.209]: [control] Response dump for 'delete' to 127.0.0.1:38491: { "created": 1763556246, "created_us": 410982, "last signal": 1763556250, "last redis update": 0, "SSRC": {  }, "tags": { "511592629399": { "tag": "511592629399", "created": 1763556246, "subscriptions": [ { "tag": "26ce58fb6632429d", "type": "offer/answer" } ], "subscribers": [ { "tag": "26ce58fb6632429d", "type": "offer/answer" } ], "medias": [ { "index": 1, "type": "audio", "protocol": "RTP/AVP", "streams": [ { "endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50000 }, "advertised endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50000 }, "last packet": 1763556246, "last kernel packet": 0, "last user packet": 1763556246, "flags": [ "RTP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } }, { "endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50001 }, "advertised endpoint": { "family": "IPv4", "address": "192.168.1.209", "port": 50001 }, "last packet": 1763556246, "last kernel packet": 0, "last user packet": 1763556246, "flags": [ "RTCP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } } ], "flags": [ "initialized", "send", "recv" ] } ], "VSC": [  ] }, "26ce58fb6632429d": { "tag": "26ce58fb6632429d", "created": 1763556246, "subscriptions": [ { "tag": "511592629399", "type": "offer/answer" } ], "subscribers": [ { "tag": "511592629399", "type": "offer/answer" } ], "medias": [ { "index": 1, "type": "audio", "protocol": "UDP/TLS/RTP/SAVPF", "streams": [ { "endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 9 }, "advertised endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 9 }, "crypto suite": "AEAD_AES_256_GCM", "last packet": 1763556250, "last kernel packet": 0, "last user packet": 1763556250, "flags": [ "RTP", "RTCP", "filled", "ICE" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } }, { "endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 10 }, "advertised endpoint": { "family": "IPv4", "address": "0.0.0.0", "port": 10 }, "crypto suite": "AEAD_AES_256_GCM", "last packet": 1763556250, "last kernel packet": 0, "last user packet": 1763556250, "flags": [ "RTCP", "fallback RTCP", "filled", "ICE" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } } ], "flags": [ "initialized", "send", "recv", "rtcp-mux", "DTLS-SRTP", "DTLS role passive", "SDES", "ICE", "trickle ICE", "ICE controlling" ] } ], "VSC": [  ] } }, "totals": { "RTP": { "packets": 0, "bytes": 0, "errors": 0 }, "RTCP": { "packets": 0, "bytes": 0, "errors": 0 } }, "result": "ok" }
+[1763556265.201311] DEBUG: [http] http-only callback 17 0x55d48ee9d000 0x7f79e958cc60
+[1763556265.201328] DEBUG: [http] http-only callback 29 0x7f79c0005620 (nil)
+[1763556265.201333] DEBUG: [http] WS client created 0x7f79c0005620
+[1763556265.201341] DEBUG: [http] http-only callback 19 0x7f79c0005620 (nil)
+[1763556265.201344] DEBUG: [http] New WS client 0x7f79c0005620
+[1763556265.201460] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556265.201465] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556265.201468] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556265.201470] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556265.201472] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556265.201474] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556265.201495] DEBUG: [http] http-only callback 18 0x7f79c0005620 0x7f79c00070e0
+[1763556265.201500] DEBUG: [http] http-only callback 49 0x7f79c0005620 0x7f79c00070e0
+[1763556265.201503] DEBUG: [http] http-only callback 12 0x7f79c0005620 0x7f79c00070e0
+[1763556265.201505] DEBUG: [http] HTTP request start: /
+[1763556265.201522] INFO: [http] HTTP GET from 127.0.0.1:34460: '/'
+[1763556265.201526] DEBUG: [http] Adding HTTP/WS message to processing queue
+[1763556265.201645] WARNING: [http] Unhandled HTTP URI: '/'
+[1763556265.201922] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556265.202036] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556265.202103] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556265.202153] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556265.202205] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556265.202260] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556265.202320] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556265.202355] DEBUG: [http] http-only callback 71 0x55d48eee3648 (nil)
+[1763556265.202371] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x55d48eee3648 (nil)
+[1763556265.202386] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x55d48eee3648 (nil)
+[1763556265.202400] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x55d48eee3648 (nil)
+[1763556265.202420] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x55d48eee3648 (nil)
+[1763556265.202439] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x55d48eee3648 (nil)
+[1763556265.202455] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556265.202470] DEBUG: [http] http-only callback 16 0x7f79c0005620 0x7f79c00070e0
+[1763556265.202638] DEBUG: [http] Writing back to LWS: 'not found
 '
-[1763507336.578327] DEBUG: [http] http-only callback 50 0x7f3698002d50 0x7f3698004810
-[1763507336.578331] DEBUG: [http] HTTP connection reset 0x7f3698002d50
-[1763507336.578349] DEBUG: [http] http-only callback 49 0x7f3698002d50 0x7f3698004810
-[1763507336.578359] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507336.578426] DEBUG: [http] http-only callback 31 0x7f3698002d50 (nil)
-[1763507336.579048] DEBUG: [http] http-only callback 50 0x7f3698002d50 0x7f3698004810
-[1763507336.579058] DEBUG: [http] HTTP connection reset 0x7f3698002d50
-[1763507336.579294] DEBUG: [http] http-only callback 5 0x7f3698002d50 0x7f3698004810
-[1763507336.579302] DEBUG: [http] HTTP connection closed 0x7f3698002d50
-[1763507336.584571] DEBUG: [http] http-only callback 30 0x7f3698002d50 0x7f3698004810
-[1763507336.584589] DEBUG: [http] WS client destroyed 0x7f3698002d50
+[1763556265.203027] DEBUG: [http] http-only callback 50 0x7f79c0005620 0x7f79c00070e0
+[1763556265.203189] DEBUG: [http] HTTP connection reset 0x7f79c0005620
+[1763556265.203270] DEBUG: [http] http-only callback 49 0x7f79c0005620 0x7f79c00070e0
+[1763556265.203411] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556265.203494] DEBUG: [http] http-only callback 31 0x7f79c0005620 (nil)
+[1763556265.203568] DEBUG: [http] http-only callback 50 0x7f79c0005620 0x7f79c00070e0
+[1763556265.203650] DEBUG: [http] HTTP connection reset 0x7f79c0005620
+[1763556265.203707] DEBUG: [http] http-only callback 5 0x7f79c0005620 0x7f79c00070e0
+[1763556265.203777] DEBUG: [http] HTTP connection closed 0x7f79c0005620
+[1763556265.206801] DEBUG: [http] http-only callback 30 0x7f79c0005620 0x7f79c00070e0
+[1763556265.206817] DEBUG: [http] WS client destroyed 0x7f79c0005620
