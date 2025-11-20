@@ -314,6 +314,33 @@ export class WebRTCService {
     });
   }
 
+  private async waitForIceGatheringComplete(timeoutMs: number = 3000): Promise<void> {
+    if (this.peerConnection!.iceGatheringState === 'complete') {
+      console.log('✅ ICE already complete');
+      return;
+    }
+
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        this.peerConnection!.removeEventListener('icegatheringstatechange', checkState);
+        console.warn('⚠️ ICE gathering timeout after', timeoutMs, 'ms');
+        reject(new Error('ICE gathering timeout'));
+      }, timeoutMs);
+
+      const checkState = () => {
+        console.log('🧊 ICE gathering state:', this.peerConnection!.iceGatheringState);
+        if (this.peerConnection!.iceGatheringState === 'complete') {
+          clearTimeout(timeout);
+          this.peerConnection!.removeEventListener('icegatheringstatechange', checkState);
+          console.log('✅ ICE gathering complete');
+          resolve();
+        }
+      };
+
+      this.peerConnection!.addEventListener('icegatheringstatechange', checkState);
+    });
+  }
+
   async acceptCall(): Promise<void> {
     if (!this.currentCall || this.currentCall.isInitiator) {
       throw new Error('No incoming call to accept');
@@ -369,12 +396,36 @@ export class WebRTCService {
         const answer = await this.peerConnection!.createAnswer();
         await this.peerConnection!.setLocalDescription(answer);
 
-        console.log('📤 Sending SIP answer to signaling server');
+        console.log('🧊 Waiting for ICE gathering to complete...');
+        try {
+          await this.waitForIceGatheringComplete(3000); // 3s timeout
+          console.log('✅ ICE gathering complete, SDP contains candidates');
+        } catch (error) {
+          console.warn('⚠️ ICE gathering timeout, proceeding anyway');
+        }
+
+        const sdpWithCandidates = this.peerConnection!.localDescription!.sdp;
+        const hasIceCandidates = sdpWithCandidates.includes('a=candidate:');
+        const iceGatheringState = this.peerConnection!.iceGatheringState;
+
+        console.log('📤 Sending SIP answer', {
+          isSipCall: this.isSipCall,
+          hasIceCandidates,
+          sdpLength: sdpWithCandidates.length,
+          iceGatheringState,
+          candidateCount: (sdpWithCandidates.match(/a=candidate:/g) || []).length
+        });
+
+        if (!hasIceCandidates) {
+          console.error('❌ WARNING: SDP does NOT contain ICE candidates!');
+          console.error('ICE gathering state:', iceGatheringState);
+        }
+
         this.sendSignalingMessage({
           type: 'answer',
           to: this.currentCall.with,
           from: this.username,
-          data: answer.sdp  // ✅ Solo SDP string per SIP
+          data: sdpWithCandidates  // ✅ Solo SDP string per SIP, con candidate ICE
         });
 
         this.pendingOffer = null;
