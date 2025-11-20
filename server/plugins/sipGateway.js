@@ -948,7 +948,8 @@ class SipGateway extends EventEmitter {
         'transport-protocol': 'UDP/TLS/RTP/SAVPF',
         'ICE': 'force',
         'DTLS': 'passive',
-        'rtcp-mux': ['require']
+        'rtcp-mux': ['require'],
+        'flags': ['generate-mid']
         // ✅ Rimosso blocco codec - passthrough PCMU/PCMA
       };
 
