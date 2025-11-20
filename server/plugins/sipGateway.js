@@ -982,7 +982,8 @@ class SipGateway extends EventEmitter {
         rinfo,
         cseq: 1,
         createdAt: Date.now(),
-        transactionKey
+        transactionKey,
+        from: callerUri
       });
 
       this.metrics.activeSessions++;
