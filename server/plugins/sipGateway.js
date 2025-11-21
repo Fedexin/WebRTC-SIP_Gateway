@@ -1028,7 +1028,11 @@ class SipGateway extends EventEmitter {
         'call-id': callId,
         'from-tag': sessionData.fromTag,
         'to-tag': sessionData.toTag,
-        'sdp': webrtcAnswerSdp
+        'sdp': webrtcAnswerSdp,
+        'transport-protocol': 'RTP/AVP',
+        'ICE': 'remove',
+        'rtcp-mux': ['demux'],
+        'DTLS': 'off'
 
         // ✅ RIMOSSO:
         // - 'transport-protocol': 'RTP/AVP'
@@ -1228,7 +1232,7 @@ class SipGateway extends EventEmitter {
           : `<sip:fede@${this.advertiseIP}>;tag=${sessionData.toTag}`,
         'to': sessionData.direction === 'outgoing'
           ? `<${sessionData.targetUri}>;tag=${sessionData.toTag}`
-          : `<sip:${sessionData.from}>;tag=${sessionData.fromTag}`,
+          : `${sessionData.from}>;tag=${sessionData.fromTag}`,
         'call-id': callId,
         'cseq': `${++sessionData.cseq} BYE`
       }
