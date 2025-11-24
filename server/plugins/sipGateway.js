@@ -75,6 +75,41 @@ class SipGateway extends EventEmitter {
     return this.config.publicIP || this.localIP;
   }
 
+  /**
+   * Valida l'SDP base
+   * Verifica che l'SDP abbia un formato valido e non contenga errori critici
+   */
+  validateSdp(sdp, callId) {
+    const issues = [];
+
+    // Verifica origin line
+    const originMatch = sdp.match(/^o=(.+)$/m);
+    if (originMatch) {
+      const originLine = originMatch[1];
+      const parts = originLine.split(' ');
+
+      // Verifica username non contenga caratteri problematici
+      if (parts[0] && parts[0].includes('...')) {
+        issues.push(`Origin username contains problematic characters '...': ${parts[0]}`);
+      }
+
+      // Verifica IP non sia 0.0.0.0
+      if (parts[5] === '0.0.0.0') {
+        issues.push('Origin IP is 0.0.0.0 (invalid)');
+      }
+    } else {
+      issues.push('Missing origin line (o=)');
+    }
+
+    if (issues.length > 0) {
+      this.logger.warn('SDP validation issues detected', { callId, issues });
+      return { valid: false, issues };
+    }
+
+    this.logger.debug('SDP validation passed', { callId });
+    return { valid: true, issues: [] };
+  }
+
   async initialize() {
     try {
       this.logger.info('Testing RTPEngine connection...');
@@ -1090,8 +1125,20 @@ class SipGateway extends EventEmitter {
             sipAnswerSdp += '\r\n';
           }
 
-          this.logger.debug('Removed video section and WebRTC attributes from SDP answer for SIP client', { callId });
-          this.logger.debug('Filtered SDP for SIP client', { callId, sdp: sipAnswerSdp });
+          // Valida l'SDP ricevuto dal client WebRTC
+          const validation = this.validateSdp(sipAnswerSdp, callId);
+          if (!validation.valid) {
+            this.logger.error('SDP validation failed - WebRTC client sent invalid SDP', {
+              callId,
+              issues: validation.issues
+            });
+          }
+
+          this.logger.debug('Filtered SDP for SIP client', {
+            callId,
+            removedVideo: !hasVideoInOffer,
+            sdp: sipAnswerSdp
+          });
         }
       } catch (err) {
         this.logger.warn('Failed to filter video from SDP, using original', { callId, error: err.message });

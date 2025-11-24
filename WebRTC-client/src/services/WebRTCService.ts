@@ -50,6 +50,9 @@ export class WebRTCService {
   private needsUserRegistration = false;
   private rtcConfig: RTCConfiguration;
 
+  // IP del gateway per SDP normalization
+  private gatewayIP: string = '192.168.1.127';
+
   // Perfect Negotiation
   private makingOffer = false;
   private ignoreOffer = false;
@@ -68,6 +71,53 @@ export class WebRTCService {
 
   constructor(rtcConfig?: RTCConfiguration) {
     this.rtcConfig = rtcConfig || this.defaultRTCConfiguration;
+  }
+
+  /**
+   * Normalizza l'SDP usando modifiche minime
+   * Crea un SDP valido sia per client SIP che WebRTC
+   * - Fix username con caratteri problematici (es. "mozilla...THIS_IS_SDPARTA")
+   * - Fix IP 0.0.0.0 nella origin line
+   * Mantiene TUTTI gli attributi - sarà il server a rimuovere quelli non necessari
+   */
+  private normalizeSdp(sdp: string): string {
+    const lines = sdp.split(/\r?\n/);
+    const normalizedLines: string[] = [];
+
+    for (const line of lines) {
+      // Fix SOLO origin line se ha username problematico o IP invalido
+      if (line.startsWith('o=')) {
+        const parts = line.split(' ');
+
+        if (parts.length >= 6) {
+          let modified = false;
+
+          // Fix username se contiene caratteri problematici
+          const username = parts[0].substring(2); // rimuove "o="
+          if (username.includes('...') || username.includes('mozilla')) {
+            parts[0] = `o=${this.username || 'webrtc'}`;
+            modified = true;
+          }
+
+          // Fix IP se è 0.0.0.0
+          if (parts[5] === '0.0.0.0') {
+            parts[5] = this.gatewayIP;
+            modified = true;
+          }
+
+          if (modified) {
+            normalizedLines.push(parts.join(' '));
+            console.log('🔧 Normalized origin line:', parts.join(' '));
+            continue;
+          }
+        }
+      }
+
+      // Mantieni TUTTO il resto invariato
+      normalizedLines.push(line);
+    }
+
+    return normalizedLines.join('\r\n');
   }
 
   async initialize(username: string): Promise<void> {
@@ -404,7 +454,11 @@ export class WebRTCService {
           console.warn('⚠️ ICE gathering timeout, proceeding anyway');
         }
 
-        const sdpWithCandidates = this.peerConnection!.localDescription!.sdp;
+        let sdpWithCandidates = this.peerConnection!.localDescription!.sdp;
+
+        // Normalizza SDP (fix origin line se necessario)
+        sdpWithCandidates = this.normalizeSdp(sdpWithCandidates);
+
         const hasIceCandidates = sdpWithCandidates.includes('a=candidate:');
         const iceGatheringState = this.peerConnection!.iceGatheringState;
 
@@ -413,7 +467,8 @@ export class WebRTCService {
           hasIceCandidates,
           sdpLength: sdpWithCandidates.length,
           iceGatheringState,
-          candidateCount: (sdpWithCandidates.match(/a=candidate:/g) || []).length
+          candidateCount: (sdpWithCandidates.match(/a=candidate:/g) || []).length,
+          normalized: true
         });
 
         if (!hasIceCandidates) {
@@ -425,7 +480,7 @@ export class WebRTCService {
           type: 'answer',
           to: this.currentCall.with,
           from: this.username,
-          data: sdpWithCandidates  // ✅ Solo SDP string per SIP, con candidate ICE
+          data: sdpWithCandidates  // ✅ SDP normalizzato per SIP
         });
 
         this.pendingOffer = null;
@@ -996,20 +1051,26 @@ export class WebRTCService {
 
       console.log('📤 Sending answer');
 
-      // FIX: Invia solo la stringa SDP, non l'intero oggetto RTCSessionDescription
-      // Per chiamate SIP, il server ha bisogno SOLO della stringa SDP
+      // Normalizza SDP (fix origin line se necessario)
+      let answerData: any;
+      if (this.isSipCall && answer.sdp) {
+        answerData = this.normalizeSdp(answer.sdp);
+      } else {
+        answerData = this.isSipCall ? answer.sdp : answer;
+      }
+
       const answerMessage: SignalingMessage = {
         type: 'answer',
         to: message.from!,
         from: this.username,
-        data: this.isSipCall ? answer.sdp : answer  // ← FIX: Se SIP, invia solo SDP string
+        data: answerData
       };
 
       console.log('📤 Answer message details', {
         isSipCall: this.isSipCall,
         dataType: typeof answerMessage.data,
-        hasSdpField: !!(answer as any).sdp,
-        sdpLength: this.isSipCall ? (answer.sdp?.length || 0) : JSON.stringify(answer).length
+        normalized: this.isSipCall,
+        sdpLength: typeof answerData === 'string' ? answerData.length : JSON.stringify(answerData).length
       });
 
       this.sendSignalingMessage(answerMessage);
