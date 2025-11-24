@@ -1031,8 +1031,51 @@ class SipGateway extends EventEmitter {
 
       this.validateSDP(answerResponse.sdp, 'sip-answer');
 
+      // Remove video section from answer SDP if SIP client didn't offer video
+      let sipAnswerSdp = answerResponse.sdp;
+
+      try {
+        const sipOfferSdp = sessionData.sipRequest.content || '';
+        const hasVideoInOffer = /m=video/i.test(sipOfferSdp);
+
+        if (!hasVideoInOffer && sipAnswerSdp) {
+          // Remove video section and all its attributes from answer
+          const lines = sipAnswerSdp.split(/\r?\n/);
+          const filteredLines = [];
+          let inVideoSection = false;
+
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+
+            // Check if we're entering video section
+            if (line.startsWith('m=video')) {
+              inVideoSection = true;
+              continue; // Skip this line
+            }
+
+            // Check if we're entering a new media section (leaving video)
+            if (inVideoSection && line.startsWith('m=')) {
+              inVideoSection = false;
+            }
+
+            // Skip all lines in video section
+            if (inVideoSection) {
+              continue;
+            }
+
+            filteredLines.push(line);
+          }
+
+          sipAnswerSdp = filteredLines.join('\r\n');
+          this.logger.debug('Removed video section from SDP answer for SIP client', { callId });
+        }
+      } catch (err) {
+        this.logger.warn('Failed to filter video from SDP, using original', { callId, error: err.message });
+        sipAnswerSdp = answerResponse.sdp;
+      }
+
       const request = sessionData.sipRequest;
-      this.sendResponse(request, 200, 'OK', sessionData.rinfo, answerResponse.sdp);
+      this.sendResponse(request, 200, 'OK', sessionData.rinfo, sipAnswerSdp);
 
       this.logger.info('200 OK sent', { callId, toTag: sessionData.toTag });
 
@@ -1054,7 +1097,7 @@ class SipGateway extends EventEmitter {
           return;
         }
         sessionData.retransmit200Count++;
-        this.sendResponse(request, 200, 'OK', sessionData.rinfo, answerResponse.sdp);
+        this.sendResponse(request, 200, 'OK', sessionData.rinfo, sipAnswerSdp);
         const nextInterval = Math.min(sessionData.retransmit200Interval * 2, this.T2);
         sessionData.retransmit200Interval = nextInterval;
         sessionData.retransmit200Timer = setTimeout(retransmit200OK, nextInterval);
