@@ -1068,6 +1068,7 @@ class SipGateway extends EventEmitter {
 
           sipAnswerSdp = filteredLines.join('\r\n');
           this.logger.debug('Removed video section from SDP answer for SIP client', { callId });
+          this.logger.debug('Filtered SDP for SIP client', { callId, sdp: sipAnswerSdp });
         }
       } catch (err) {
         this.logger.warn('Failed to filter video from SDP, using original', { callId, error: err.message });
