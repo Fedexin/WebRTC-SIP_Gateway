@@ -1039,7 +1039,7 @@ class SipGateway extends EventEmitter {
         const hasVideoInOffer = /m=video/i.test(sipOfferSdp);
 
         if (!hasVideoInOffer && sipAnswerSdp) {
-          // Remove video section and all its attributes from answer
+          // Remove video section and WebRTC-specific attributes from answer
           const lines = sipAnswerSdp.split(/\r?\n/);
           const filteredLines = [];
           let inVideoSection = false;
@@ -1066,8 +1066,15 @@ class SipGateway extends EventEmitter {
             filteredLines.push(line);
           }
 
+          // Join with \r\n and ensure proper SDP termination
           sipAnswerSdp = filteredLines.join('\r\n');
-          this.logger.debug('Removed video section from SDP answer for SIP client', { callId });
+
+          // Ensure SDP ends with \r\n (SDP spec requirement)
+          if (!sipAnswerSdp.endsWith('\r\n')) {
+            sipAnswerSdp += '\r\n';
+          }
+
+          this.logger.debug('Removed video section and WebRTC attributes from SDP answer for SIP client', { callId });
           this.logger.debug('Filtered SDP for SIP client', { callId, sdp: sipAnswerSdp });
         }
       } catch (err) {
