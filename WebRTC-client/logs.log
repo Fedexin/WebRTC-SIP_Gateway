@@ -1,3 +1,54 @@
+🔧 Registering WebRTC events... useWebRTC.ts:53:13
+🔧 Registering event: onRemoteStream useWebRTC.ts:144:15
+🔧 Registering event: onConnectionStateChange useWebRTC.ts:144:15
+🔧 Registering event: onLocalStreamUpdated useWebRTC.ts:144:15
+🔧 Registering event: onCallRequest useWebRTC.ts:144:15
+🔧 Registering event: onCallResponse useWebRTC.ts:144:15
+🔧 Registering event: onCallEnd useWebRTC.ts:144:15
+🔧 Registering event: onError useWebRTC.ts:144:15
+✅ All events registered useWebRTC.ts:147:13
+✅ Connected to signaling server WebRTCService.ts:101:19
+🔄 Route check:
+Object { currentPath: "/setup", isInitialized: false, isConnected: true, hasCall: false, hasIncoming: false }
+App.tsx:47:17
+📨 Received message from server: {"type":"connected","message":"Connected to WebRTC Signaling Server","serverTime":"2025-11-24T14:30:05.231Z"} WebRTCService.ts:116:19
+📨 Handling message type: connected WebRTCService.ts:761:13
+✅ Server connection confirmed WebRTCService.ts:766:19
+ℹ️ WebRTC Service initialized with username: fede WebRTCService.ts:79:13
+ℹ️ Perfect Negotiation Pattern: ENABLED WebRTCService.ts:80:13
+Already connected to server, registering user now... WebRTCService.ts:84:15
+🔄 Route check:
+Object { currentPath: "/setup", isInitialized: true, isConnected: true, hasCall: false, hasIncoming: false }
+App.tsx:47:17
+📨 Received message from server: {"type":"registered","username":"fede","message":"Registration successful"} WebRTCService.ts:116:19
+📨 Handling message type: registered WebRTCService.ts:761:13
+✅ Registration confirmed WebRTCService.ts:770:19
+📨 Received message from server: {"type":"user-list","users":[]} WebRTCService.ts:116:19
+📨 Handling message type: user-list WebRTCService.ts:761:13
+📋 Received users list:
+Array []
+WebRTCService.ts:774:19
+📨 Received message from server: {"type":"incoming-call","from":"sip:client1@192.168.1.209","callId":"191460935202@192.168.1.209","sdp":{"type":"offer","sdp":"v=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nt=0 0\r\nm=audio 12336 RTP/SAVPF 0 8\r\nc=IN IP4 192.168.1.127\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=sendrecv\r\na=rtcp:12337\r\na=rtcp-mux\r\na=crypto:1 AEAD_AES_256_GCM inline:BaONiXpebMQjMruQYC4qaK4EWN1FsgLMdoMVyp5NdoXMuhlxG+JOlJGBLsQ\r\na=crypto:2 AEAD_AES_128_GCM inline:f1kK18dafpUDIX31Chlv+i9K4Bx0ZeYDgSdYkg\r\na=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:pIKs+BXTRxXBijSDWujcAmUul4s25z0M9ICDXs7Q3mw8yt4LvWff3+NsBG4WNw\r\na=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:GV/I91t1VfnChKhyimb25kq8RdU05cB7jGU52DIBdSpWoG85lxgNcwBhTWIGxQ\r\na=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:hVE4j3WPkNWMUXU9IFFAC8BBkGdFrj082jlYVvuWi/SeGs18hCo\r\na=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:z3rHVo0ESavANt85jMv7NNvLpk+ROAR/2XAvr3VtnYon7CGL6ZA\r\na=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:WzdLMRctSSki+dh5yBKRlY/Im4pdC90/9zwaurXS\r\na=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:bPhrxRKrZVFg8lKCy+TJSPGFLUOkOD2gMqSr+klB\r\na=crypto:9 F8_128_HMAC_SHA1_80 inline:yPlyyXF6KWyNUQKT4jt9batpfVmxON3yoOomCxg/\r\na=crypto:10 F8_128_HMAC_SHA1_32 inline:BTjFxsVeHZBPShjjQKEoO71mXc8JOXZou4o8/cce\r\na=crypto:11 NULL_HMAC_SHA1_80 inline:p05HBBhH2gQc3uGcBbF1B+eAE0NeWOvmWST9qNRm\r\na=crypto:12 NULL_HMAC_SHA1_32 inline:ainWfZhfX/6wpaV2jLlp52fV4lG1UEtVLMZfdeyT\r\na=setup:actpass\r\na=fingerprint:sha-256 8B:9C:3F:CD:C3:86:0B:2F:4D:59:69:DE:52:C7:CE:76:F1:5D:28:C5:1E:C2:02:84:A1:C5:87:DC:E8:D8:23:3F\r\na=tls-id:b3e24ef1c01259182647a585e8228b43\r\na=ice-ufrag:HMH4pS4t\r\na=ice-pwd:Hy9kcD9RimlxySarDSTjjeJybV\r\na=candidate:xYAzORfTqmmrIVJ6 1 UDP 2130706431 192.168.1.127 12336 typ host\r\na=candidate:xYAzORfTqmmrIVJ6 2 UDP 2130706430 192.168.1.127 12337 typ host\r\n"}} WebRTCService.ts:116:19
+📨 Handling message type: incoming-call WebRTCService.ts:761:13
+📞 Incoming SIP call from: sip:client1@192.168.1.209 callId: 191460935202@192.168.1.209 WebRTCService.ts:803:19
+💾 Saved SIP call info:
+Object { isSipCall: true, callId: "191460935202@192.168.1.209" }
+WebRTCService.ts:809:19
+💾 Saving pending offer with SDP WebRTCService.ts:815:21
+🔔 Hook: onCallRequest triggered by: sip:client1@192.168.1.209 useWebRTC.ts:85:17
+🔍 Hook: Setting incomingCall state... useWebRTC.ts:86:17
+✅ Hook: incomingCall state set useWebRTC.ts:88:17
+✅ Hook: Toast shown useWebRTC.ts:93:17
+🔄 Route check:
+Object { currentPath: "/setup", isInitialized: true, isConnected: true, hasCall: false, hasIncoming: true }
+App.tsx:47:17
+➡️ Redirecting to call (has active call) App.tsx:66:21
+🎥 Rendering VideoStream:
+Object { participantName: "Utente", hasStream: false, showPlaceholderOverlay: true, isLocal: false }
+VideoStream.tsx:155:13
+🎥 Rendering VideoStream:
+Object { participantName: "Tu", hasStream: false, showPlaceholderOverlay: false, isLocal: true }
+VideoStream.tsx:155:13
 🎥 VideoStream effect:
 Object { hasStream: false, isVideoOff: false, isLocal: false, participantName: "Utente", streamId: undefined, tracks: undefined }
 VideoStream.tsx:33:17
@@ -32,7 +83,7 @@ VideoStream.tsx:155:13
 Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
 VideoStream.tsx:155:13
 🎥 VideoStream effect:
-Object { hasStream: true, isVideoOff: false, isLocal: true, participantName: "Tu", streamId: "{af29d6c5-caa9-492d-813d-60ebd360fd4c}", tracks: (2) […] }
+Object { hasStream: true, isVideoOff: false, isLocal: true, participantName: "Tu", streamId: "{efbed016-5bd8-49da-998a-716a18015801}", tracks: (2) […] }
 VideoStream.tsx:33:17
 🎥 Local stream - isVideoOff: false VideoStream.tsx:43:21
 🎥 Setting video srcObject for: Tu VideoStream.tsx:136:17
@@ -43,7 +94,7 @@ VideoCall.tsx:30:17
 Object { hasAudioTrack: true, hasVideoTrack: true, audioEnabled: true, videoEnabled: true, audioReadyState: "live", videoReadyState: "live" }
 VideoCall.tsx:46:21
 📊 Call page state:
-Object { isInitialized: true, isConnected: true, currentCall: undefined, incomingCall: "sip:client1@192.168.1.209", hasLocalStream: true, hasRemoteStream: false, localStreamId: "{af29d6c5-caa9-492d-813d-60ebd360fd4c}", remoteStreamId: undefined }
+Object { isInitialized: true, isConnected: true, currentCall: undefined, incomingCall: "sip:client1@192.168.1.209", hasLocalStream: true, hasRemoteStream: false, localStreamId: "{efbed016-5bd8-49da-998a-716a18015801}", remoteStreamId: undefined }
 Call.tsx:125:17
 📺 Remote track received WebRTCService.ts:701:15
 Remote stream received useWebRTC.ts:56:17
@@ -55,95 +106,12 @@ VideoStream.tsx:155:13
 Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
 VideoStream.tsx:155:13
 🎥 VideoStream effect:
-Object { hasStream: true, isVideoOff: false, isLocal: false, participantName: "Utente", streamId: "{24e175dd-221b-40d7-91d0-e4e3eebd4daf}", tracks: (1) […] }
+Object { hasStream: true, isVideoOff: false, isLocal: false, participantName: "Utente", streamId: "{0a54a8ae-b603-42c9-ab44-3a9c6ba328f8}", tracks: (1) […] }
 VideoStream.tsx:33:17
 🎥 Setting video srcObject for: Utente VideoStream.tsx:136:17
 📺 VideoCall streams updated:
 Object { hasLocal: true, hasRemote: true, localTracks: 2, remoteTracks: 1, isMuted: false, isVideoOff: false }
 VideoCall.tsx:30:17
 📊 Call page state:
-Object { isInitialized: true, isConnected: true, currentCall: undefined, incomingCall: "sip:client1@192.168.1.209", hasLocalStream: true, hasRemoteStream: true, localStreamId: "{af29d6c5-caa9-492d-813d-60ebd360fd4c}", remoteStreamId: "{24e175dd-221b-40d7-91d0-e4e3eebd4daf}" }
+Object { isInitialized: true, isConnected: true, currentCall: undefined, incomingCall: "sip:client1@192.168.1.209", hasLocalStream: true, hasRemoteStream: true, localStreamId: "{efbed016-5bd8-49da-998a-716a18015801}", remoteStreamId: "{0a54a8ae-b603-42c9-ab44-3a9c6ba328f8}" }
 Call.tsx:125:17
-🧊 Waiting for ICE gathering to complete... WebRTCService.ts:399:17
-🔄 Negotiation needed, creating offer... WebRTCService.ts:738:19
-🧊 ICE gathering state: gathering WebRTCService.ts:331:17
-🧊 Sending ICE candidate 6 WebRTCService.ts:707:17
-🔗 Connection state: connecting WebRTCService.ts:719:15
-Connection state changed to: connecting useWebRTC.ts:61:17
-🎥 Rendering VideoStream:
-Object { participantName: "sip:client1@192.168.1.209", hasStream: true, showPlaceholderOverlay: true, isLocal: false }
-VideoStream.tsx:155:13
-🎥 Rendering VideoStream:
-Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
-VideoStream.tsx:155:13
-📤 Sending offer via negotiation WebRTCService.ts:741:19
-🎥 Cleaning up video for: Utente VideoStream.tsx:151:21
-🎥 VideoStream effect:
-Object { hasStream: true, isVideoOff: false, isLocal: false, participantName: "sip:client1@192.168.1.209", streamId: "{24e175dd-221b-40d7-91d0-e4e3eebd4daf}", tracks: (1) […] }
-VideoStream.tsx:33:17
-🎥 Setting video srcObject for: sip:client1@192.168.1.209 VideoStream.tsx:136:17
-📊 Call page state:
-Object { isInitialized: true, isConnected: true, currentCall: "sip:client1@192.168.1.209", incomingCall: "sip:client1@192.168.1.209", hasLocalStream: true, hasRemoteStream: true, localStreamId: "{af29d6c5-caa9-492d-813d-60ebd360fd4c}", remoteStreamId: "{24e175dd-221b-40d7-91d0-e4e3eebd4daf}" }
-Call.tsx:125:17
-🔄 Route check:
-Object { currentPath: "/call", isInitialized: true, isConnected: true, hasCall: true, hasIncoming: true }
-App.tsx:47:17
-🧊 Sending ICE candidate 20 WebRTCService.ts:707:17
-🧊 ICE gathering state: complete WebRTCService.ts:331:17
-✅ ICE gathering complete WebRTCService.ts:335:19
-✅ ICE gathering complete, SDP contains candidates WebRTCService.ts:402:19
-📤 Sending SIP answer
-Object { isSipCall: true, hasIceCandidates: true, sdpLength: 5809, iceGatheringState: "complete", candidateCount: 24 }
-WebRTCService.ts:411:17
-✅ SIP offer processed successfully WebRTCService.ts:432:17
-✅ Call: Call accepted Call.tsx:109:21
-🎥 Rendering VideoStream:
-Object { participantName: "sip:client1@192.168.1.209", hasStream: true, showPlaceholderOverlay: true, isLocal: false }
-VideoStream.tsx:155:13
-🎥 Rendering VideoStream:
-Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
-VideoStream.tsx:155:13
-📊 Call page state:
-Object { isInitialized: true, isConnected: true, currentCall: "sip:client1@192.168.1.209", incomingCall: undefined, hasLocalStream: true, hasRemoteStream: true, localStreamId: "{af29d6c5-caa9-492d-813d-60ebd360fd4c}", remoteStreamId: "{24e175dd-221b-40d7-91d0-e4e3eebd4daf}" }
-Call.tsx:125:17
-🔄 Route check:
-Object { currentPath: "/call", isInitialized: true, isConnected: true, hasCall: true, hasIncoming: false }
-App.tsx:47:17
-🎥 Rendering VideoStream:
-Object { participantName: "sip:client1@192.168.1.209", hasStream: true, showPlaceholderOverlay: true, isLocal: false }
-​
-hasStream: true
-​
-isLocal: false
-​
-participantName: "sip:client1@192.168.1.209"
-​
-showPlaceholderOverlay: true
-​
-<prototype>: Object { … }
-VideoStream.tsx:155:13
-🎥 Rendering VideoStream:
-Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
-VideoStream.tsx:155:13
-🔴 Ending call
-Object { currentCall: {…}, isSipCall: true, callId: "147600915107@192.168.1.209" }
-WebRTCService.ts:471:13
-📤 Sending SIP hangup with callId: 147600915107@192.168.1.209 WebRTCService.ts:487:17
-Local stream updated useWebRTC.ts:80:17
-Call ended useWebRTC.ts:116:17
-🎥 Cleaning up video for: sip:client1@192.168.1.209 VideoStream.tsx:151:21
-🎥 Cleaning up video for: Tu VideoStream.tsx:151:21
-📊 Call page state:
-Object { isInitialized: true, isConnected: true, currentCall: undefined, incomingCall: undefined, hasLocalStream: false, hasRemoteStream: false, localStreamId: undefined, remoteStreamId: undefined }
-Call.tsx:125:17
-🔄 Route check:
-Object { currentPath: "/call", isInitialized: true, isConnected: true, hasCall: false, hasIncoming: false }
-App.tsx:47:17
-➡️ Redirecting to dashboard (connected, no calls) App.tsx:73:21
-🔄 Route check:
-Object { currentPath: "/setup", isInitialized: true, isConnected: true, hasCall: false, hasIncoming: false }
-App.tsx:47:17
-📨 Received message from server: {"type":"call-ended","callId":"147600915107@192.168.1.209","reason":"Call terminated"} WebRTCService.ts:116:19
-📨 Handling message type: call-ended WebRTCService.ts:761:13
-📞 Call ended by: undefined WebRTCService.ts:907:19
-Call ended
