@@ -1,5 +1,0 @@
-./server/logs
-./server/node_modules
-./server/rtpengine/logs
-./sip-client/log
-./sip-server/log

@@ -989,7 +989,7 @@ class SipGateway extends EventEmitter {
   }
 
   async answerSipCall(callId, webrtcUserId, webrtcAnswerSdp) {
-    this.logger.info('Answering SIP call', { callId, webrtcUserId });
+    this.logger.info('Answering incoming SIP call', { callId, webrtcUserId });
 
     const sessionData = this.sessions.get(callId);
     if (!sessionData) {
@@ -997,27 +997,23 @@ class SipGateway extends EventEmitter {
     }
 
     try {
+      this.logger.debug('SDP received as string', { callId, length: webrtcAnswerSdp.length });
       this.validateSDP(webrtcAnswerSdp, 'webrtc-answer');
+
       sessionData.state = 'answered';
       sessionData.webrtcUserId = webrtcUserId;
-
-      // [FIX AUDIO] Rimuoviamo il video dall'SDP WebRTC per non confondere il client SIP audio-only
-      let cleanSdp = webrtcAnswerSdp;
-      if (cleanSdp.includes('m=video')) {
-        cleanSdp = cleanSdp.split('m=video')[0];
-      }
 
       const answerPayload = {
         'call-id': callId,
         'from-tag': sessionData.fromTag,
         'to-tag': sessionData.toTag,
-        'sdp': cleanSdp,              // Usiamo l'SDP pulito senza video
-        'transport-protocol': 'RTP/AVP', // SIP standard
-        'ICE': 'remove',              // Rimuovi ICE per SIP
-        'rtcp-mux': ['demux'],        // SIP non usa mux
+        'sdp': webrtcAnswerSdp,
+        'transport-protocol': 'RTP/AVP',
+        'ICE': 'remove',
+        'rtcp-mux': ['demux'],
         'codec': {
           'strip': ['opus'],
-          'offer': ['PCMU', 'PCMA'],
+          'offer': ['PCMU', 'PCMA']
         }
       };
 
@@ -1111,11 +1107,12 @@ class SipGateway extends EventEmitter {
     }
   }
 
-  async hangup(callId) {
-    this.logger.info('Hanging up call', { callId });
+  async hangupCall(callId, direction, webrtcUser) {
+    this.logger.info('Hanging up call', { callId, direction, webrtcUser });
 
     const sessionData = this.sessions.get(callId);
     if (!sessionData) {
+      this.logger.warn('Cannot hangup: session not found', { callId });
       return;
     }
 
@@ -1131,13 +1128,35 @@ class SipGateway extends EventEmitter {
           targetHost = this.config.sipServerHost;
           targetPort = this.config.sipServerPort;
         } else {
-          // [FIX HANGUP] Usiamo rinfo per forzare l'invio al client corretto (che ha inviato l'INVITE)
+          // Per chiamate incoming: usa Contact header o From header per il target URI
+          const contactHeader = sessionData.sipRequest.headers['contact'];
           const fromHeader = sessionData.sipRequest.headers['from'];
-          const contactMatch = fromHeader ? fromHeader.match(/<([^>]+)>/) : null;
-          targetUri = contactMatch ? contactMatch[1] : fromHeader.split(';')[0];
-          // Qui sta il trucco: usiamo l'indirizzo fisico da cui è arrivata la richiesta
-          targetHost = sessionData.rinfo.address;
-          targetPort = sessionData.rinfo.port;
+
+          if (contactHeader) {
+            const contactMatch = contactHeader.match(/<([^>]+)>/);
+            targetUri = contactMatch ? contactMatch[1] : contactHeader.split(';')[0].trim();
+          } else {
+            const fromMatch = fromHeader.match(/<([^>]+)>/);
+            targetUri = fromMatch ? fromMatch[1] : fromHeader.split(';')[0].trim();
+          }
+
+          // Estrai host e porta dal target URI
+          const uriMatch = targetUri.match(/sip:([^@]+@)?([^:;>]+)(?::(\d+))?/);
+          if (uriMatch) {
+            targetHost = uriMatch[2];
+            targetPort = uriMatch[3] ? parseInt(uriMatch[3]) : 5060;
+          } else {
+            // Fallback: usa SIP server
+            targetHost = this.config.sipServerHost;
+            targetPort = this.config.sipServerPort;
+          }
+
+          this.logger.debug('Hangup target resolved', {
+            callId,
+            targetUri,
+            targetHost,
+            targetPort
+          });
         }
 
         const byeMessage = {
@@ -1161,7 +1180,6 @@ class SipGateway extends EventEmitter {
         this.logger.debug('BYE sent', { callId, targetHost, targetPort });
 
       } else if (sessionData.direction === 'outgoing' && sessionData.state === 'calling') {
-        // ... gestione cancel invariata
         const cancelMessage = {
           method: 'CANCEL',
           uri: sessionData.targetUri,
@@ -1183,6 +1201,19 @@ class SipGateway extends EventEmitter {
     }
 
     await this.cleanupSession(callId);
+  }
+
+  // Legacy method for backward compatibility
+  async hangup(callId) {
+    const sessionData = this.sessions.get(callId);
+    if (!sessionData) {
+      return await this.hangupCall(callId, 'unknown', null);
+    }
+    return await this.hangupCall(
+      callId,
+      sessionData.direction || 'unknown',
+      sessionData.webrtcUserId || sessionData.webrtcClientId || null
+    );
   }
 
   handleBye(request, rinfo) {
