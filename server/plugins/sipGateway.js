@@ -1063,6 +1063,22 @@ class SipGateway extends EventEmitter {
               continue;
             }
 
+            // Skip WebRTC-specific attributes that traditional SIP clients don't understand
+            // These can cause parsing issues in clients like mjsip
+            if (line.startsWith('a=extmap') ||
+              line.startsWith('a=extmap-allow-mixed') ||
+              line.startsWith('a=msid') ||
+              line.startsWith('a=ssrc') ||
+              line.startsWith('a=rtcp-mux') ||
+              line.startsWith('a=rtcp-rsize') ||
+              line.startsWith('a=ice-') ||
+              line.startsWith('a=fingerprint') ||
+              line.startsWith('a=setup') ||
+              line.startsWith('a=mid') ||
+              line.startsWith('a=candidate')) {
+              continue;
+            }
+
             filteredLines.push(line);
           }
 

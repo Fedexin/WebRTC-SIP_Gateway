@@ -3,7 +3,7 @@
 🔄 Route check:
 Object { currentPath: "/setup", isInitialized: false, isConnected: true, hasCall: false, hasIncoming: false }
 App.tsx:47:17
-📨 Received message from server: {"type":"connected","message":"Connected to WebRTC Signaling Server","serverTime":"2025-11-24T17:57:02.243Z"} WebRTCService.ts:116:19
+📨 Received message from server: {"type":"connected","message":"Connected to WebRTC Signaling Server","serverTime":"2025-11-24T20:12:37.588Z"} WebRTCService.ts:116:19
 📨 Handling message type: connected WebRTCService.ts:761:13
 ✅ Server connection confirmed WebRTCService.ts:766:19
 ℹ️ WebRTC Service initialized with username: fede WebRTCService.ts:79:13
@@ -20,37 +20,11 @@ App.tsx:47:17
 📋 Received users list:
 Array []
 WebRTCService.ts:774:19
-📨 Received message from server: {"type":"incoming-call","from":"sip:client1@192.168.1.209","callId":"300743182316@192.168.1.209","sdp":{"type":"offer","sdp":"v=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nt=0 0\r\nm=audio 14524 RTP/SAVPF 0 8\r\nc=IN IP4 192.168.1.127\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=sendrecv\r\na=rtcp:14524\r\na=rtcp-mux\r\na=crypto:1 AEAD_AES_256_GCM inline:Y/lhGtn5Z3IhAs9gyHVKdBhHwyl3MXk67Zjpbo8LflX1ZXjkUmKxZl/RP60\r\na=crypto:2 AEAD_AES_128_GCM inline:ZgAzyu7S5H+PORG0Lpjdua+ep4dOg280DdJvAg\r\na=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:XoHp6dv7gILyf6waETMkNHJdY4TiXMVLkK3EWhQ2TxuyE9D4Axi/lhWoObXJKA\r\na=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:5NaiRRyVZmtzZw7aug1KUtrhNzLWdyl4NQs9Xe0P/d8/CJ1BCCKxNvR3HF6oIQ\r\na=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:SeSiMmpg5nj8XdFtYS2VmZZ5Ub4bknIrE1iShe3ay4Nf1vkrkis\r\na=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:rAiuSJClrQOu0VEwoulojdcwaS2Q9JKb0ClfRi8ItaiZ8ctVROA\r\na=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:H/WC7ouHZsAOl+Lx2VXHDqJNnp3cIghW1dN+g8d2\r\na=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:VGBfuxzed4AxKJwYZSSNXrsKsUPwUVwWRbqzgZYp\r\na=crypto:9 F8_128_HMAC_SHA1_80 inline:v/26nOQyJ44aYu+5F+GTHsfdCVc7QOqEdxj/lUS0\r\na=crypto:10 F8_128_HMAC_SHA1_32 inline:J8JJ3JaWH9QgOSHMcTFk0vnrfDgeo2/FpXR0tuo8\r\na=crypto:11 NULL_HMAC_SHA1_80 inline:xPmrFRftu7aTb1b3dlCsoGz0y/PJVhTjUg1YU/jK\r\na=crypto:12 NULL_HMAC_SHA1_32 inline:+1Yj1UtX1u1mNFtAYk4XRI/jOA/WB0xp4etgKsgP\r\na=setup:actpass\r\na=fingerprint:sha-256 20:2B:C2:F1:A9:0F:E8:A1:62:0C:EB:26:EA:5E:44:4C:5D:F8:36:66:85:6F:B0:18:9F:B0:A8:2F:F6:F7:D5:D0\r\na=tls-id:cde4e26337dc335a59b1587b37f88497\r\na=ice-ufrag:kI53AyUw\r\na=ice-pwd:YV6NrzU4fdIyNDWdMgYwPH19qi\r\na=candidate:UqS46Gh0hvkYuJ93 1 UDP 2130706431 192.168.1.127 14524 typ host\r\n"}} WebRTCService.ts:116:19
+📨 Received message from server: {"type":"incoming-call","from":"sip:client1@192.168.1.209","callId":"249715899792@192.168.1.209","sdp":{"type":"offer","sdp":"v=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nt=0 0\r\nm=audio 14290 RTP/SAVPF 0 8\r\nc=IN IP4 192.168.1.127\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=sendrecv\r\na=rtcp:14291\r\na=rtcp-mux\r\na=crypto:1 AEAD_AES_256_GCM inline:bOaWG+ct4QqcpK8NywHGm50N3mgHSP8BlGFndydZyRt6+1PpE/OlqFJ56Jg\r\na=crypto:2 AEAD_AES_128_GCM inline:WcEwow7IyNj35+4t129W3PN2x+Y/V4UBQ1Iyrw\r\na=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:YtJBiKp4yIwLA/LDMUxxRkV9vDkQIiw0DoHrk4DtH/4bXUeInJlb/FMy+WBU5g\r\na=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:/wEE80QBwPdl6N9u0uNhr62iBCBtgQJ3moRGNkmV/3iQo7LnGiCRyRM8ApiKVA\r\na=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:Km+60xplUFNEhOs+jPFyrfR/Tr7tU05sq8PpIYBve1nw4IyuoyA\r\na=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:zXwID24paMR2A6P4cBXa3t4I7hjygWDwwJLpShc2fRDQbk3D0WA\r\na=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:rdrehOtxcL8lNsORsIDCjsTmA/jeWIsIhgGH0VG+\r\na=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:Sq5JnGiQgHbjjf5sLL7RIzyCG7yjMa965IyDNIM7\r\na=crypto:9 F8_128_HMAC_SHA1_80 inline:mtk0/86yb+xw5KF7oXKImpdte8d5lf2osR1xKxI8\r\na=crypto:10 F8_128_HMAC_SHA1_32 inline:uzS4DRB6MbC9KTbNYcuZqOi7qJqy9BKZctreKOJr\r\na=crypto:11 NULL_HMAC_SHA1_80 inline:KXTC84Od8bC+/EjRH4dEPf3bthO4Vf87xklphcyr\r\na=crypto:12 NULL_HMAC_SHA1_32 inline:uxL8LQGm1/zMPlRtoQAkhJyR7G0evjvsUBAa2xVd\r\na=setup:actpass\r\na=fingerprint:sha-256 A3:8E:D2:1E:5E:5F:18:8F:9F:A8:6C:F2:4F:E3:EA:A6:97:23:EA:08:ED:B9:71:13:41:55:D8:C5:60:31:49:62\r\na=tls-id:a93672c626ba4d2543d10e44e0b4e913\r\na=ice-ufrag:scjqWqPA\r\na=ice-pwd:wFUm0LboFVfcaAVxR0LRqCGK7T\r\na=candidate:mr68ivdhdrEbjUvU 1 UDP 2130706431 192.168.1.127 14290 typ host\r\na=candidate:mr68ivdhdrEbjUvU 2 UDP 2130706430 192.168.1.127 14291 typ host\r\n"}} WebRTCService.ts:116:19
 📨 Handling message type: incoming-call WebRTCService.ts:761:13
-📞 Incoming SIP call from: sip:client1@192.168.1.209 callId: 300743182316@192.168.1.209 WebRTCService.ts:803:19
+📞 Incoming SIP call from: sip:client1@192.168.1.209 callId: 249715899792@192.168.1.209 WebRTCService.ts:803:19
 💾 Saved SIP call info:
-Object { isSipCall: true, callId: "300743182316@192.168.1.209" }
-WebRTCService.ts:809:19
-💾 Saving pending offer with SDP WebRTCService.ts:815:21
-🔔 Hook: onCallRequest triggered by: sip:client1@192.168.1.209 useWebRTC.ts:85:17
-🔍 Hook: Setting incomingCall state... useWebRTC.ts:86:17
-✅ Hook: incomingCall state set useWebRTC.ts:88:17
-✅ Hook: Toast shown useWebRTC.ts:93:17
-🔄 Route check:
-Object { currentPath: "/setup", isInitialized: true, isConnected: true, hasCall: false, hasIncoming: true }
-App.tsx:47:17
-➡️ Redirecting to call (has active call) App.tsx:66:21
-📨 Received message from server: {"type":"incoming-call","from":"sip:client1@192.168.1.209","callId":"300743182316@192.168.1.209","sdp":{"type":"offer","sdp":"v=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nt=0 0\r\nm=audio 14524 RTP/SAVPF 0 8\r\nc=IN IP4 192.168.1.127\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=sendrecv\r\na=rtcp:14525\r\na=rtcp-mux\r\na=crypto:1 AEAD_AES_256_GCM inline:Y/lhGtn5Z3IhAs9gyHVKdBhHwyl3MXk67Zjpbo8LflX1ZXjkUmKxZl/RP60\r\na=crypto:2 AEAD_AES_128_GCM inline:ZgAzyu7S5H+PORG0Lpjdua+ep4dOg280DdJvAg\r\na=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:XoHp6dv7gILyf6waETMkNHJdY4TiXMVLkK3EWhQ2TxuyE9D4Axi/lhWoObXJKA\r\na=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:5NaiRRyVZmtzZw7aug1KUtrhNzLWdyl4NQs9Xe0P/d8/CJ1BCCKxNvR3HF6oIQ\r\na=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:SeSiMmpg5nj8XdFtYS2VmZZ5Ub4bknIrE1iShe3ay4Nf1vkrkis\r\na=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:rAiuSJClrQOu0VEwoulojdcwaS2Q9JKb0ClfRi8ItaiZ8ctVROA\r\na=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:H/WC7ouHZsAOl+Lx2VXHDqJNnp3cIghW1dN+g8d2\r\na=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:VGBfuxzed4AxKJwYZSSNXrsKsUPwUVwWRbqzgZYp\r\na=crypto:9 F8_128_HMAC_SHA1_80 inline:v/26nOQyJ44aYu+5F+GTHsfdCVc7QOqEdxj/lUS0\r\na=crypto:10 F8_128_HMAC_SHA1_32 inline:J8JJ3JaWH9QgOSHMcTFk0vnrfDgeo2/FpXR0tuo8\r\na=crypto:11 NULL_HMAC_SHA1_80 inline:xPmrFRftu7aTb1b3dlCsoGz0y/PJVhTjUg1YU/jK\r\na=crypto:12 NULL_HMAC_SHA1_32 inline:+1Yj1UtX1u1mNFtAYk4XRI/jOA/WB0xp4etgKsgP\r\na=setup:actpass\r\na=fingerprint:sha-256 20:2B:C2:F1:A9:0F:E8:A1:62:0C:EB:26:EA:5E:44:4C:5D:F8:36:66:85:6F:B0:18:9F:B0:A8:2F:F6:F7:D5:D0\r\na=tls-id:cde4e26337dc335a59b1587b37f88497\r\na=ice-ufrag:kI53AyUw\r\na=ice-pwd:YV6NrzU4fdIyNDWdMgYwPH19qi\r\na=candidate:UqS46Gh0hvkYuJ93 1 UDP 2130706431 192.168.1.127 14524 typ host\r\na=candidate:UqS46Gh0hvkYuJ93 2 UDP 2130706430 192.168.1.127 14525 typ host\r\n"}} WebRTCService.ts:116:19
-📨 Handling message type: incoming-call WebRTCService.ts:761:13
-📞 Incoming SIP call from: sip:client1@192.168.1.209 callId: 300743182316@192.168.1.209 WebRTCService.ts:803:19
-💾 Saved SIP call info:
-Object { isSipCall: true, callId: "300743182316@192.168.1.209" }
-WebRTCService.ts:809:19
-💾 Saving pending offer with SDP WebRTCService.ts:815:21
-🔔 Hook: onCallRequest triggered by: sip:client1@192.168.1.209 useWebRTC.ts:85:17
-🔍 Hook: Setting incomingCall state... useWebRTC.ts:86:17
-✅ Hook: incomingCall state set useWebRTC.ts:88:17
-✅ Hook: Toast shown useWebRTC.ts:93:17
-📨 Received message from server: {"type":"incoming-call","from":"sip:client1@192.168.1.209","callId":"300743182316@192.168.1.209","sdp":{"type":"offer","sdp":"v=0\r\no=client1 0 0 IN IP4 192.168.1.209\r\ns=-\r\nt=0 0\r\nm=audio 14524 RTP/SAVPF 0 8\r\nc=IN IP4 192.168.1.127\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=sendrecv\r\na=rtcp:14524\r\na=rtcp-mux\r\na=crypto:1 AEAD_AES_256_GCM inline:Y/lhGtn5Z3IhAs9gyHVKdBhHwyl3MXk67Zjpbo8LflX1ZXjkUmKxZl/RP60\r\na=crypto:2 AEAD_AES_128_GCM inline:ZgAzyu7S5H+PORG0Lpjdua+ep4dOg280DdJvAg\r\na=crypto:3 AES_256_CM_HMAC_SHA1_80 inline:XoHp6dv7gILyf6waETMkNHJdY4TiXMVLkK3EWhQ2TxuyE9D4Axi/lhWoObXJKA\r\na=crypto:4 AES_256_CM_HMAC_SHA1_32 inline:5NaiRRyVZmtzZw7aug1KUtrhNzLWdyl4NQs9Xe0P/d8/CJ1BCCKxNvR3HF6oIQ\r\na=crypto:5 AES_192_CM_HMAC_SHA1_80 inline:SeSiMmpg5nj8XdFtYS2VmZZ5Ub4bknIrE1iShe3ay4Nf1vkrkis\r\na=crypto:6 AES_192_CM_HMAC_SHA1_32 inline:rAiuSJClrQOu0VEwoulojdcwaS2Q9JKb0ClfRi8ItaiZ8ctVROA\r\na=crypto:7 AES_CM_128_HMAC_SHA1_80 inline:H/WC7ouHZsAOl+Lx2VXHDqJNnp3cIghW1dN+g8d2\r\na=crypto:8 AES_CM_128_HMAC_SHA1_32 inline:VGBfuxzed4AxKJwYZSSNXrsKsUPwUVwWRbqzgZYp\r\na=crypto:9 F8_128_HMAC_SHA1_80 inline:v/26nOQyJ44aYu+5F+GTHsfdCVc7QOqEdxj/lUS0\r\na=crypto:10 F8_128_HMAC_SHA1_32 inline:J8JJ3JaWH9QgOSHMcTFk0vnrfDgeo2/FpXR0tuo8\r\na=crypto:11 NULL_HMAC_SHA1_80 inline:xPmrFRftu7aTb1b3dlCsoGz0y/PJVhTjUg1YU/jK\r\na=crypto:12 NULL_HMAC_SHA1_32 inline:+1Yj1UtX1u1mNFtAYk4XRI/jOA/WB0xp4etgKsgP\r\na=setup:actpass\r\na=fingerprint:sha-256 20:2B:C2:F1:A9:0F:E8:A1:62:0C:EB:26:EA:5E:44:4C:5D:F8:36:66:85:6F:B0:18:9F:B0:A8:2F:F6:F7:D5:D0\r\na=tls-id:cde4e26337dc335a59b1587b37f88497\r\na=ice-ufrag:kI53AyUw\r\na=ice-pwd:YV6NrzU4fdIyNDWdMgYwPH19qi\r\na=candidate:UqS46Gh0hvkYuJ93 1 UDP 2130706431 192.168.1.127 14524 typ host\r\n"}} WebRTCService.ts:116:19
-📨 Handling message type: incoming-call WebRTCService.ts:761:13
-📞 Incoming SIP call from: sip:client1@192.168.1.209 callId: 300743182316@192.168.1.209 WebRTCService.ts:803:19
-💾 Saved SIP call info:
-Object { isSipCall: true, callId: "300743182316@192.168.1.209" }
+Object { isSipCall: true, callId: "249715899792@192.168.1.209" }
 WebRTCService.ts:809:19
 💾 Saving pending offer with SDP WebRTCService.ts:815:21
 🔔 Hook: onCallRequest triggered by: sip:client1@192.168.1.209 useWebRTC.ts:85:17
@@ -84,8 +58,52 @@ Call.tsx:125:17
 Object { currentPath: "/call", isInitialized: true, isConnected: true, hasCall: false, hasIncoming: true }
 App.tsx:47:17
 🔔 Call: Accepting call from sip:client1@192.168.1.209 Call.tsx:107:21
+🎥 Rendering VideoStream:
+Object { participantName: "Utente", hasStream: false, showPlaceholderOverlay: true, isLocal: false }
+VideoStream.tsx:155:13
+🎥 Rendering VideoStream:
+Object { participantName: "Tu", hasStream: false, showPlaceholderOverlay: false, isLocal: true }
+VideoStream.tsx:155:13
 Local stream updated useWebRTC.ts:80:17
 🎭 This peer is POLITE WebRTCService.ts:354:13
 📤 Sending call-response (accepted) WebRTCService.ts:356:13
 🔧 Creating peer connection... WebRTCService.ts:690:13
 ✅ Peer connection created WebRTCService.ts:757:13
+📥 Processing SIP offer immediately after accept... WebRTCService.ts:371:15
+📝 Pending offer structure:
+Object { hasType: true, hasSdp: true, sdpLength: 1639 }
+WebRTCService.ts:372:15
+📥 Setting remote description from SIP offer WebRTCService.ts:380:17
+🎥 Rendering VideoStream:
+Object { participantName: "Utente", hasStream: false, showPlaceholderOverlay: true, isLocal: false }
+VideoStream.tsx:155:13
+🎥 Rendering VideoStream:
+Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
+VideoStream.tsx:155:13
+🎥 VideoStream effect:
+Object { hasStream: true, isVideoOff: false, isLocal: true, participantName: "Tu", streamId: "{035490b0-47cc-4186-a4d7-e85f6bf8293a}", tracks: (2) […] }
+VideoStream.tsx:33:17
+🎥 Local stream - isVideoOff: false VideoStream.tsx:43:21
+🎥 Setting video srcObject for: Tu VideoStream.tsx:136:17
+📺 VideoCall streams updated:
+Object { hasLocal: true, hasRemote: false, localTracks: 2, remoteTracks: 0, isMuted: false, isVideoOff: false }
+VideoCall.tsx:30:17
+📺 VideoCall sync effect:
+Object { hasAudioTrack: true, hasVideoTrack: true, audioEnabled: true, videoEnabled: true, audioReadyState: "live", videoReadyState: "live" }
+VideoCall.tsx:46:21
+📊 Call page state:
+Object { isInitialized: true, isConnected: true, currentCall: undefined, incomingCall: "sip:client1@192.168.1.209", hasLocalStream: true, hasRemoteStream: false, localStreamId: "{035490b0-47cc-4186-a4d7-e85f6bf8293a}", remoteStreamId: undefined }
+Call.tsx:125:17
+📺 Remote track received WebRTCService.ts:701:15
+Remote stream received useWebRTC.ts:56:17
+📝 Creating answer for SIP call... WebRTCService.ts:395:17
+🎥 Rendering VideoStream:
+Object { participantName: "Utente", hasStream: true, showPlaceholderOverlay: true, isLocal: false }
+VideoStream.tsx:155:13
+🎥 Rendering VideoStream:
+Object { participantName: "Tu", hasStream: true, showPlaceholderOverlay: false, isLocal: true }
+VideoStream.tsx:155:13
+🎥 VideoStream effect:
+Object { hasStream: true, isVideoOff: false, isLocal: false, participantName: "Utente", streamId: "{301ec44c-a52e-4aaf-9601-445d57b11687}", tracks: (1) […] }
+VideoStream.tsx:33:17
+🎥 Setting video srcObject for: Utente VideoStream.tsx:136:17
