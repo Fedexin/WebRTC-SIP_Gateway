@@ -1031,45 +1031,8 @@ class SipGateway extends EventEmitter {
 
       this.validateSDP(answerResponse.sdp, 'sip-answer');
 
-      // Remove video section from answer SDP if SIP client didn't offer video
-      let sipAnswerSdp = answerResponse.sdp;
-      const sipOfferSdp = sessionData.sipRequest.content;
-      const hasVideoInOffer = /m=video/i.test(sipOfferSdp);
-
-      if (!hasVideoInOffer) {
-        // Remove video section and all its attributes from answer
-        const lines = sipAnswerSdp.split('\n');
-        const filteredLines = [];
-        let inVideoSection = false;
-
-        for (let i = 0; i < lines.length; i++) {
-          const line = lines[i];
-
-          // Check if we're entering video section
-          if (line.startsWith('m=video')) {
-            inVideoSection = true;
-            continue; // Skip this line
-          }
-
-          // Check if we're entering a new media section (leaving video)
-          if (inVideoSection && line.startsWith('m=')) {
-            inVideoSection = false;
-          }
-
-          // Skip all lines in video section
-          if (inVideoSection) {
-            continue;
-          }
-
-          filteredLines.push(line);
-        }
-
-        sipAnswerSdp = filteredLines.join('\n');
-        this.logger.debug('Removed video section from SDP answer for SIP client', { callId });
-      }
-
       const request = sessionData.sipRequest;
-      this.sendResponse(request, 200, 'OK', sessionData.rinfo, sipAnswerSdp);
+      this.sendResponse(request, 200, 'OK', sessionData.rinfo, answerResponse.sdp);
 
       this.logger.info('200 OK sent', { callId, toTag: sessionData.toTag });
 
@@ -1091,7 +1054,7 @@ class SipGateway extends EventEmitter {
           return;
         }
         sessionData.retransmit200Count++;
-        this.sendResponse(request, 200, 'OK', sessionData.rinfo, sipAnswerSdp);
+        this.sendResponse(request, 200, 'OK', sessionData.rinfo, answerResponse.sdp);
         const nextInterval = Math.min(sessionData.retransmit200Interval * 2, this.T2);
         sessionData.retransmit200Interval = nextInterval;
         sessionData.retransmit200Timer = setTimeout(retransmit200OK, nextInterval);
