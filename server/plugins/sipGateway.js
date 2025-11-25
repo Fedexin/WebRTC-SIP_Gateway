@@ -1120,6 +1120,37 @@ class SipGateway extends EventEmitter {
           // Join with \r\n and ensure proper SDP termination
           sipAnswerSdp = filteredLines.join('\r\n');
 
+          // mjsip compatibility: Move connection line from media level to session level
+          // mjsip expects c= line before m= line (session-level), not after (media-level)
+          const sdpLines = sipAnswerSdp.split('\r\n');
+          let sessionConnectionLine = null;
+          const reorganizedLines = [];
+          let inMediaSection = false;
+
+          for (let i = 0; i < sdpLines.length; i++) {
+            const line = sdpLines[i];
+
+            // Extract first c= line found in media section
+            if (inMediaSection && line.startsWith('c=') && !sessionConnectionLine) {
+              sessionConnectionLine = line;
+              continue; // Skip this line, we'll add it at session level
+            }
+
+            // When we hit m= line and we have a session connection to add, add it before m=
+            if (line.startsWith('m=') && !inMediaSection && sessionConnectionLine) {
+              reorganizedLines.push(sessionConnectionLine);
+              inMediaSection = true;
+            }
+
+            reorganizedLines.push(line);
+
+            if (line.startsWith('m=')) {
+              inMediaSection = true;
+            }
+          }
+
+          sipAnswerSdp = reorganizedLines.join('\r\n');
+
           // mjsip compatibility: Force transport protocols to lowercase
           // While RFC 4566 specifies uppercase, many legacy SIP clients like mjsip
           // only support or expect lowercase protocols
