@@ -1,30 +1,30 @@
-2025-11-25 15:42:00 [main] org.mjsip.config.OptionParser.parseOptions()
+2025-11-25 16:08:33 [main] org.mjsip.config.OptionParser.parseOptions()
 DEBUG: Reading options from: /Users/fede/tmp/WebRTC-SIP_Gateway/sip-server/server.cfg
-2025-11-25 15:42:00 [main] org.mjsip.sip.provider.SipProvider.initLog()
+2025-11-25 16:08:33 [main] org.mjsip.sip.provider.SipProvider.initLog()
 INFO: SipStack: mjsip 2.0.5
-2025-11-25 15:42:00 [main] org.mjsip.sip.provider.SipProvider.initLog()
+2025-11-25 16:08:33 [main] org.mjsip.sip.provider.SipProvider.initLog()
 INFO: SipProvider: 5060
-2025-11-25 15:42:00 [main] org.mjsip.sip.provider.SipProvider.setTransport()
+2025-11-25 16:08:33 [main] org.mjsip.sip.provider.SipProvider.setTransport()
 INFO: udp is up at port 5060
-2025-11-25 15:42:00 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+2025-11-25 16:08:33 [main] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
 DEBUG: Adding SipProviderListener: ANY
-2025-11-25 15:42:00 [main] org.mjsip.server.ServerEngine.<init>()
+2025-11-25 16:08:33 [main] org.mjsip.server.ServerEngine.<init>()
 INFO: Domains=192.168.1.209
-2025-11-25 15:42:00 [main] org.mjsip.server.ServerEngine.<init>()
+2025-11-25 16:08:33 [main] org.mjsip.server.ServerEngine.<init>()
 DEBUG: LocationService (local): size=2
 To: client1@192.168.1.209:5060
 To: client1@192.168.1.209
-Contact: <sip:client1@192.168.1.209:5062>;expires="Tue, 25 Nov 2025 15:55:05 GMT"
+Contact: <sip:client1@192.168.1.209:5062>;expires="Tue, 25 Nov 2025 16:42:02 GMT"
 
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Received message from:  192.168.1.209:5062/udp (383 bytes)
 -----Begin-of-message-----
 REGISTER sip:192.168.1.209:5060 SIP/2.0
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKfbcec55e
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK1b0f34bc
 Max-Forwards: 70
 To: "Client1" <sip:client1@192.168.1.209>
-From: "Client1" <sip:client1@192.168.1.209>;tag=102629176357
-Call-ID: 768584410497@192.168.1.209
+From: "Client1" <sip:client1@192.168.1.209>;tag=539850733332
+Call-ID: 575516144717@192.168.1.209
 CSeq: 1 REGISTER
 Contact: <sip:client1@192.168.1.209:5062>
 Expires: 3600
@@ -33,83 +33,83 @@ Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
 DEBUG: Message passed to ua: ANY
-2025-11-25 15:42:02 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message received
-2025-11-25 15:42:02 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message is a request
-2025-11-25 15:42:02 [Thread-1] org.mjsip.server.Proxy.processRequestToLocalServer()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.server.Proxy.processRequestToLocalServer()
 DEBUG: inside processRequestToLocalServer(msg)
-2025-11-25 15:42:02 [Thread-1] org.mjsip.server.Registrar.processRequestToLocalServer()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.server.Registrar.processRequestToLocalServer()
 DEBUG: inside processRequestToLocalServer(msg)
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.transaction.TransactionServer.init()
-DEBUG: Starting transaction 768584410497@192.168.1.209-1-REGISTER-server-z9hG4bKfbcec55e:REGISTER sip:192.168.1.209:5060 SIP/2.0
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKfbcec55e
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.transaction.TransactionServer.init()
+DEBUG: Starting transaction 575516144717@192.168.1.209-1-REGISTER-server-z9hG4bK1b0f34bc:REGISTER sip:192.168.1.209:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK1b0f34bc
 Max-Forwards: 70
 To: "Client1" <sip:client1@192.168.1.209>
-From: "Client1" <sip:client1@192.168.1.209>;tag=102629176357
-Call-ID: 768584410497@192.168.1.209
+From: "Client1" <sip:client1@192.168.1.209>;tag=539850733332
+Call-ID: 575516144717@192.168.1.209
 CSeq: 1 REGISTER
 Contact: <sip:client1@192.168.1.209:5062>
 Expires: 3600
 User-Agent: mjsip 2.0.5
-Loop-Tag: 26b52288b102b7
+Loop-Tag: 42df9098a5ffbc
 Content-Length: 0
 
 
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
 DEBUG: changed transaction state: T_Trying
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
-DEBUG: Adding SipProviderListener: 768584410497@192.168.1.209-1-REGISTER-server-z9hG4bKfbcec55e
-2025-11-25 15:42:02 [Thread-1] org.mjsip.server.Registrar.updateRegistration()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.provider.SipProvider.addSelectiveListener()
+DEBUG: Adding SipProviderListener: 575516144717@192.168.1.209-1-REGISTER-server-z9hG4bK1b0f34bc
+2025-11-25 16:08:36 [Thread-1] org.mjsip.server.Registrar.updateRegistration()
 INFO: registration of user 'client1@192.168.1.209' updated
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.transaction.TransactionServer.respondWith()
-DEBUG: Transaction 768584410497@192.168.1.209-1-REGISTER-server-z9hG4bKfbcec55e response: SIP/2.0 200 OK
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKfbcec55e
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.transaction.TransactionServer.respondWith()
+DEBUG: Transaction 575516144717@192.168.1.209-1-REGISTER-server-z9hG4bK1b0f34bc response: SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK1b0f34bc
 Contact: <sip:client1@192.168.1.209:5062>;expires=3600
 To: "Client1" <sip:client1@192.168.1.209>
-From: "Client1" <sip:client1@192.168.1.209>;tag=102629176357
-Call-ID: 768584410497@192.168.1.209
+From: "Client1" <sip:client1@192.168.1.209>;tag=539850733332
+Call-ID: 575516144717@192.168.1.209
 CSeq: 1 REGISTER
 Server: mjsip 2.0.5
 Content-Length: 0
 
 
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Sent message to:  192.168.1.209:5062/UDP (334 bytes)
 -----Begin-of-message-----
 SIP/2.0 200 OK
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKfbcec55e
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK1b0f34bc
 Contact: <sip:client1@192.168.1.209:5062>;expires=3600
 To: "Client1" <sip:client1@192.168.1.209>
-From: "Client1" <sip:client1@192.168.1.209>;tag=102629176357
-Call-ID: 768584410497@192.168.1.209
+From: "Client1" <sip:client1@192.168.1.209>;tag=539850733332
+Call-ID: 575516144717@192.168.1.209
 CSeq: 1 REGISTER
 Server: mjsip 2.0.5
 Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:02 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+2025-11-25 16:08:36 [Thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
 DEBUG: changed transaction state: T_Completed
-2025-11-25 15:42:03 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.onClearingTimeout()
-DEBUG: Transaction timeout reached: 768584410497@192.168.1.209-1-REGISTER-server-z9hG4bKfbcec55e
-2025-11-25 15:42:03 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
-DEBUG: Removing SipProviderListener: 768584410497@192.168.1.209-1-REGISTER-server-z9hG4bKfbcec55e
-2025-11-25 15:42:03 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
+2025-11-25 16:08:37 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.onClearingTimeout()
+DEBUG: Transaction timeout reached: 575516144717@192.168.1.209-1-REGISTER-server-z9hG4bK1b0f34bc
+2025-11-25 16:08:37 [pool-1-thread-1] org.mjsip.sip.provider.SipProvider.removeSelectiveListener()
+DEBUG: Removing SipProviderListener: 575516144717@192.168.1.209-1-REGISTER-server-z9hG4bK1b0f34bc
+2025-11-25 16:08:37 [pool-1-thread-1] org.mjsip.sip.transaction.Transaction.changeStatus()
 DEBUG: changed transaction state: T_Terminated
-2025-11-25 15:42:03 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.doTerminate()
-DEBUG: Transaction terminated: 768584410497@192.168.1.209-1-REGISTER-server-z9hG4bKfbcec55e
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:08:37 [pool-1-thread-1] org.mjsip.sip.transaction.TransactionServer.doTerminate()
+DEBUG: Transaction terminated: 575516144717@192.168.1.209-1-REGISTER-server-z9hG4bK1b0f34bc
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Received message from:  192.168.1.209:5062/udp (643 bytes)
 -----Begin-of-message-----
 INVITE sip:fede@192.168.1.127 SIP/2.0
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
 Max-Forwards: 70
 To: <sip:fede@192.168.1.127>
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-Call-ID: 169661950727@192.168.1.209
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Contact: <sip:client1@192.168.1.209:5062>
 Expires: 3600
@@ -129,30 +129,30 @@ a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 
 -----End-of-message-----
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
 DEBUG: Message passed to ua: ANY
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message received
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message is a request
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.processRequestToRemoteUA()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.processRequestToRemoteUA()
 DEBUG: inside processRequestToRemoteUA(msg)
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
 DEBUG: domain-based forwarding: {domain=192.168.1.127,nexthop=192.168.1.127:5060}: YES
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
 DEBUG: target=sip:fede@192.168.1.127:5060
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
 DEBUG: using transport udp
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Sent message to:  192.168.1.127:5060/udp (768 bytes)
 -----Begin-of-message-----
 INVITE sip:fede@192.168.1.127:5060 SIP/2.0
-Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKef8a4d408af71f057fa6ef48
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK3dbfb5e1ed233942f9fdf231
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
 Max-Forwards: 69
 To: <sip:fede@192.168.1.127>
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-Call-ID: 169661950727@192.168.1.209
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Record-Route: <sip:192.168.1.209;lr>
 Contact: <sip:client1@192.168.1.209:5062>
@@ -173,50 +173,50 @@ a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 
 -----End-of-message-----
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Received message from:  192.168.1.127:5060/udp (328 bytes)
 -----Begin-of-message-----
 SIP/2.0 100 Trying
-Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKef8a4d408af71f057fa6ef48
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK3dbfb5e1ed233942f9fdf231
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
 To: <sip:fede@192.168.1.127>
-Call-ID: 169661950727@192.168.1.209
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
 DEBUG: Message passed to ua: ANY
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message received
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.processResponse()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.processResponse()
 DEBUG: inside processResponse(msg)
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
 DEBUG: inside updateProxyingResponse(resp)
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Sent message to:  192.168.1.209:5062/UDP (246 bytes)
 -----Begin-of-message-----
 SIP/2.0 100 Trying
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
 To: <sip:fede@192.168.1.127>
-Call-ID: 169661950727@192.168.1.209
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Received message from:  192.168.1.127:5060/udp (541 bytes)
 -----Begin-of-message-----
 SIP/2.0 180 Ringing
-Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKef8a4d408af71f057fa6ef48
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-To: <sip:fede@192.168.1.127>;tag=e2d978091a2beaa2
-Call-ID: 169661950727@192.168.1.209
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK3dbfb5e1ed233942f9fdf231
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+To: <sip:fede@192.168.1.127>;tag=b999074ea669f4ba
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
 Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
@@ -226,22 +226,22 @@ Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
 DEBUG: Message passed to ua: ANY
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message received
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.processResponse()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.processResponse()
 DEBUG: inside processResponse(msg)
-2025-11-25 15:42:46 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
 DEBUG: inside updateProxyingResponse(resp)
-2025-11-25 15:42:46 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:13 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Sent message to:  192.168.1.209:5062/UDP (459 bytes)
 -----Begin-of-message-----
 SIP/2.0 180 Ringing
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-To: <sip:fede@192.168.1.127>;tag=e2d978091a2beaa2
-Call-ID: 169661950727@192.168.1.209
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+To: <sip:fede@192.168.1.127>;tag=b999074ea669f4ba
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
 Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
@@ -251,15 +251,15 @@ Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
-INFO: Received message from:  192.168.1.127:5060/udp (783 bytes)
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.127:5060/udp (759 bytes)
 -----Begin-of-message-----
 SIP/2.0 200 OK
-Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKef8a4d408af71f057fa6ef48
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-To: <sip:fede@192.168.1.127>;tag=e2d978091a2beaa2
-Call-ID: 169661950727@192.168.1.209
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK3dbfb5e1ed233942f9fdf231
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+To: <sip:fede@192.168.1.127>;tag=b999074ea669f4ba
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
 Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
@@ -267,36 +267,35 @@ Supported: replaces, timer
 Record-Route: <sip:gateway@192.168.1.127:5060;lr>
 Content-Type: application/sdp
 Accept: application/sdp
-Content-Length: 189
+Content-Length: 165
 
 v=0
-o=fede 2961297190794620886 1 IN IP4 192.168.1.127
+o=fede 5551115045168398888 1 IN IP4 192.168.1.127
 s=-
 t=0 0
-m=audio 17408 RTP/AVP 0 8
-c=IN IP4 192.168.1.127
+m=audio 16476 rtp/avp 0 8
 a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 a=sendrecv
-a=rtcp:17409
+a=rtcp:16477
 
 -----End-of-message-----
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
 DEBUG: Message passed to ua: ANY
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message received
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.Proxy.processResponse()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.Proxy.processResponse()
 DEBUG: inside processResponse(msg)
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
 DEBUG: inside updateProxyingResponse(resp)
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
-INFO: Sent message to:  192.168.1.209:5062/UDP (701 bytes)
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.209:5062/UDP (677 bytes)
 -----Begin-of-message-----
 SIP/2.0 200 OK
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK692fce5c
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-To: <sip:fede@192.168.1.127>;tag=e2d978091a2beaa2
-Call-ID: 169661950727@192.168.1.209
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKe8cb85a9
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+To: <sip:fede@192.168.1.127>;tag=b999074ea669f4ba
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 INVITE
 Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
 Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
@@ -304,30 +303,29 @@ Supported: replaces, timer
 Record-Route: <sip:gateway@192.168.1.127:5060;lr>
 Content-Type: application/sdp
 Accept: application/sdp
-Content-Length: 189
+Content-Length: 165
 
 v=0
-o=fede 2961297190794620886 1 IN IP4 192.168.1.127
+o=fede 5551115045168398888 1 IN IP4 192.168.1.127
 s=-
 t=0 0
-m=audio 17408 RTP/AVP 0 8
-c=IN IP4 192.168.1.127
+m=audio 16476 rtp/avp 0 8
 a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 a=sendrecv
-a=rtcp:17409
+a=rtcp:16477
 
 -----End-of-message-----
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Received message from:  192.168.1.209:5062/udp (433 bytes)
 -----Begin-of-message-----
 ACK sip:gateway@192.168.1.127:5060 SIP/2.0
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKf35d10f9
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK3b933d18
 Route: <sip:gateway@192.168.1.127:5060;lr>
 Max-Forwards: 70
-To: <sip:fede@192.168.1.127>;tag=e2d978091a2beaa2
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-Call-ID: 169661950727@192.168.1.209
+To: <sip:fede@192.168.1.127>;tag=b999074ea669f4ba
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+Call-ID: 420226142606@192.168.1.209
 CSeq: 1 ACK
 Contact: <sip:client1@192.168.1.209:5062>
 Expires: 3600
@@ -336,31 +334,297 @@ Content-Length: 0
 
 
 -----End-of-message-----
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
 DEBUG: Message passed to ua: ANY
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message received
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
 DEBUG: message is a request
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.Proxy.processRequestToRemoteUA()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.Proxy.processRequestToRemoteUA()
 DEBUG: inside processRequestToRemoteUA(msg)
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
 DEBUG: domain-based forwarding: {domain=192.168.1.127,nexthop=192.168.1.127:5060}: YES
-2025-11-25 15:42:49 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
 DEBUG: target=sip:gateway@192.168.1.127:5060
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
 DEBUG: using transport udp
-2025-11-25 15:42:49 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+2025-11-25 16:09:15 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
 INFO: Sent message to:  192.168.1.127:5060/udp (515 bytes)
 -----Begin-of-message-----
 ACK sip:gateway@192.168.1.127:5060 SIP/2.0
-Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKbc8503e0b274236c81c058dd
-Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bKf35d10f9
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK1b85037cf7ddbd602ac0f311
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK3b933d18
 Route: <sip:gateway@192.168.1.127:5060;lr>
 Max-Forwards: 69
-To: <sip:fede@192.168.1.127>;tag=e2d978091a2beaa2
-From: "Client1" <sip:client1@192.168.1.209>;tag=819586988215
-Call-ID: 169661950727@192.168.1.209
+To: <sip:fede@192.168.1.127>;tag=b999074ea669f4ba
+From: "Client1" <sip:client1@192.168.1.209>;tag=322162816338
+Call-ID: 420226142606@192.168.1.209
+CSeq: 1 ACK
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.209:5062/udp (643 bytes)
+-----Begin-of-message-----
+INVITE sip:fede@192.168.1.127 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+Max-Forwards: 70
+To: <sip:fede@192.168.1.127>
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Supported: 100rel,timer
+Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,INFO,PRACK,NOTIFY,MESSAGE,UPDATE
+Content-Length: 148
+Content-Type: application/sdp
+
+v=0
+o=client1 0 0 IN IP4 192.168.1.209
+s=-
+c=IN IP4 192.168.1.209
+t=0 0
+m=audio 50000 RTP/AVP 0 8
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+
+-----End-of-message-----
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to ua: ANY
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message received
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message is a request
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.processRequestToRemoteUA()
+DEBUG: inside processRequestToRemoteUA(msg)
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+DEBUG: domain-based forwarding: {domain=192.168.1.127,nexthop=192.168.1.127:5060}: YES
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+DEBUG: target=sip:fede@192.168.1.127:5060
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.127:5060/udp (768 bytes)
+-----Begin-of-message-----
+INVITE sip:fede@192.168.1.127:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKe58dd94dddaf73eb8f1dbabf
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+Max-Forwards: 69
+To: <sip:fede@192.168.1.127>
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Record-Route: <sip:192.168.1.209;lr>
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Supported: 100rel,timer
+Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,INFO,PRACK,NOTIFY,MESSAGE,UPDATE
+Content-Length: 148
+Content-Type: application/sdp
+
+v=0
+o=client1 0 0 IN IP4 192.168.1.209
+s=-
+c=IN IP4 192.168.1.209
+t=0 0
+m=audio 50000 RTP/AVP 0 8
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+
+-----End-of-message-----
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.127:5060/udp (328 bytes)
+-----Begin-of-message-----
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKe58dd94dddaf73eb8f1dbabf
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+To: <sip:fede@192.168.1.127>
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to ua: ANY
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message received
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.processResponse()
+DEBUG: inside processResponse(msg)
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
+DEBUG: inside updateProxyingResponse(resp)
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.209:5062/UDP (246 bytes)
+-----Begin-of-message-----
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+To: <sip:fede@192.168.1.127>
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.127:5060/udp (541 bytes)
+-----Begin-of-message-----
+SIP/2.0 180 Ringing
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKe58dd94dddaf73eb8f1dbabf
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+To: <sip:fede@192.168.1.127>;tag=edad6dbcac556b51
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
+Supported: replaces, timer
+Record-Route: <sip:gateway@192.168.1.127:5060;lr>
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to ua: ANY
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message received
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.processResponse()
+DEBUG: inside processResponse(msg)
+2025-11-25 16:10:22 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
+DEBUG: inside updateProxyingResponse(resp)
+2025-11-25 16:10:22 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.209:5062/UDP (459 bytes)
+-----Begin-of-message-----
+SIP/2.0 180 Ringing
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+To: <sip:fede@192.168.1.127>;tag=edad6dbcac556b51
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
+Supported: replaces, timer
+Record-Route: <sip:gateway@192.168.1.127:5060;lr>
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.127:5060/udp (759 bytes)
+-----Begin-of-message-----
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bKe58dd94dddaf73eb8f1dbabf
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+To: <sip:fede@192.168.1.127>;tag=edad6dbcac556b51
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
+Supported: replaces, timer
+Record-Route: <sip:gateway@192.168.1.127:5060;lr>
+Content-Type: application/sdp
+Accept: application/sdp
+Content-Length: 165
+
+v=0
+o=fede 7536593354800258761 1 IN IP4 192.168.1.127
+s=-
+t=0 0
+m=audio 16982 rtp/avp 0 8
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+a=rtcp:16983
+
+-----End-of-message-----
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to ua: ANY
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message received
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.Proxy.processResponse()
+DEBUG: inside processResponse(msg)
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.Proxy.updateProxyingResponse()
+DEBUG: inside updateProxyingResponse(resp)
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.209:5062/UDP (677 bytes)
+-----Begin-of-message-----
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK400b0f5d
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+To: <sip:fede@192.168.1.127>;tag=edad6dbcac556b51
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 INVITE
+Contact: "WebRTC-SIP Gateway" <sip:gateway@192.168.1.127:5060>
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, INFO
+Supported: replaces, timer
+Record-Route: <sip:gateway@192.168.1.127:5060;lr>
+Content-Type: application/sdp
+Accept: application/sdp
+Content-Length: 165
+
+v=0
+o=fede 7536593354800258761 1 IN IP4 192.168.1.127
+s=-
+t=0 0
+m=audio 16982 rtp/avp 0 8
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+a=rtcp:16983
+
+-----End-of-message-----
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Received message from:  192.168.1.209:5062/udp (433 bytes)
+-----Begin-of-message-----
+ACK sip:gateway@192.168.1.127:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK4a180459
+Route: <sip:gateway@192.168.1.127:5060;lr>
+Max-Forwards: 70
+To: <sip:fede@192.168.1.127>;tag=edad6dbcac556b51
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+Call-ID: 889388628270@192.168.1.209
+CSeq: 1 ACK
+Contact: <sip:client1@192.168.1.209:5062>
+Expires: 3600
+User-Agent: mjsip 2.0.5
+Content-Length: 0
+
+
+-----End-of-message-----
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.getListener()
+DEBUG: Message passed to ua: ANY
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message received
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.ServerEngine.onReceivedMessage()
+DEBUG: message is a request
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.Proxy.processRequestToRemoteUA()
+DEBUG: inside processRequestToRemoteUA(msg)
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+DEBUG: domain-based forwarding: {domain=192.168.1.127,nexthop=192.168.1.127:5060}: YES
+2025-11-25 16:10:33 [Thread-1] org.mjsip.server.Proxy.getDomainBasedProxyingTarget()
+DEBUG: target=sip:gateway@192.168.1.127:5060
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.sendMessage()
+DEBUG: using transport udp
+2025-11-25 16:10:33 [Thread-1] org.mjsip.sip.provider.SipProvider.logMessage()
+INFO: Sent message to:  192.168.1.127:5060/udp (515 bytes)
+-----Begin-of-message-----
+ACK sip:gateway@192.168.1.127:5060 SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.209:5060;rport;branch=z9hG4bK7c8d551753094ba8a3603de6
+Via: SIP/2.0/UDP 192.168.1.209:5062;branch=z9hG4bK4a180459
+Route: <sip:gateway@192.168.1.127:5060;lr>
+Max-Forwards: 69
+To: <sip:fede@192.168.1.127>;tag=edad6dbcac556b51
+From: "Client1" <sip:client1@192.168.1.209>;tag=260822231622
+Call-ID: 889388628270@192.168.1.209
 CSeq: 1 ACK
 Contact: <sip:client1@192.168.1.209:5062>
 Expires: 3600
