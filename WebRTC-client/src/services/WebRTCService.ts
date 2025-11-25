@@ -182,7 +182,14 @@ export class WebRTCService {
     });
   }
 
-  async getUserMedia(constraints: MediaStreamConstraints = { video: true, audio: true }): Promise<MediaStream> {
+  async getUserMedia(constraints: MediaStreamConstraints = {
+    video: true,
+    audio: {
+      echoCancellation: true,
+      noiseSuppression: true,
+      autoGainControl: true
+    }
+  }): Promise<MediaStream> {
     try {
       this.localStream = await navigator.mediaDevices.getUserMedia(constraints);
       return this.localStream;
@@ -250,7 +257,12 @@ export class WebRTCService {
 
       if (kind === 'audioinput') {
         const audioConstraints: MediaStreamConstraints = {
-          audio: { deviceId: { exact: deviceId } },
+          audio: {
+            deviceId: { exact: deviceId },
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: true
+          },
           video: false
         };
         newStream = await navigator.mediaDevices.getUserMedia(audioConstraints);
