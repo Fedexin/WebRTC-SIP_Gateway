@@ -1120,8 +1120,12 @@ class SipGateway extends EventEmitter {
           // Join with \r\n and ensure proper SDP termination
           sipAnswerSdp = filteredLines.join('\r\n');
 
-          // RFC 4566: Transport protocol MUST be uppercase (RTP/AVP, RTP/SAVPF, etc.)
-          // Ensure proper RFC-compliant format - do NOT convert to lowercase
+          // mjsip compatibility: Force transport protocols to lowercase
+          // While RFC 4566 specifies uppercase, many legacy SIP clients like mjsip
+          // only support or expect lowercase protocols
+          sipAnswerSdp = sipAnswerSdp.replace(/\bm=(audio|video)\s+(\d+)\s+RTP\/AVP\b/gi, 'm=$1 $2 rtp/avp');
+          sipAnswerSdp = sipAnswerSdp.replace(/\bm=(audio|video)\s+(\d+)\s+RTP\/SAVP\b/gi, 'm=$1 $2 rtp/savp');
+          sipAnswerSdp = sipAnswerSdp.replace(/\bm=(audio|video)\s+(\d+)\s+RTP\/SAVPF\b/gi, 'm=$1 $2 rtp/savpf');
 
           // Ensure SDP ends with \r\n (SDP spec requirement)
           if (!sipAnswerSdp.endsWith('\r\n')) {
