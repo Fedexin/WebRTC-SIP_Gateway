@@ -719,7 +719,8 @@ Questa implementazione consente al client di scoprire il proprio indirizzo pubbl
 
 Il sistema è stato testato in diverse configurazioni per valutarne prestazioni, latenza e scalabilità.
 
-\subsection{Ambiente di Test}
+\bigskip
+\noindent\textbf{Ambiente di Test}
 
 I test sono stati condotti in ambiente LAN con la seguente configurazione:
 
@@ -731,10 +732,11 @@ I test sono stati condotti in ambiente LAN con la seguente configurazione:
 \item \textbf{Rete}: LAN 1Gbps, latenza <1ms
 \end{itemize}
 
-\subsection{Metriche di Performance}
+\bigskip
+\noindent\textbf{Metriche di Performance}
 
-\subsubsection{Latenza di Call Setup}
-
+\medskip
+\noindent\textit{Latenza di Call Setup.}
 La latenza di setup è stata misurata dal momento della richiesta di chiamata fino all'inizio del flusso media. I risultati mostrano una media di 2.3 secondi, con la seguente distribuzione:
 
 \begin{table}[h!]
@@ -763,8 +765,8 @@ Inizio flusso RTP & 450 & 19.6\% \\
 
 La fase più costosa è il gathering dei candidati ICE (52\% del tempo totale), seguita dall'inizializzazione del flusso RTP (20\%). Questi tempi sono coerenti con le implementazioni WebRTC standard e sono influenzati principalmente dai timeout di rete e dalla necessità di contattare server STUN esterni.
 
-\subsubsection{Latenza Media}
-
+\medskip
+\noindent\textit{Latenza Media.}
 Una volta stabilita la chiamata, la latenza end-to-end del flusso audio è stata misurata utilizzando pacchetti di test con timestamp. I risultati mostrano:
 
 \begin{itemize}
@@ -774,8 +776,8 @@ Una volta stabilita la chiamata, la latenza end-to-end del flusso audio è stata
 
 La latenza aggiuntiva introdotta da RTPEngine è di circa 5-8ms, un overhead accettabile considerando le operazioni di cifratura/decifratura SRTP e potenziale transcoding codec.
 
-\subsubsection{Qualità Audio}
-
+\medskip
+\noindent\textit{Qualità Audio.}
 L'analisi della qualità audio è stata effettuata tramite \texttt{chrome://webrtc-internals/} monitorando le statistiche RTP:
 
 \begin{table}[h!]
@@ -796,7 +798,8 @@ Round-trip time (RTT) & 76ms & 78ms \\
 
 Il packet loss estremamente basso (<0.05\%) e il jitter contenuto (<5ms) indicano un'eccellente qualità della connessione. Il bitrate è conforme ai codec utilizzati: Opus a 48 kbps per WebRTC e G.711 PCMU a 64 kbps per SIP.
 
-\subsection{Scalabilità}
+\bigskip
+\noindent\textbf{Scalabilità}
 
 Per valutare la scalabilità del sistema sono stati effettuati test di carico simulando chiamate concorrenti. RTPEngine è configurato con un range di porte RTP da 10000 a 20000, teoricamente supportando fino a 10000 sessioni simultanee.
 
@@ -818,7 +821,8 @@ Per valutare la scalabilità del sistema sono stati effettuati test di carico si
 
 I risultati mostrano che il sistema scala linearmente fino a circa 100 chiamate concorrenti. Oltre questa soglia, il tempo di setup inizia a degradare a causa della saturazione della CPU del container RTPEngine. In un ambiente di produzione, si raccomanda il deployment di istanze multiple di RTPEngine con load balancing.
 
-\subsection{Consumo di Banda}
+\bigskip
+\noindent\textbf{Consumo di Banda}
 
 Il consumo di banda per chiamata varia in base ai codec utilizzati:
 
@@ -830,7 +834,8 @@ Il consumo di banda per chiamata varia in base ai codec utilizzati:
 
 RTPEngine introduce un overhead trascurabile (<2\%) dovuto all'incapsulamento SRTP.
 
-\subsection{Considerazioni Finali}
+\bigskip
+\noindent\textbf{Considerazioni Finali}
 
 I risultati sperimentali dimostrano che l'architettura implementata è capace di gestire efficacemente l'interoperabilità tra WebRTC e SIP, mantenendo latenze contenute e qualità audio elevata. Le principali limitazioni riscontrate riguardano:
 
