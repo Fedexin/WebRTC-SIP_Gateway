@@ -756,103 +756,73 @@ Il problema persiste saltuariamente. Necessita ulteriore investigazione, probabi
 \section{Risultati Sperimentali}
 \label{sec:risultati-v2}
 
-Il sistema è stato testato in ambiente LAN controllato. Presento qui i risultati quantitativi delle metriche più rilevanti.
+Durante lo sviluppo ho testato il sistema manualmente, principalmente per verificare che funzionasse e per debuggare i vari problemi che ho incontrato. Non ho condotto benchmark formali o misurazioni sistematiche - il focus era far funzionare l'interoperabilità, non ottimizzare le performance.
 
 \bigskip
 \noindent\textbf{Ambiente di Test}
+
+I test sono stati tutti eseguiti in ambiente LAN:
 
 \begin{itemize}
 \item \textbf{Hardware}: Server Ubuntu 22.04, Intel Core i7, 8GB RAM
 \item \textbf{RTPEngine}: Container Docker, 2 vCPU, 2GB RAM limit
 \item \textbf{Client}: Chrome 120, Firefox 121, mjSIP 2.0.5
-\item \textbf{Rete}: LAN 1Gbps, latenza <1ms
+\item \textbf{Rete}: LAN 1Gbps, latenza trascurabile
 \end{itemize}
 
 \bigskip
-\noindent\textbf{Latenza di Call Setup}
+\noindent\textbf{Cosa Ho Osservato}
 
-Misurata dal click "Call" fino all'inizio del flusso audio. Media su 20 chiamate:
+\medskip
+\noindent\textit{Il setup della chiamata richiede tempo.}
+Dal momento in cui clicco "Call" a quando sento l'audio passano tipicamente 2-4 secondi. La maggior parte di questo tempo è \textit{ICE gathering}: il browser deve contattare server STUN esterni per scoprire il proprio IP pubblico e raccogliere candidati. Guardando \texttt{chrome://webrtc-internals/} (strumento diagnostico fondamentale durante lo sviluppo), ho visto che questa fase può durare 1-3 secondi a seconda della connettività.
 
-\begin{table}[h!]
-\centering
-\caption{Breakdown latenza call setup (WebRTC → SIP)}
-\label{tab:latency_v2}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X r r @{}}
-\toprule
-\textbf{Fase} & \textbf{Latenza (ms)} & \textbf{\% Totale} \\
-\midrule
-WebSocket RTT & 8 & 0.3\% \\
-WebRTC createOffer() & 45 & 2.0\% \\
-ICE gathering & 1200 & 52.2\% \\
-RTPEngine offer() & 12 & 0.5\% \\
-SIP INVITE → 200 OK & 215 & 9.3\% \\
-RTPEngine answer() & 10 & 0.4\% \\
-WebRTC setRemoteDescription() & 40 & 1.7\% \\
-DTLS handshake & 320 & 13.9\% \\
-Primo pacchetto RTP & 450 & 19.6\% \\
-\midrule
-\textbf{Totale} & \textbf{2300} & \textbf{100\%} \\
-\bottomrule
-\end{tabularx}
-\end{table}
+Le altre operazioni (creazione SDP, comunicazione con RTPEngine, scambio SIP) sono molto più rapide - si completano in decine di millisecondi. Il DTLS handshake per stabilire la connessione cifrata aggiunge un altro mezzo secondo circa.
 
-Il bottleneck è chiaramente ICE gathering (52\%). Questo è inevitabile con WebRTC perché richiede contatti STUN esterni. In un sistema ottimizzato si potrebbe usare ICE trickle (inviare candidati man mano che arrivano) invece di aspettare il completamento.
+Se dovessi ottimizzare, implementerei \textit{ICE trickle}: invece di aspettare tutti i candidati, invio l'SDP subito e mando i candidati ICE man mano che arrivano. Ma per un prototipo, aspettare il gathering completo è più semplice da gestire.
 
-\bigskip
-\noindent\textbf{Qualità Audio}
+\medskip
+\noindent\textit{L'audio funziona bene in LAN.}
+Una volta stabilita la chiamata, l'audio è chiaro e senza problemi evidenti. Ovviamente in LAN non ci sono packet loss o jitter significativi. Ho verificato su \texttt{chrome://webrtc-internals/} che:
 
-Statistiche raccolte da \texttt{chrome://webrtc-internals/} su sessione di 5 minuti:
+\begin{itemize}
+\item Il bitrate riflette correttamente i codec negoziati (Opus ~48kbps variabile per WebRTC, G.711 fisso 64kbps per SIP)
+\item Packet loss praticamente nullo in condizioni normali
+\item Jitter basso (pochi millisecondi)
+\end{itemize}
 
-\begin{table}[h!]
-\centering
-\caption{Qualità audio (5 minuti di chiamata)}
-\label{tab:audio_v2}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X r r @{}}
-\toprule
-\textbf{Metrica} & \textbf{WebRTC → SIP} & \textbf{SIP → WebRTC} \\
-\midrule
-Packet loss & 0.02\% & 0.03\% \\
-Jitter & 3.2 ms & 4.1 ms \\
-Bitrate medio & 48 kbps & 64 kbps \\
-RTT & 76 ms & 78 ms \\
-\bottomrule
-\end{tabularx}
-\end{table}
+L'implementazione delle funzionalità di echo cancellation e noise suppression (dopo aver risolto il problema descritto nella sezione Problematiche) ha fatto una differenza notevole - senza, c'era eco fastidiosa.
 
-Packet loss trascurabile (<0.05\%) e jitter basso (<5ms) indicano qualità ottima. Il bitrate riflette i codec: Opus 48kbps per WebRTC, G.711 64kbps per SIP.
+\medskip
+\noindent\textit{RTPEngine fa il suo lavoro silenziosamente.}
+La transcodifica SRTP ↔ RTP avviene senza ritardi percepibili. Controllando i log Docker di RTPEngine, si vede che processa i comandi \texttt{offer()}, \texttt{answer()} e \texttt{delete()} molto rapidamente. Non ho mai visto rallentamenti causati da RTPEngine nelle chiamate singole.
+
+Non ho testato scenari con molte chiamate concorrenti - per quello servirebbero script di load testing che non ho avuto tempo di scrivere. Teoricamente RTPEngine supporta migliaia di sessioni, ma il container Docker con 2 vCPU probabilmente saturerebbe ben prima.
 
 \bigskip
-\noindent\textbf{Scalabilità}
+\noindent\textbf{Limitazioni Evidenti}
 
-Test con chiamate concorrenti simulate:
-
-\begin{table}[h!]
-\centering
-\caption{Scalabilità del sistema}
-\label{tab:scalability_v2}
-\begin{tabularx}{\textwidth}{@{} r r r r @{}}
-\toprule
-\textbf{Chiamate} & \textbf{CPU (\%)} & \textbf{RAM (MB)} & \textbf{Setup (ms)} \\
-\midrule
-10 & 12 & 450 & 2280 \\
-50 & 34 & 890 & 2410 \\
-100 & 58 & 1520 & 2650 \\
-200 & 89 & 2890 & 3120 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Il sistema scala linearmente fino a ~100 chiamate. Oltre, il setup time degrada per saturazione CPU di RTPEngine. In produzione servirebbe load balancing su multiple istanze RTPEngine.
-
-\bigskip
-\noindent\textbf{Considerazioni Finali}
-
-I risultati dimostrano che l'architettura è valida per ambienti con traffico basso-medio (fino a 100 chiamate concorrenti). Le limitazioni principali sono:
+Durante lo sviluppo sono emerse chiaramente alcune limitazioni:
 
 \begin{enumerate}
-\item \textbf{ICE gathering time}: ~1.2s fissi, non riducibili senza ICE trickle.
-\item \textbf{RTPEngine come bottleneck}: Single point of failure, necessita clustering per alta disponibilità.
-\item \textbf{Nessuna autenticazione}: Non utilizzabile in produzione senza aggiungere sicurezza.
+\item \textbf{ICE gathering è il collo di bottiglia}: Dipende da server STUN esterni, firewall, NAT. In condizioni di rete difficili può fallire completamente o richiedere TURN relay (che aggiunge latenza).
+
+\item \textbf{RTPEngine è un single point of failure}: Se crasha, tutte le chiamate cadono. Non ho implementato ridondanza. In produzione servirebbe clustering con failover automatico.
+
+\item \textbf{Nessuna autenticazione}: Chiunque può registrarsi con qualsiasi username e chiamare chiunque. Va bene per un prototipo in LAN, assolutamente inadeguato per deployment reale.
+
+\item \textbf{Compatibilità solo con mjSIP}: Le trasformazioni SDP (lowercase \texttt{rtp/avp}, riposizionamento \texttt{c=}, normalizzazione username) sono state fatte specificamente per mjSIP. Con altri stack SIP potrebbero servire adattamenti.
+
+\item \textbf{Nessun test di carico}: Non so come si comporta il sistema con 10, 50, 100 chiamate simultanee. Sospetto che RTPEngine con 2 vCPU saturi rapidamente, ma servirebbe misurarlo.
+
+\item \textbf{Solo LAN testato}: In scenari con NAT complessi, firewall aziendali, connessioni mobile, potrebbero emergere problemi che non ho incontrato in LAN.
 \end{enumerate}
 
-Nonostante questi limiti, il sistema dimostra che l'interoperabilità WebRTC-SIP è tecnicamente possibile e praticamente utilizzabile, anche con stack SIP legacy come mjSIP che non sono stati progettati per WebRTC.
+\bigskip
+\noindent\textbf{Riflessioni Finali}
+
+Il sistema funziona - le chiamate si stabiliscono, l'audio è buono, i problemi che ho incontrato (e ce ne sono stati parecchi, vedi sezione Problematiche) sono stati risolti. È un prototipo funzionale che dimostra la fattibilità dell'integrazione WebRTC-SIP.
+
+Però è chiaramente un progetto didattico, non un prodotto. Mancano: autenticazione, test approfonditi, gestione errori robusti, monitoraggio, logging strutturato completo, alta disponibilità, documentazione deployment, e probabilmente altri dieci aspetti che non mi vengono in mente.
+
+Ciò che ho imparato è che WebRTC e SIP, pur essendo entrambi protocolli per VoIP, sono \textit{molto} diversi. Farli parlare richiede più di un semplice "inoltro messaggi" - serve traduzione attiva, normalizzazione, gestione di casi edge (Firefox vs Chrome, mjSIP strict parsing, ritrasmissioni UDP, NAT). Ma è possibile, anche con stack legacy mai pensati per WebRTC.

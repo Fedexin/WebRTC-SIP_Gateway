@@ -717,7 +717,7 @@ Questa implementazione consente al client di scoprire il proprio indirizzo pubbl
 \section{Risultati Sperimentali}
 \label{sec:risultati}
 
-Il sistema è stato testato in diverse configurazioni per valutarne prestazioni, latenza e scalabilità.
+Durante lo sviluppo, il sistema è stato testato manualmente in ambiente LAN per verificarne il corretto funzionamento e identificare eventuali problematiche.
 
 \bigskip
 \noindent\textbf{Ambiente di Test}
@@ -733,118 +733,52 @@ I test sono stati condotti in ambiente LAN con la seguente configurazione:
 \end{itemize}
 
 \bigskip
-\noindent\textbf{Metriche di Performance}
+\noindent\textbf{Osservazioni sulla Performance}
+
+Durante i test manuali sono state effettuate chiamate bidirezionali tra client WebRTC e client SIP, monitorando il comportamento del sistema attraverso i log strutturati, Wireshark e lo strumento diagnostico \texttt{chrome://webrtc-internals/} di Chrome.
 
 \medskip
-\noindent\textit{Latenza di Call Setup.}
-La latenza di setup è stata misurata dal momento della richiesta di chiamata fino all'inizio del flusso media. I risultati mostrano una media di 2.3 secondi, con la seguente distribuzione:
+\noindent\textit{Setup della Chiamata.}
+Il tempo necessario per stabilire una chiamata (dal click sul pulsante "Call" fino all'inizio del flusso audio) si è rivelato dominato dalla fase di ICE gathering. Consultando \texttt{chrome://webrtc-internals/}, si è osservato che il browser impiega tipicamente 1-3 secondi per raccogliere i candidati ICE contattando server STUN esterni. Questo rappresenta il principale contributo alla latenza totale di setup, seguita dal DTLS handshake necessario per stabilire la connessione SRTP cifrata.
 
-\begin{table}[h!]
-\centering
-\caption{Breakdown della latenza di call setup}
-\label{tab:latency_breakdown}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X r r @{}}
-\toprule
-\textbf{Fase} & \textbf{Latenza Media (ms)} & \textbf{\% del Totale} \\
-\midrule
-WebSocket RTT & 8 & 0.3\% \\
-Creazione offer WebRTC & 45 & 2.0\% \\
-ICE gathering & 1200 & 52.2\% \\
-Elaborazione RTPEngine (offer) & 12 & 0.5\% \\
-Trasmissione SIP INVITE & 35 & 1.5\% \\
-Risposta SIP (180 + 200 OK) & 180 & 7.8\% \\
-Elaborazione RTPEngine (answer) & 10 & 0.4\% \\
-Creazione answer WebRTC & 40 & 1.7\% \\
-DTLS handshake & 320 & 13.9\% \\
-Inizio flusso RTP & 450 & 19.6\% \\
-\midrule
-\textbf{Totale} & \textbf{2300} & \textbf{100\%} \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-La fase più costosa è il gathering dei candidati ICE (52\% del tempo totale), seguita dall'inizializzazione del flusso RTP (20\%). Questi tempi sono coerenti con le implementazioni WebRTC standard e sono influenzati principalmente dai timeout di rete e dalla necessità di contattare server STUN esterni.
-
-\medskip
-\noindent\textit{Latenza Media.}
-Una volta stabilita la chiamata, la latenza end-to-end del flusso audio è stata misurata utilizzando pacchetti di test con timestamp. I risultati mostrano:
-
-\begin{itemize}
-\item \textbf{Latenza WebRTC → SIP}: 38ms (media), 52ms (95° percentile)
-\item \textbf{Latenza SIP → WebRTC}: 41ms (media), 58ms (95° percentile)
-\end{itemize}
-
-La latenza aggiuntiva introdotta da RTPEngine è di circa 5-8ms, un overhead accettabile considerando le operazioni di cifratura/decifratura SRTP e potenziale transcoding codec.
+Le altre fasi (creazione offer/answer WebRTC, elaborazione RTPEngine, scambio messaggi SIP) sono risultate significativamente più rapide, completandosi nell'ordine delle decine di millisecondi.
 
 \medskip
 \noindent\textit{Qualità Audio.}
-L'analisi della qualità audio è stata effettuata tramite \texttt{chrome://webrtc-internals/} monitorando le statistiche RTP:
-
-\begin{table}[h!]
-\centering
-\caption{Statistiche qualità audio (sessione di 5 minuti)}
-\label{tab:audio_quality}
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X r r @{}}
-\toprule
-\textbf{Metrica} & \textbf{WebRTC → SIP} & \textbf{SIP → WebRTC} \\
-\midrule
-Packet Loss & 0.02\% & 0.03\% \\
-Jitter medio & 3.2ms & 4.1ms \\
-Bitrate medio & 48 kbps (Opus) & 64 kbps (PCMU) \\
-Round-trip time (RTT) & 76ms & 78ms \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Il packet loss estremamente basso (<0.05\%) e il jitter contenuto (<5ms) indicano un'eccellente qualità della connessione. Il bitrate è conforme ai codec utilizzati: Opus a 48 kbps per WebRTC e G.711 PCMU a 64 kbps per SIP.
-
-\bigskip
-\noindent\textbf{Scalabilità}
-
-Per valutare la scalabilità del sistema sono stati effettuati test di carico simulando chiamate concorrenti. RTPEngine è configurato con un range di porte RTP da 10000 a 20000, teoricamente supportando fino a 10000 sessioni simultanee.
-
-\begin{table}[h!]
-\centering
-\caption{Test di scalabilità}
-\label{tab:scalability}
-\begin{tabularx}{\textwidth}{@{} r r r r @{}}
-\toprule
-\textbf{Chiamate Concorrenti} & \textbf{CPU (\%)} & \textbf{RAM (MB)} & \textbf{Setup Time (ms)} \\
-\midrule
-10 & 12 & 450 & 2280 \\
-50 & 34 & 890 & 2410 \\
-100 & 58 & 1520 & 2650 \\
-200 & 89 & 2890 & 3120 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-I risultati mostrano che il sistema scala linearmente fino a circa 100 chiamate concorrenti. Oltre questa soglia, il tempo di setup inizia a degradare a causa della saturazione della CPU del container RTPEngine. In un ambiente di produzione, si raccomanda il deployment di istanze multiple di RTPEngine con load balancing.
-
-\bigskip
-\noindent\textbf{Consumo di Banda}
-
-Il consumo di banda per chiamata varia in base ai codec utilizzati:
+Una volta stabilita la chiamata, l'audio è risultato chiaro e privo di distorsioni evidenti in ambiente LAN. Monitorando le statistiche RTP tramite \texttt{chrome://webrtc-internals/}, si è osservato che:
 
 \begin{itemize}
-\item \textbf{Audio only (Opus 48kbps)}: ~60 kbps (con overhead IP/UDP/RTP)
-\item \textbf{Audio only (G.711 64kbps)}: ~80 kbps
-\item \textbf{Video 720p (VP8)}: ~1.5 Mbps
+\item Il packet loss rimane trascurabile in condizioni di rete stabile (LAN)
+\item Il jitter si mantiene a valori bassi, garantendo una conversazione fluida
+\item Il bitrate audio riflette correttamente i codec negoziati: Opus per WebRTC (bitrate variabile), G.711 PCMU/PCMA per SIP (64 kbps fisso)
 \end{itemize}
 
-RTPEngine introduce un overhead trascurabile (<2\%) dovuto all'incapsulamento SRTP.
+L'integrazione con RTPEngine per la transcodifica SRTP ↔ RTP non ha introdotto ritardi percepibili o degradazioni della qualità audio nelle condizioni di test.
+
+\bigskip
+\noindent\textbf{Limitazioni e Considerazioni}
+
+Durante lo sviluppo sono emerse alcune limitazioni architetturali che meritano di essere evidenziate:
+
+\begin{enumerate}
+\item \textbf{Dipendenza da ICE gathering}: Il tempo di setup è fortemente influenzato dalla fase di raccolta candidati ICE, che dipende dalla disponibilità e latenza dei server STUN/TURN esterni. In scenari con connettività limitata o firewall restrittivi, questo tempo potrebbe aumentare significativamente.
+
+\item \textbf{RTPEngine come single point of failure}: L'architettura attuale utilizza una singola istanza di RTPEngine per tutto il traffico media. In un deployment produttivo, questo rappresenterebbe un punto critico: il fallimento di RTPEngine causerebbe l'interruzione di tutte le chiamate attive. Sarebbe necessario implementare ridondanza con multiple istanze e load balancing.
+
+\item \textbf{Scalabilità limitata}: RTPEngine è configurato con un range di porte RTP da 10000 a 20000, teoricamente supportando fino a 10000 sessioni simultanee. Tuttavia, il container Docker con 2 vCPU e 2GB RAM limiterebbe la scalabilità ben prima di raggiungere questo numero, richiedendo risorse hardware aggiuntive per scenari ad alto carico.
+
+\item \textbf{Assenza di autenticazione}: Come discusso nelle scelte architetturali, il sistema non implementa meccanismi di autenticazione. Questo lo rende inadatto per deployment in ambienti non controllati o esposti a Internet senza modifiche sostanziali.
+
+\item \textbf{Compatibilità limitata a mjSIP}: Le trasformazioni SDP implementate (normalizzazione username, case sensitivity dei protocolli, riposizionamento della linea c=) sono state specificamente progettate per mjSIP. Altri stack SIP potrebbero avere requisiti diversi o essere più tolleranti, richiedendo potenzialmente adattamenti.
+
+\item \textbf{Codec transcoding}: Quando WebRTC negozia Opus e il client SIP supporta solo G.711, RTPEngine deve effettuare transcodifica in tempo reale. Questo processo è CPU-intensive e potrebbe diventare un bottleneck con molte chiamate concorrenti.
+\end{enumerate}
 
 \bigskip
 \noindent\textbf{Considerazioni Finali}
 
-I risultati sperimentali dimostrano che l'architettura implementata è capace di gestire efficacemente l'interoperabilità tra WebRTC e SIP, mantenendo latenze contenute e qualità audio elevata. Le principali limitazioni riscontrate riguardano:
+I test manuali hanno dimostrato che l'architettura implementata è funzionale e capace di gestire l'interoperabilità tra WebRTC e SIP in ambiente controllato (LAN). Il sistema si stabilisce correttamente, l'audio è di buona qualità e i problemi tecnici identificati durante lo sviluppo (compatibilità SDP, gestione NAT, ritrasmissioni SIP) sono stati risolti.
 
-\begin{enumerate}
-\item \textbf{ICE gathering time}: Il tempo necessario per raccogliere i candidati ICE (1-2 secondi) impatta significativamente il tempo totale di setup. L'utilizzo di un pool pre-allocato di candidati potrebbe ridurre questa latenza.
+Tuttavia, il sistema nella sua forma attuale è da considerarsi un prototipo didattico piuttosto che una soluzione production-ready. Per un deployment reale sarebbero necessari: autenticazione robusta, alta disponibilità di RTPEngine, test di carico approfonditi, monitoraggio e alerting, e probabilmente ottimizzazioni per ridurre la latenza di setup (es. ICE trickle).
 
-\item \textbf{Scalabilità verticale}: RTPEngine rappresenta un single point of failure. Per ambienti ad alto traffico, è necessario implementare architetture distribuite con load balancing.
-
-\item \textbf{Codec transcoding}: Quando è necessaria la transcodifica Opus ↔ G.711, il carico computazionale aumenta. L'uso di hardware dedicato o offload GPU potrebbe migliorare le prestazioni.
-\end{enumerate}
-
-Nonostante queste limitazioni, il sistema risulta adeguato per applicazioni real-world come call center ibridi, softphone web aziendali e piattaforme di unified communication con traffico moderato (fino a 100 chiamate concorrenti per istanza).
+Nonostante queste limitazioni, il progetto dimostra che l'interoperabilità tra WebRTC moderno e stack SIP legacy (come mjSIP) è tecnicamente realizzabile, anche quando i due protocolli presentano incompatibilità significative a livello di SDP e media transport.
