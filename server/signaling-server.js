@@ -443,16 +443,59 @@ wss.on('connection', (ws, req) => {
 
           logger.info('Call request', { from: username, to: message.to });
 
-          const successRequest = sendToUser(message.to, {
-            type: 'call-request',
-            from: username
-          });
+          // Check if this is a SIP URI (outbound SIP call)
+          if (message.to.startsWith('sip:')) {
+            if (!sipGateway) {
+              ws.send(JSON.stringify({
+                type: 'error',
+                message: 'SIP Gateway is not enabled'
+              }));
+              return;
+            }
 
-          if (!successRequest) {
+            logger.info('Outbound SIP call request detected', {
+              from: username,
+              sipUri: message.to
+            });
+
+            // Generate a temporary call ID for tracking
+            const callId = `outbound-${username}-${Date.now()}`;
+
+            // Store as pending outgoing SIP call
+            activeCalls.set(callId, {
+              webrtcUser: username,
+              sipTarget: message.to,
+              direction: 'outgoing',
+              callId: callId,
+              status: 'pending'
+            });
+
+            // Send call-response accepted to trigger offer creation
             ws.send(JSON.stringify({
-              type: 'error',
-              message: `User ${message.to} not found or offline`
+              type: 'call-response',
+              from: message.to,
+              accepted: true,
+              callId: callId
             }));
+
+            logger.info('Pending outgoing SIP call created', {
+              callId: callId,
+              webrtcUser: username,
+              sipTarget: message.to
+            });
+          } else {
+            // Regular WebRTC-to-WebRTC call
+            const successRequest = sendToUser(message.to, {
+              type: 'call-request',
+              from: username
+            });
+
+            if (!successRequest) {
+              ws.send(JSON.stringify({
+                type: 'error',
+                message: `User ${message.to} not found or offline`
+              }));
+            }
           }
           break;
 
@@ -503,18 +546,87 @@ wss.on('connection', (ws, req) => {
           break;
 
         case 'offer':
-          if (!username || !message.to || !message.data) {
+          if (!username || !message.data) {
             ws.send(JSON.stringify({ type: 'error', message: 'Invalid offer' }));
             return;
           }
 
-          logger.debug('Forwarding offer', { from: username, to: message.to });
+          // Check if this is an offer for an outgoing SIP call
+          const pendingOutgoingSipCall = Array.from(activeCalls.values()).find(
+            call => call.webrtcUser === username && call.direction === 'outgoing' && call.status === 'pending'
+          );
 
-          sendToUser(message.to, {
-            type: 'offer',
-            from: username,
-            data: message.data
-          });
+          if (pendingOutgoingSipCall && sipGateway) {
+            logger.info('Processing offer for outgoing SIP call', {
+              callId: pendingOutgoingSipCall.callId,
+              webrtcUser: username,
+              sipTarget: pendingOutgoingSipCall.sipTarget
+            });
+
+            try {
+              // Extract SDP from offer
+              let sdpString;
+              if (typeof message.data === 'string') {
+                sdpString = message.data;
+              } else if (message.data && message.data.sdp) {
+                sdpString = message.data.sdp;
+              } else if (message.data && typeof message.data === 'object') {
+                sdpString = JSON.stringify(message.data);
+              } else {
+                throw new Error('Invalid SDP format in offer');
+              }
+
+              // Validate SDP
+              if (!sdpString || !sdpString.startsWith('v=0')) {
+                throw new Error('Invalid SDP: does not start with v=0');
+              }
+
+              logger.info('Initiating outbound SIP call', {
+                callId: pendingOutgoingSipCall.callId,
+                webrtcUser: username,
+                sipTarget: pendingOutgoingSipCall.sipTarget,
+                sdpLength: sdpString.length
+              });
+
+              // Update call status
+              pendingOutgoingSipCall.status = 'calling';
+
+              // Call SIP gateway to make the outbound call
+              await sipGateway.makeCallToSip(username, pendingOutgoingSipCall.sipTarget, sdpString);
+
+              logger.info('Outbound SIP call initiated', {
+                callId: pendingOutgoingSipCall.callId
+              });
+
+            } catch (error) {
+              logger.error('Error initiating outbound SIP call', {
+                error: error.message,
+                callId: pendingOutgoingSipCall.callId,
+                stack: error.stack
+              });
+
+              ws.send(JSON.stringify({
+                type: 'call-failed',
+                reason: `Failed to initiate SIP call: ${error.message}`
+              }));
+
+              activeCalls.delete(pendingOutgoingSipCall.callId);
+            }
+          } else if (message.to) {
+            // Regular WebRTC-to-WebRTC offer
+            logger.debug('Forwarding offer', { from: username, to: message.to });
+
+            sendToUser(message.to, {
+              type: 'offer',
+              from: username,
+              data: message.data
+            });
+          } else {
+            ws.send(JSON.stringify({
+              type: 'error',
+              message: 'Invalid offer: missing target'
+            }));
+          }
           break;
 
         case 'answer':
