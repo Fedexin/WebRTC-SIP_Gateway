@@ -25,8 +25,61 @@ export const VideoStream = ({
                             }: VideoStreamProps) => {
     const [isHovered, setIsHovered] = useState(false);
     const [showPlaceholderOverlay, setShowPlaceholderOverlay] = useState(!isLocal && !stream);
+    const [isAudioOnly, setIsAudioOnly] = useState(false);
 
     const videoRef = useRef<HTMLVideoElement | null>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // Detect audio-only streams
+    useEffect(() => {
+        if (!stream) {
+            setIsAudioOnly(false);
+            return;
+        }
+
+        const hasVideo = stream.getVideoTracks().length > 0;
+        const hasAudio = stream.getAudioTracks().length > 0;
+
+        if (!hasVideo && hasAudio) {
+            console.log('🔊 Detected audio-only stream for:', participantName);
+            setIsAudioOnly(true);
+            setShowPlaceholderOverlay(true); // Show placeholder for audio-only
+        } else {
+            setIsAudioOnly(false);
+        }
+    }, [stream, participantName]);
+
+    // Audio element for audio-only streams
+    useEffect(() => {
+        const el = audioRef.current;
+        if (!el || !stream || !isAudioOnly) return;
+
+        console.log('🔊 Setting audio srcObject for:', participantName);
+        el.srcObject = stream;
+        el.volume = 1.0; // Ensure volume is at maximum
+
+        try {
+            const playPromise = el.play();
+            if (playPromise) {
+                playPromise
+                    .then(() => {
+                        console.log('✅ Audio playback started successfully for:', participantName);
+                    })
+                    .catch((error) => {
+                        console.error('❌ Audio play failed for:', participantName, error);
+                    });
+            }
+        } catch (error) {
+            console.error('❌ Audio play error for:', participantName, error);
+        }
+
+        return () => {
+            console.log('🔊 Cleaning up audio for:', participantName);
+            if (el.srcObject) {
+                el.srcObject = null;
+            }
+        };
+    }, [stream, isAudioOnly, participantName]);
 
 // Sostituisci la logica nel useEffect per remote stream
     useEffect(() => {
@@ -36,7 +89,8 @@ export const VideoStream = ({
             isLocal,
             participantName,
             streamId: stream?.id,
-            tracks: stream?.getTracks().map(t => ({ kind: t.kind, enabled: t.enabled, state: t.readyState }))
+            tracks: stream?.getTracks().map(t => ({ kind: t.kind, enabled: t.enabled, state: t.readyState })),
+            isAudioOnly
         });
 
         if (isLocal) {
@@ -169,8 +223,18 @@ export const VideoStream = ({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
+            {/* Hidden audio element for audio-only streams */}
+            {isAudioOnly && (
+                <audio
+                    ref={audioRef}
+                    autoPlay
+                    playsInline
+                    style={{ display: 'none' }}
+                />
+            )}
+
             {/* Video element - SEMPRE presente se c'è uno stream */}
-            {stream && (
+            {stream && !isAudioOnly && (
                 <video
                     className={cn(
                         "w-full h-full object-cover",
@@ -188,11 +252,17 @@ export const VideoStream = ({
                 <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-video-overlay to-video-bg z-10">
                     <div className="flex flex-col items-center space-y-4">
                         <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center">
-                            <UserX className="w-8 h-8 text-muted-foreground" />
+                            {isAudioOnly ? (
+                                <User className="w-8 h-8 text-muted-foreground" />
+                            ) : (
+                                <UserX className="w-8 h-8 text-muted-foreground" />
+                            )}
                         </div>
                         <div className="text-center">
                             <p className="text-sm font-medium text-foreground">{participantName}</p>
-                            <p className="text-xs text-muted-foreground mt-1">Camera disattivata</p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                                {isAudioOnly ? 'Solo audio' : 'Camera disattivata'}
+                            </p>
                         </div>
                     </div>
                 </div>
