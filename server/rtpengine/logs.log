@@ -1,60 +1,65 @@
-[1765901614.076652] INFO: [core] Creating metadata directory "/tmp/metadata".                                                                    2.3s
-[1765901614.076818] INFO: [core] Creating pcaps directory "/tmp/pcaps".
-[1765901614.076922] INFO: [core] Creating tmp directory "/tmp/tmp".
-[1765901614.076965] INFO: [core] compile-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
-[1765901614.076987] INFO: [core] run-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
-[1765901614.080156] INFO: [crypto] Generating new DTLS certificate
-[1765901614.111906] INFO: [core] Startup complete, version 13.2.0.0+0~mr13.2.0.0 git-master-a73402b8
-[1765901614.114111] INFO: [http] Websocket listener thread running
-[1765901616.240554] INFO: [control] Received command 'ping' from 127.0.0.1:52011
-[1765901616.240574] INFO: [control] Replying to 'ping' from 127.0.0.1:52011 (elapsed time 0.000000 sec)
-[1765901619.034494] INFO: [http] HTTP GET from 127.0.0.1:58270: '/'
-[1765901619.034817] WARNING: [http] Unhandled HTTP URI: '/'
-[1765901624.122346] INFO: [http] HTTP GET from 127.0.0.1:58274: '/'
-[1765901624.122394] WARNING: [http] Unhandled HTTP URI: '/'
-[1765901625.172322] INFO: [220290082787@192.168.1.209]: [control] Received command 'offer' from 127.0.0.1:52011
-[1765901625.172425] NOTICE: [220290082787@192.168.1.209]: [core] Creating new call
-[1765901625.173087] WARNING: [220290082787@192.168.1.209]: [core] No matching media (index: 1) for answer using subscription, just use an index.
-[1765901625.177593] INFO: [220290082787@192.168.1.209]: [control] Replying to 'offer' from 127.0.0.1:52011 (elapsed time 0.005229 sec)
-[1765901634.959674] INFO: [220290082787@192.168.1.209]: [control] Received command 'answer' from 127.0.0.1:52011
-[1765901634.960302] INFO: [220290082787@192.168.1.209]: [core] Received answer SDP with media ID ('0') when no media ID was offered
-[1765901634.962529] WARNING: [220290082787@192.168.1.209]: [core] No matching media (index: 2) for answer using subscription, just use an index.
-[1765901634.962585] INFO: [220290082787@192.168.1.209]: [core] Received answer SDP with media ID ('1') when no media ID was offered
-[1765901634.965313] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: new peer for component 1 is 192.168.1.247:52803
-[1765901634.965341] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: local interface 192.168.1.247
-[1765901634.965354] INFO: [220290082787@192.168.1.209]: [control] Replying to 'answer' from 127.0.0.1:52011 (elapsed time 0.005652 sec)
-[1765901634.965680] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/2 port 13459]: [ice] ICE negotiated: new peer for component 1 is 172.17.0.1:34000
-[1765901634.965694] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/2 port 13459]: [ice] ICE negotiated: local interface 192.168.1.247
-[1765901634.968640] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: peer for component 1 is 192.168.1.247:52803
-[1765901634.968773] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: local interface 192.168.1.247
-[1765901634.969671] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/2 port 13459]: [ice] ICE negotiated: peer for component 1 is 172.17.0.1:34000
-[1765901634.969693] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/2 port 13459]: [ice] ICE negotiated: local interface 192.168.1.247
-[1765901635.001163] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: new peer for component 1 is 172.17.0.1:60812
-[1765901635.001184] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: local interface 192.168.1.247
-[1765901635.080400] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: peer for component 1 is 172.17.0.1:60812
-[1765901635.080423] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [ice] ICE negotiated: local interface 192.168.1.247
-[1765901635.095381] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [crypto] DTLS: Peer certificate accepted
-[1765901635.096810] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [crypto] DTLS-SRTP successfully negotiated using AEAD_AES_256_GCM
-[1765901635.096997] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [crypto] DTLS-SRTP successfully negotiated using AEAD_AES_256_GCM
-[1765901638.004683] INFO: [220290082787@192.168.1.209/374764320699/1 port 17952]: [core] Confirmed peer address as 192.168.1.209:50000
-[1765901638.008331] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [core] Confirmed peer address as 172.17.0.1:60812
-[1765901654.255052] INFO: [http] HTTP GET from 127.0.0.1:35220: '/'
-[1765901654.255316] WARNING: [http] Unhandled HTTP URI: '/'
-[1765901655.393652] INFO: [220290082787@192.168.1.209/4a15d6c1d175595c/1 port 13158]: [crypto] DTLS peer has closed the connection
-[1765901655.424603] INFO: [220290082787@192.168.1.209]: [control] Received command 'delete' from 127.0.0.1:52011
-[1765901655.424646] INFO: [220290082787@192.168.1.209]: [core] Deleting call branch '374764320699' (via-branch '')
-[1765901655.424844] INFO: [220290082787@192.168.1.209]: [core] Deleting call branch '4a15d6c1d175595c' (via-branch '')
-[1765901655.425304] INFO: [220290082787@192.168.1.209]: [core] Deleting entire call
-[1765901655.425324] INFO: [220290082787@192.168.1.209]: [core] Final packet stats:
-[1765901655.425330] INFO: [220290082787@192.168.1.209]: [core] --- Tag '374764320699', created 0:30 ago for branch ''
-[1765901655.425336] INFO: [220290082787@192.168.1.209]: [core] ------ Media #1 (audio over RTP/AVP) using PCMA/8000
-[1765901655.425471] INFO: [220290082787@192.168.1.209]: [core] --------- Port   192.168.1.247:17952 <>   192.168.1.209:50000, SSRC a09a36f4, in 998 p, 171656 b, 0 e, 0 ts, out 1005 p, 172860 b, 0 e
-[1765901655.425480] INFO: [220290082787@192.168.1.209]: [core] --------- Port   192.168.1.247:17953 <>   192.168.1.209:50001 (RTCP), SSRC 0, in 0 p, 0 b, 0 e, 30 ts, out 10 p, 548 b, 0 e
-[1765901655.425548] INFO: [220290082787@192.168.1.209]: [core] ------ Media #2 (video over RTP/AVP) using unknown codec
-[1765901655.425554] INFO: [220290082787@192.168.1.209]: [core] --------- Port   192.168.1.247:11587 <>                :0    , SSRC 0, in 0 p, 0 b, 0 e, 21 ts, out 0 p, 0 b, 0 e
-[1765901655.425604] INFO: [220290082787@192.168.1.209]: [core] --- Tag '4a15d6c1d175595c', created 0:30 ago for branch ''
-[1765901655.425610] INFO: [220290082787@192.168.1.209]: [core] ------ Media #1 (audio over RTP/SAVPF) using PCMU/8000
-[1765901655.425626] INFO: [220290082787@192.168.1.209]: [core] --------- Port   192.168.1.247:13158 <>      172.17.0.1:60812, SSRC fa3ba929, in 1015 p, 173408 b, 0 e, 0 ts, out 1000 p, 188454 b, 0 e
-[1765901655.425633] INFO: [220290082787@192.168.1.209]: [core] ------ Media #2 (video over UDP/TLS/RTP/SAVPF) using unknown codec
-[1765901655.425640] INFO: [220290082787@192.168.1.209]: [core] --------- Port   192.168.1.247:13459 <>      172.17.0.1:34000, SSRC 0, in 0 p, 0 b, 0 e, 21 ts, out 5 p, 980 b, 0 e
-[1765901655.425918] INFO: [220290082787@192.168.1.209]: [control] Replying to 'delete' from 127.0.0.1:52011 (elapsed time 0.001293 sec)
+[1765915557.866393] INFO: [core] Creating metadata directory "/tmp/metadata".                                                                    2.4s
+[1765915557.866701] INFO: [core] Creating pcaps directory "/tmp/pcaps".
+[1765915557.866788] INFO: [core] Creating tmp directory "/tmp/tmp".
+[1765915557.866870] INFO: [core] compile-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
+[1765915557.866929] INFO: [core] run-time OpenSSL library: OpenSSL 3.0.15 3 Sep 2024
+[1765915557.870143] INFO: [crypto] Generating new DTLS certificate
+[1765915557.920513] INFO: [core] Startup complete, version 13.2.0.0+0~mr13.2.0.0 git-master-a73402b8
+[1765915557.921462] INFO: [http] Websocket listener thread running
+[1765915558.830805] INFO: [control] Received command 'ping' from 127.0.0.1:37978
+[1765915558.830836] INFO: [control] Replying to 'ping' from 127.0.0.1:37978 (elapsed time 0.000001 sec)
+[1765915562.819040] INFO: [http] HTTP GET from 127.0.0.1:35824: '/'
+[1765915562.819243] WARNING: [http] Unhandled HTTP URI: '/'
+[1765915567.907914] INFO: [http] HTTP GET from 127.0.0.1:57288: '/'
+[1765915567.907952] WARNING: [http] Unhandled HTTP URI: '/'
+[1765915598.013404] INFO: [http] HTTP GET from 127.0.0.1:56792: '/'
+[1765915598.013988] WARNING: [http] Unhandled HTTP URI: '/'
+[1765915618.265538] INFO: [045684155104@192.168.1.209]: [control] Received command 'offer' from 127.0.0.1:37978
+[1765915618.265734] NOTICE: [045684155104@192.168.1.209]: [core] Creating new call
+[1765915618.266186] WARNING: [045684155104@192.168.1.209]: [core] No matching media (index: 1) for answer using subscription, just use an index.
+[1765915618.273715] INFO: [045684155104@192.168.1.209]: [control] Replying to 'offer' from 127.0.0.1:37978 (elapsed time 0.008127 sec)
+[1765915626.805572] INFO: [045684155104@192.168.1.209]: [control] Received command 'answer' from 127.0.0.1:37978
+[1765915626.806064] INFO: [045684155104@192.168.1.209]: [core] Received answer SDP with media ID ('0') when no media ID was offered
+[1765915626.806884] WARNING: [045684155104@192.168.1.209]: [core] No matching media (index: 2) for answer using subscription, just use an index.
+[1765915626.806935] INFO: [045684155104@192.168.1.209]: [core] Received answer SDP with media ID ('1') when no media ID was offered
+[1765915626.810895] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: new peer for component 1 is 192.168.1.247:52203
+[1765915626.810912] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: local interface 192.168.1.247
+[1765915626.811160] INFO: [045684155104@192.168.1.209]: [control] Replying to 'answer' from 127.0.0.1:37978 (elapsed time 0.005559 sec)
+[1765915626.812009] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: peer for component 1 is 192.168.1.247:52203
+[1765915626.812035] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: local interface 192.168.1.247
+[1765915626.812098] INFO: [045684155104@192.168.1.209/7dfd17171720de03/2 port 11646]: [ice] ICE negotiated: new peer for component 1 is 172.17.0.1:50962
+[1765915626.812117] INFO: [045684155104@192.168.1.209/7dfd17171720de03/2 port 11646]: [ice] ICE negotiated: local interface 192.168.1.247
+[1765915626.813638] INFO: [045684155104@192.168.1.209/7dfd17171720de03/2 port 11646]: [ice] ICE negotiated: peer for component 1 is 172.17.0.1:50962
+[1765915626.813656] INFO: [045684155104@192.168.1.209/7dfd17171720de03/2 port 11646]: [ice] ICE negotiated: local interface 192.168.1.247
+[1765915626.848765] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: new peer for component 1 is 172.17.0.1:51621
+[1765915626.848784] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: local interface 192.168.1.247
+[1765915626.926352] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: peer for component 1 is 172.17.0.1:51621
+[1765915626.926368] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [ice] ICE negotiated: local interface 192.168.1.247
+[1765915626.933773] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [crypto] DTLS: Peer certificate accepted
+[1765915626.936539] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [crypto] DTLS-SRTP successfully negotiated using AEAD_AES_256_GCM
+[1765915626.936602] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [crypto] DTLS-SRTP successfully negotiated using AEAD_AES_256_GCM
+[1765915628.133071] INFO: [http] HTTP GET from 127.0.0.1:53402: '/'
+[1765915628.133300] WARNING: [http] Unhandled HTTP URI: '/'
+[1765915630.008366] INFO: [045684155104@192.168.1.209/181657265502/1 port 11950]: [core] Confirmed peer address as 192.168.1.209:50000
+[1765915630.017168] INFO: [045684155104@192.168.1.209/7dfd17171720de03/1 port 10200]: [core] Confirmed peer address as 172.17.0.1:51621
+[1765915654.822946] INFO: [045684155104@192.168.1.209]: [control] Received command 'delete' from 127.0.0.1:37978
+[1765915654.822994] INFO: [045684155104@192.168.1.209]: [core] Deleting call branch '181657265502' (via-branch '')
+[1765915654.823025] INFO: [045684155104@192.168.1.209]: [core] Deleting call branch '7dfd17171720de03' (via-branch '')
+[1765915654.823261] INFO: [045684155104@192.168.1.209]: [core] Deleting entire call
+[1765915654.823280] INFO: [045684155104@192.168.1.209]: [core] Final packet stats:
+[1765915654.823285] INFO: [045684155104@192.168.1.209]: [core] --- Tag '181657265502', created 0:36 ago for branch ''
+[1765915654.823291] INFO: [045684155104@192.168.1.209]: [core] ------ Media #1 (audio over RTP/AVP) using PCMA/8000
+[1765915654.823299] INFO: [045684155104@192.168.1.209]: [core] --------- Port   192.168.1.247:11950 <>   192.168.1.209:50000, SSRC f9711a2a, in 1344 p, 231168 b, 0 e, 0 ts, out 1393 p, 239596 b, 0 e
+[1765915654.823305] INFO: [045684155104@192.168.1.209]: [core] --------- Port   192.168.1.247:11951 <>   192.168.1.209:50001 (RTCP), SSRC 0, in 0 p, 0 b, 0 e, 36 ts, out 13 p, 704 b, 0 e
+[1765915654.823311] INFO: [045684155104@192.168.1.209]: [core] ------ Media #2 (video over RTP/AVP) using unknown codec
+[1765915654.823316] INFO: [045684155104@192.168.1.209]: [core] --------- Port   192.168.1.247:16673 <>                :0    , SSRC 0, in 0 p, 0 b, 0 e, 28 ts, out 0 p, 0 b, 0 e
+[1765915654.823321] INFO: [045684155104@192.168.1.209]: [core] --- Tag '7dfd17171720de03', created 0:36 ago for branch ''
+[1765915654.823325] INFO: [045684155104@192.168.1.209]: [core] ------ Media #1 (audio over RTP/SAVPF) using PCMU/8000
+[1765915654.823330] INFO: [045684155104@192.168.1.209]: [core] --------- Port   192.168.1.247:10200 <>      172.17.0.1:51621, SSRC 2c9b72a0, in 1406 p, 240300 b, 0 e, 0 ts, out 1346 p, 253504 b, 0 e
+[1765915654.823336] INFO: [045684155104@192.168.1.209]: [core] ------ Media #2 (video over UDP/TLS/RTP/SAVPF) using unknown codec
+[1765915654.823341] INFO: [045684155104@192.168.1.209]: [core] --------- Port   192.168.1.247:11646 <>      172.17.0.1:50962, SSRC 0, in 0 p, 0 b, 0 e, 28 ts, out 5 p, 980 b, 0 e
+[1765915654.823666] INFO: [045684155104@192.168.1.209]: [control] Replying to 'delete' from 127.0.0.1:37978 (elapsed time 0.000688 sec)
+[1765915658.219145] INFO: [http] HTTP GET from 127.0.0.1:57544: '/'
+[1765915658.219465] WARNING: [http] Unhandled HTTP URI: '/'
+[1765915688.347759] INFO: [http] HTTP GET from 127.0.0.1:46468: '/'
+[1765915688.348101] WARNING: [http] Unhandled HTTP URI: '/'
