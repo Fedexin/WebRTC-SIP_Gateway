@@ -1123,30 +1123,41 @@ class SipGateway extends EventEmitter {
           // mjsip compatibility: Move connection line from media level to session level
           // mjsip expects c= line before m= line (session-level), not after (media-level)
           const sdpLines = sipAnswerSdp.split('\r\n');
-          let sessionConnectionLine = null;
           const reorganizedLines = [];
-          let inMediaSection = false;
+          let sessionConnectionLine = null;
+          let firstMediaLineIndex = -1;
 
+          // First pass: extract c= line from media sections and find first m= line
           for (let i = 0; i < sdpLines.length; i++) {
             const line = sdpLines[i];
 
-            // Extract first c= line found in media section
-            if (inMediaSection && line.startsWith('c=') && !sessionConnectionLine) {
-              sessionConnectionLine = line;
-              continue; // Skip this line, we'll add it at session level
+            // Find first m= line
+            if (line.startsWith('m=') && firstMediaLineIndex === -1) {
+              firstMediaLineIndex = i;
             }
 
-            // When we hit m= line and we have a session connection to add, add it before m=
-            if (line.startsWith('m=') && !inMediaSection && sessionConnectionLine) {
+            // Extract first c= line found after m= line (media-level c=)
+            if (firstMediaLineIndex !== -1 && i > firstMediaLineIndex &&
+                line.startsWith('c=') && !sessionConnectionLine) {
+              sessionConnectionLine = line;
+            }
+          }
+
+          // Second pass: rebuild SDP with c= at session level
+          for (let i = 0; i < sdpLines.length; i++) {
+            const line = sdpLines[i];
+
+            // Insert session-level c= line before first m= line
+            if (i === firstMediaLineIndex && sessionConnectionLine) {
               reorganizedLines.push(sessionConnectionLine);
-              inMediaSection = true;
+            }
+
+            // Skip media-level c= lines (we moved them to session level)
+            if (firstMediaLineIndex !== -1 && i > firstMediaLineIndex && line.startsWith('c=')) {
+              continue;
             }
 
             reorganizedLines.push(line);
-
-            if (line.startsWith('m=')) {
-              inMediaSection = true;
-            }
           }
 
           sipAnswerSdp = reorganizedLines.join('\r\n');
